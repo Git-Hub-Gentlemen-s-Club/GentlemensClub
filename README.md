@@ -1,6 +1,6 @@
 
 
-<img src="LogoGentlemen.png"  width=100% height=15% alt="Logotipo do web site provisório" title="Logo do website Gentlemen's Club" >
+<img src="assets/LogoGentlemen.png"  width=100% height=15% alt="Logotipo do web site provisório" title="Logo do website Gentlemen's Club" >
 
 # Gentlemen's Club
 
@@ -25,4 +25,4 @@ Caso haja qualquer problema de execução da página entre em contato com um de 
 
 ## ✒️ Autor
 
-Equipe Gentleme's Club
+Equipe Gentlemen's Club
