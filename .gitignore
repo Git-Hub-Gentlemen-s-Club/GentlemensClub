@@ -1,5 +1,7 @@
-*node_modules
-*.env
+node_modules
+*.log
+.env
+.envservidor
 HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
