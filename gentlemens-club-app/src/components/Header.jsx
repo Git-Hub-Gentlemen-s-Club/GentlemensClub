@@ -1,47 +1,5 @@
-import styled from "styled-components";
+import {Head, Nav, NavList, NavInputs, Body, ImageContainer} from "../styled_components/header";
 
-const Head = styled.header`
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 1em;
-    background-color: #000000;
-    
-`;
-
-const Nav = styled.nav`
-    display: flex;
-    flex-direction: column;
-    color: #ffffff;
-`;
-
-const NavList = styled.ul`
-    list-style-type: none;
-    display: flex;
-    gap: 1em;
-    color: #b58934;
-`;
-
-const NavInputs = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 1em;
-`;
-
-const Body = styled.div`
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; 
-    max-width: 800px;
-`;
-
-const ImageContainer = styled.div`
-    display: flex;
-    align-items: center;
-`;
 function Header () {
     return (
         <Body>
