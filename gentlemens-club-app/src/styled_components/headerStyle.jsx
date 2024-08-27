@@ -1,11 +1,10 @@
 import styled from "styled-components";
 
-export const Head = styled.header`
+export const HeaderContainer = styled.header`
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 5fr;
     grid-gap: 1em;
-    background-color: #000000;
-    
+    padding: 1em;
 `;
 
 export const Nav = styled.nav`
@@ -18,7 +17,17 @@ export const NavList = styled.ul`
     list-style-type: none;
     display: flex;
     gap: 1em;
+    padding: 0;
+`;
+
+export const Link = styled.a`
+    text-decoration: none;
     color: #b58934;
+`;
+
+export const LoginSignUp = styled.a`
+    text-decoration: none;
+    color: #ffffff;
 `;
 
 export const NavInputs = styled.div`
@@ -35,10 +44,16 @@ export const Body = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center; 
-    max-width: 800px;
+    padding: 1em;
 `;
 
 export const ImageContainer = styled.div`
     display: flex;
     align-items: center;
+    justify-content: center;
+`;
+
+export const Image = styled.img`
+    width: 100px;
+    height: 100px;
 `;
