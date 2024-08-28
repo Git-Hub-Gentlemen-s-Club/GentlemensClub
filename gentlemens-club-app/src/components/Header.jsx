@@ -1,4 +1,4 @@
-import {HeaderContainer, Nav, NavList, NavInputs, Body, ImageContainer, Image, Link, LoginSignUp} from "../styled_components/headerStyle";
+import {HeaderContainer, Nav, NavList, NavInputs, Body, ImageContainer, Image, Link, LoginSignUp} from "../styled_components/HeaderStyle";
 
 import logo from '/src/assets/LogoGentlemensClub.png';
 
