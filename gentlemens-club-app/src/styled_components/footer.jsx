@@ -1,25 +1,27 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-  position: relative;
-  bottom:0;
-  width: 100%;
-  height: 100vh; 
-  overflow: hidden;
-`
+// export const Container = styled.div`
+//   position: relative;
+//   bottom:0;
+//   width: 100%;
+//   height: 100vh; 
+//   overflow: hidden;
+// `
 
 export const FooterDiv = styled.footer`
-  display: flex;
+  display: relative;
   justify-content:center;
   flex-direction: column;
   position: absolute;
   bottom: 0;
-  width: calc(100% - 80px); 
-  min-height:fit-content;
+  max-height: 30%;
+  width: calc(100vw - 80px); 
   text-align: center;
   background-color: #161718; 
   padding: 40px;
   color: #B58934;
+  overflow:hidden;
+  
 `
 
 export const Line = styled.div`
@@ -34,18 +36,33 @@ export const UPcontainer = styled.div`
     justify-content: space-between;
     width: 100%;
     align-items:center;
+    @media (max-width: 500px) {
+    flex-direction:column;
+    justify-content:left;
+  }
 `
+
 
 export const LinksList = styled.ul`
     list-style:none;
     display: flex;
+    position:relative;
     margin:0;
     padding:0;
+    flex-wrap:wrap;
+    overflow:hidden;
+    /* max-height:5rem; */
+    @media (max-width: 400px) {
+    display:none;
+    
+  }
 `
 
 export const Link = styled.a`
     color:inherit;
     text-decoration: none;
+    display:flex;
+    text-align:left;
     &:hover{
         cursor:pointer;
         text-decoration:underline;
@@ -54,11 +71,20 @@ export const Link = styled.a`
 `
 export const Item = styled.li`
     padding-right: 3em;
-    
+    margin-bottom:16px;
+    @media (max-width: 500px) {
+    margin-bottom:4px;
+  }
 `
 export const SVGcontainer = styled.div`
 display:flex;
+justify-content:right;
 gap:16px;
+flex-wrap:wrap;
+width:fit-content;
+@media (max-width: 500px) {
+    justify-content:left;
+  }
 `
 export const SVGimage = styled.img`
 width: 130px;
@@ -73,7 +99,10 @@ display: flex;
 margin-top:5px;
 justify-content:space-between;
 align-items:center;
-
+@media (max-width: 500px) {
+    flex-direction:column-reverse;
+    gap:16px;
+  }
 `
 export const MiniLogo = styled.img`
 position: relative;

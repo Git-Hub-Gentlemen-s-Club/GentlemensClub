@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 // Importando os componentes estilizados do path "../styled_components/footer"
 import {
-    Container,
+    // Container,
     FooterDiv,
     LinksList,
     Item,
@@ -22,7 +22,7 @@ const Footer = () => {
 
     return (<>
     {/* O Container é só uma div que contempla toda a tela para ajudar a posicionar o footer no fundo, talvez no futuro não precise mais */}
-        <Container>
+        {/* <Container> */}
             {/* Componente que contempla todo o espaço ocupado pelo footer em si. */}
             <FooterDiv>
                 {/* Div que contempla os itens que ficam acima da linha do meio do footer */}
@@ -62,7 +62,7 @@ const Footer = () => {
                     </StyledSVGcontainer>
                 </DOWNcontainer>
             </FooterDiv>
-        </Container>
+        {/* </Container> */}
     </>)
 }
 export default Footer
