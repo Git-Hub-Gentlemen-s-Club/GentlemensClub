@@ -36,6 +36,15 @@ export const CarouselContainer = styled.div`
     font-size: 2rem; /* Tamanho do ícone dos botões */
     color: #fff; /* Cor do ícone */
   }
+
+  /* Linha separadora abaixo do container */
+  &::after {
+    content: "";
+    display: block;
+    height: 2px; /* Altura da linha separadora */
+    background-color: #fff; /* Cor da linha separadora */
+    margin-top: 20px; /* Espaço entre os cards e a linha separadora */
+  }
 `;
 
 export const StyledBarberCard = styled.div`
@@ -116,12 +125,26 @@ export const StyledBarberCard = styled.div`
       font-size: 1.2rem; /* Tamanho do ícone */
     }
   }
-`;
 
-export const BarberName = styled.h3`
-  font-size: 1.2rem;
-  margin: 10px 0;
-  color: #B58934;
+  .name-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px; /* Espaço entre o nome da barbearia e o endereço */
+
+    .name {
+      font-size: 1.2rem;
+      color: #B58934;
+    }
+
+    .favorite-icon {
+      font-size: 1.5rem;
+      color: ${props => (props.favorited ? '#FF0000' : '#fff')}; /* Cor do coração quando favoritado */
+      cursor: pointer;
+      transition: color 0.3s ease;
+      z-index: 10; /* Garante que o ícone esteja acima de outros elementos */
+    }
+  }
 `;
 
 export const BarberAddress = styled.p`
