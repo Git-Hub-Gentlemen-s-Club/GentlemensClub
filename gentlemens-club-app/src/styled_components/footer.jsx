@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const FooterDiv = styled.footer`
-  display: relative;
+  /* display: relative; */
   justify-content:center;
   flex-direction: column;
-  position: absolute;
+  /* position: absolute; */
   bottom: 0;
   max-height: 30%;
   width: calc(100vw - 80px); 

@@ -6,45 +6,27 @@
 html {
   height: 100%;
 }
-/* #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+
+/* Alinhando os botões "Filtro" e "Ordenar"*/
+
+.container {
+  max-width: 1200px; /* Largura máxima para a centralização */
+  margin: 0 auto; /* Centraliza horizontalmente */
+  padding: 0 20px; /* Adiciona um pouco de padding nas laterais */
+  position: relative; /* Permite o posicionamento absoluto dentro */
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.carousel-wrapper {
+  position: relative; /* Necessário para o posicionamento absoluto dos botões */
+  margin-top: 80px; /* Ajusta a margem superior para garantir que o carrossel não fique colado aos botões */
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.buttons-container {
+  position: absolute; /* Posiciona os botões em relação ao contêiner do carrossel */
+  top: -45px; /* Ajusta o alinhamento vertical dos botões para o topo do contêiner */
+  left: 30px; /* Alinha os botões à esquerda do contêiner do carrossel */
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Espaço entre os botões */
+  z-index: 1; /* Garante que os botões fiquem acima do carrossel */
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-} */
