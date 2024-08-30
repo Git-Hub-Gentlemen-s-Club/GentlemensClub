@@ -109,7 +109,7 @@ export const StyledBarberCard = styled.div`
     left: 15px; /* Alinha ao lado esquerdo */
     display: flex;
     align-items: center;
-    background-color: #B58934; /* Cor de fundo da etiqueta "Destaque" */
+    background-color: #ce9c39; /* Cor de fundo da etiqueta "Destaque" */
     color: #000000; /* Cor do texto "Destaque" */
     padding: 5px 10px;
     border-radius: 15px; /* Arredonda os cantos */
