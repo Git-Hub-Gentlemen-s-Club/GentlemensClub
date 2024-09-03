@@ -5,7 +5,7 @@ export const HeaderContainer = styled.header`
     grid-template-columns: 0.5fr 5fr;
     grid-gap: 1em;
     padding: 1em;
-    width: 1200px;
+    max-width: 1200px; 
 `;
 
 export const Nav = styled.nav`
