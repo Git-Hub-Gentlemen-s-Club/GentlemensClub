@@ -2,7 +2,7 @@
 import React from 'react';
 import Slider from 'react-slick';
 import BarberCard from './BarberCarouselCard';
-import { CarouselContainer } from '../styled_components/CarouselStyle';
+import { CarouselContainer } from '../styled_components/body/CarouselStyle';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'; // Importando os ícones
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
