@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import GlobalStyle from "./globalStyle";
+import GlobalStyle from "./styled_components/GlobalStyle";
 import Header from "./components/Header";
 import BarberCarousel from "./components/BarberCarousel";
 import LocationHeader from "./components/LocationHeader";

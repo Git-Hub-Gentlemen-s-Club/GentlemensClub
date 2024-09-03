@@ -14,7 +14,7 @@ import {
     DOWNcontainer,
     StyledSVGcontainer,
     MiniLogo
-} from "../styled_components/footer"
+} from "../styled_components/footer/Footer"
 
 // Função principal que será exportada para o App.jsx
 const Footer = () => {
