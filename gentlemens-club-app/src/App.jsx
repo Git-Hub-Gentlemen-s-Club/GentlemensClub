@@ -9,7 +9,10 @@ import FiltersButton from "./components/FiltersButton";
 import SortButton from "./components/SortButton";
 import Pagination from "./components/Pagination"; // Importando o componente Pagination
 import InformationCard from "./components/InformationCard"; // Importando o componente InformationCard
+import LoginScreen from "./components/LoginScreen"; // Tela de login
 import './App.css'; // Incluindo os estilos atualizados
+// importação as demais telas
+import { Route, Routes, /*useNavigate, useLocation, Link*/ } from "react-router-dom";
 
 function App() {
     const city = "Itapecerica da Serra";
@@ -35,26 +38,34 @@ function App() {
     return (
         <>
             <GlobalStyle />
-            <Header />
-            <div className="container">
-                <LocationHeader city={city} />
-                <div className="carousel-wrapper">
-                    <div className="buttons-container">
-                        <FiltersButton />
-                        <SortButton />
-                    </div>
-                    <BarberCarousel />
-                </div>
-                <BarberInfoCard barberData={barberData} /> 
-                <BarberInfoCard barberData={barberData} /> 
-                <BarberInfoCard barberData={barberData} /> 
-                <BarberInfoCard barberData={barberData} />
-                <BarberInfoCard barberData={barberData} /> 
-                <BarberInfoCard barberData={barberData} /> 
-            </div>
-            <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
-            <InformationCard city={city} /> {/* Adicionando o componente InformationCard */}
-            <Footer />
+            <Routes>
+                <Route path="/Login" element={<LoginScreen />} />
+                <Route path="/Home" element={
+                    <>
+                        <Header />
+                        <div className="container">
+                            <LocationHeader city={city} />
+                            <div className="carousel-wrapper">
+                                <div className="buttons-container">
+                                    <FiltersButton />
+                                    <SortButton />
+                                </div>
+                                <BarberCarousel />
+                            </div>
+                            <BarberInfoCard barberData={barberData} />
+                            <BarberInfoCard barberData={barberData} />
+                            <BarberInfoCard barberData={barberData} />
+                            <BarberInfoCard barberData={barberData} />
+                            <BarberInfoCard barberData={barberData} />
+                            <BarberInfoCard barberData={barberData} />
+                        </div>
+                        <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
+                        <InformationCard city={city} /> {/* Adicionando o componente InformationCard */}
+                        <Footer />
+                    </>
+                } />
+            </Routes>
+
         </>
     );
 }
