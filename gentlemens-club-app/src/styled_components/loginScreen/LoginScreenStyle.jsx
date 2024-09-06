@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+
 export const Background = styled.div`
   width: 100vw;
   min-height:fit-content;
@@ -25,6 +26,7 @@ export const Container = styled.div`
     margin:0 auto;
     margin-top:5vh;
     margin-bottom:5vh;
+    height:90vh;
     max-width:85vw;
     background-color:#1C1D20;
     border-radius:50px;
@@ -41,66 +43,87 @@ export const Container = styled.div`
 
 export const RightSide = styled.div`
     position: relative;
-    width:100%;
-    min-width:50%;
-    height:100%;
-    min-height:50rem;
-    background-image: url('/src/assets/LoginScreen_images/Barber_pole_login.png');
-    background-size: 100% 100%; 
+    width: 100%;
+    min-width: 50%;
+    height: 100%;
+    border-radius: 0 50px 50px 0;
+    margin: 0;
+    padding: 0;
+    @media (max-width: 810px) {
+        border-radius: 0;
+    }
+`;
+
+export const CarouselContainer = styled.div`
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    background-color: #f5f5f5;
+    border-radius: 0 50px 50px 0;
+    padding: 0;
+`;
+
+export const ImageSlide = styled.div`
+    background-image: url("/src/assets/LoginScreen_images/Slide_1.png");
+    background-size:cover;
     background-position: center;
     background-repeat: no-repeat;
+    position: relative;
+    width: 500px;
+    height: 500px;
+    overflow: hidden;
     border-radius: 0 50px 50px 0;
-    @media (max-width: 810px) {
-        /* display:none; */
-        border-radius:0;
-    }
-`
+`;
+
+// export const Image = styled.img`
+//     width: 100%;
+//     height: 100%;
+    
+// `;
 
 export const ImageLabel = styled.div`
-    display:flex;
-    align-items:center;
-    flex-direction:column;
     position: absolute;
     bottom: 10%;
-    width:100%;
-    height:12%;
-    background-color:#1C1D21;
-    color:#B58934;
-    text-align:center;
+    width: 100%;
+    height: 12%;
+    background-color: #1C1D21;
+    color: #B58934;
+    text-align: center;
+    padding: 0 1rem;
+    box-sizing: border-box;
     & h1 {
-        font-family:'Playfair Display', serif;
-        font-size:2rem;
-        line-height:2.75rem;
-        letter-spacing:-.04rem;
+        font-family: 'Playfair Display', serif;
+        font-size: 2rem;
+        line-height: 2.75rem;
+        letter-spacing: -0.04rem;
+        margin: 0;
     }
     & p {
-        display:inline-block;
-        position:relative;
-        bottom:0;
-        align-content:center;
-        height:calc(100% - 2.75rem);
-        /* line-height:100%; */
-        font-weight:500;
-        font-size:1.125rem;
-        letter-spacing:-.04rem;
+        font-weight: 500;
+        font-size: 1.125rem;
+        letter-spacing: -0.04rem;
+        margin: 0;
     }
-`
+`;
 
 export const LeftSide = styled.div`
-    display:flex;
-    flex-direction:column;
+    display: flex;
+    flex-direction: column;
     position: relative;
-    width:100%;
-    min-width:50;
-    height:100%;
-    min-height:fit-content;
-    border-radius:50px 0 0 50px;
-    margin:0 auto;
-    margin-top:2.875rem;
+    width: 100%;
+    min-width: 50%;
+    height: 100%;
+    min-height: fit-content;
+    border-radius: 50px 0 0 50px;
+    margin: 0 auto;
+    margin-top: 2.875rem;
     @media (max-width: 810px) {
-        border-radius:0;
+        border-radius: 0;
     }
-`
+`;
+
+// Outros estilos omitidos para brevidade
+
 
 export const Forms = styled.form`
     position: relative;
@@ -240,8 +263,6 @@ export const OtherLinks = styled.div`
             transform:translateY(-15%)
         }
         & p {
-            min-width:200px;
-            max-width:100px;
             display: flex;
             justify-content: center;
             margin: 0;
@@ -261,10 +282,12 @@ export const OtherLinks = styled.div`
             color:#9C9C9C;
             width:auto;
             padding:1rem;
-
+        & p {
+            @media (max-width: 810px) {
+                transform:translateY(-20%)
+            }
         }
     }
-        
-    
+}   
 `
 
