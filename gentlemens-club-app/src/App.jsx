@@ -35,7 +35,7 @@ function App() {
 
     return (
         <>
-            {/* <GlobalStyle /> */}
+            <GlobalStyle />
             {/* <Header />
             <div className="container">
                 <LocationHeader city={city} />

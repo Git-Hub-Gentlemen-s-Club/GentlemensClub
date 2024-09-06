@@ -1,11 +1,11 @@
 import Logo from '../assets/LogoGentlemensClub.png'
 import BarbershopLogo from '../assets/barbeariaJH.jpg'
-import { faHeart, faArrowUpFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { faHeart, faShareFromSquare } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import styled from "styled-components"
 
-const barberShopSelected = styled.div`
+const BarberShop = styled.div`
     background-color: #000;
     `
 const Header = styled.header`
@@ -13,30 +13,88 @@ const Header = styled.header`
     display: flex;
     flex-direction: row;
     color: #B58934;
+    width: 100%;
+    gap: 2rem;
+    padding: 1rem 0 2rem 0;
+    /* padding-left: 5%; */
     `
 const LogoDiv = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15%;
     `
 const HeaderDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 85%;
     `
 const ImgDiv = styled.div`
     display: flex;
     flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+
+    button{
+        background-color: #B58934;
+        width: 30%;
+        height: 2.5rem;
+        border: none;
+        border-radius: 5px;
+        padding: 0;
+        font-weight: 600;
+        margin-left: 2rem;
+    }
     `
 const ImgEnderecoDiv = styled.div`
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 45%;
+
+    h2{
+        font-size: 1.1rem;
+        font-weight: 400;
+        letter-spacing: 1px;
+        font-family:'Inter', sans-serif; 
+    }
+    p{
+        font-size: 0.6rem;
+    }
 `
-const LinkDiv = styled.div`
-    `
+const DivIcons = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+`
+
 const LogoImg = styled.img`
     width: auto;
-    height: 8rem;
+    height: 6rem;
     `
 const LogoBarbershop = styled.img`
     width: auto;
     height: 3rem;
     border-radius: 50%;
     `
+const LinkDiv = styled.div`
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    gap: 3rem;
+    align-items: center;
+    padding-top: 1rem;
+    `
 const Link = styled.a`
+    font-size: 0.7rem;
+    padding-bottom: 1rem;
+    box-sizing: border-box;
+    border-bottom: 1px solid transparent;
+
+    &:hover{
+        border-bottom: 1px solid #B58934;
+    }
     `
 
 const response = {
@@ -117,7 +175,7 @@ const response = {
 
 const BarberShopSelected = () => {
     return (
-        <barberShopSelected>
+        <BarberShop>
             <Header>
                 <LogoDiv>
                     <LogoImg src={Logo} alt="Logo Gentlemen's Club" />
@@ -126,11 +184,13 @@ const BarberShopSelected = () => {
                     <ImgDiv>
                         <LogoBarbershop src={BarbershopLogo} alt="Logo Gentlemen's Club" />
                         <ImgEnderecoDiv>
-                            {response.name}
-                            {response.address}
+                            <h2>{response.name}</h2>
+                            <p>{response.address}</p>
                         </ImgEnderecoDiv>
-                        <FontAwesomeIcon icon={faArrowUpFromBracket} />
-                        <FontAwesomeIcon icon={faHeart} />
+                        <DivIcons>
+                            <FontAwesomeIcon icon={faShareFromSquare} style={{ width: '1.3rem', height: '1.3rem' }} />
+                            <FontAwesomeIcon icon={faHeart} style={{ width: '1.3rem', height: '1.3rem' }} />
+                        </DivIcons>
                         <button>Reservar agora</button>
                     </ImgDiv>
                     <LinkDiv>
@@ -144,7 +204,7 @@ const BarberShopSelected = () => {
                     </LinkDiv>
                 </HeaderDiv>
             </Header>
-        </barberShopSelected>
+        </BarberShop>
     )
 }
 
