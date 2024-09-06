@@ -1,11 +1,12 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
-    body {
-        font-family: "Open Sans", sans-serif;
-        background-color: black;
-        /* overflow-x: hidden; */
-    };
+  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+  body {
+    font-family: "Open Sans", sans-serif;
+    background-color: black;
+  }
 `;
 
 export default GlobalStyle;
