@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import GlobalStyle from "./styled_components/GlobalStyle";
 import Header from "./components/Header";
@@ -63,9 +64,10 @@ function App() {
                         <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
                         <InformationCard city={city} />
                         <Footer />
-            <Subscribe />
                     </>
                 } />
+                <Route path="/Subscribe" element={<Subscribe />} />
+                
             </Routes>
 
         </>

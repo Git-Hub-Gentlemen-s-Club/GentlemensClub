@@ -1,47 +1,60 @@
+/* eslint-disable no-useless-escape */
 /* eslint-disable react/no-unescaped-entities */
-// import { useState } from 'react';
-import Slider from 'react-slick';
+import { useState } from 'react';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
+// import Slider from 'react-slick';
 import {
     Background,
     Container,
     RightSide,
-    // ImageLabel,
-    // LeftSide,
-    // Forms,
-    // OtherLinks,
+    ImageLabel,
+    LeftSide,
+    Forms,
+    OtherLinks,
     CarouselContainer,
     ImageSlide,
-    // Image
+    StyledCarousel,
+    Icon
 } from "../styled_components/loginScreen/LoginScreenStyle";
 const settings = {
-    dots: false,
+    dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
+    nextArrow: <div className="slick-next">►</div>,
+    prevArrow: <div className="slick-prev">◄</div>
 };
 
 const LoginScreen = () => {
-    // // const [/*inputStates*/, setInputStates] = useState({
-    //     'Name': 0,
-    //     'Password': 0
-    // });
+    const [showPassword, setShowPassword] = useState(false);
+    const [/*inputStates*/, setInputStates] = useState({
+        'Name': 0,
+        'Password': 0
+    });
 
-    // const handleChange = (e) => {
-    //     const { name, value } = e.target;
-    //     setInputStates(prevStates => ({
-    //         ...prevStates,
-    //         [name]: value.length
-    //     }));
-    // };
+    const togglePasswordVisibility = () => {
+      setShowPassword(prevState => !prevState);
+    };
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setInputStates(prevStates => ({
+            ...prevStates,
+            [name]: value.length
+        }));
+    };
+    // const togglePasswordVisibility = () => {
+    //     setShowPassword(prevState => !prevState);
+    //   };
 
     return (
         <>
             <Background>
                 <Container>
-                    {/* <LeftSide>
+                    <LeftSide>
                         <Forms>
                             <img src="\src\assets\footer_svg\miniLogo_icon.svg" className="mini_logo" alt="Mini Logo" />
                             <img src="\src\assets\LoginScreen_images\Welcome_message.svg" alt="Mensagem de boas vindas" />
@@ -58,11 +71,17 @@ const LoginScreen = () => {
                                 <input
                                     id="passwordInput"
                                     name="Password"
-                                    type="password"
+                                    type={showPassword ? 'text' : 'password'}
                                     onChange={handleChange}
                                     placeholder="Senha"
                                 />
-                                <img className="showPassword" src="\src\assets\LoginScreen_images\Show_password.svg" alt="Mostrar Senha" />
+                                <Icon
+                                className="showPassword" 
+                                as={showPassword ? FaEyeSlash : FaEye }
+                                onClick={togglePasswordVisibility}
+                                alt="Mostrar Senha" 
+                                />
+
                             </div>
                             <div>
                                 <a href="#">Esqueceu sua senha?</a>
@@ -78,6 +97,7 @@ const LoginScreen = () => {
                                 <button>
                                     <img src="\src\assets\LoginScreen_images\Facebook_icon.png" alt="Facebook" />
                                     <p>Entrar com Facebook</p>
+                                    
                                 </button>
                             </div>
                             <div className="BottomDiv">
@@ -85,18 +105,21 @@ const LoginScreen = () => {
                                 <button className="SignIn"><p>Inscreva-se</p></button>
                             </div>
                         </OtherLinks>
-                    </LeftSide> */}
+                    </LeftSide>
                     <RightSide>
+                                <ImageLabel>
+                                    <h1>"Tradição e elegância em cada corte."</h1>
+                                    <p>― Glentlemen’s Club</p>
+                                </ImageLabel>
                         <CarouselContainer>
-                            <Slider {...settings}>
-                                <ImageSlide>
-                                    <h1>Socorro</h1>
-                                    {/* <Image src="/src/assets/LoginScreen_images/Slide_1.png" alt="Slide 1" /> */}
+                            <StyledCarousel {...settings}>
+                                <ImageSlide show="/src/assets/LoginScreen_images/Slide_1.png">
                                 </ImageSlide>
-                                <ImageSlide>
-                                    {/* <Image src="/src/assets/LoginScreen_images/Slide_2.jpg" alt="Slide 2" /> */}
+                                <ImageSlide show="/src/assets/LoginScreen_images/Slide_2.jpg">
                                 </ImageSlide>
-                            </Slider>
+                                <ImageSlide show="/src/assets/LoginScreen_images/Slide_3.jpg">
+                                </ImageSlide>
+                            </StyledCarousel>
                         </CarouselContainer>
                     </RightSide>
                 </Container>
