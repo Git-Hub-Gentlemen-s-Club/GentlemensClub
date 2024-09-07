@@ -6,6 +6,11 @@ const GlobalStyle = createGlobalStyle`
         background-color: black;
         /* overflow-x: hidden; */
     };
+
+    .icons {
+        font-size: 2rem;
+        padding: 5px;
+    }
 `;
 
 export default GlobalStyle;

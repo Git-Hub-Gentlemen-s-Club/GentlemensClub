@@ -1,23 +1,53 @@
-import {HeaderContainer, Nav, NavList, NavInputs, Body, ImageContainer, Image, Link, LoginSignUp, Input, Select} from "../styled_components/header/HeaderStyle";
+import {HeaderContainer, Nav, NavList, NavInputs, HeaderWrapper, ImageContainer, Image, Link, LoginSignUp, Input, InputWrapper, Select, LoginWrapper} from "../styled_components/header/HeaderStyle";
+
+import { FaSearch, FaMapMarkerAlt, FaStopwatch, FaRegUserCircle } from "react-icons/fa";
 
 import logo from '/src/assets/LogoGentlemensClub.png';
 
-function Header () {
+
+const gray = "#dddddd";
+
+function Header() {
     return (
-        <Body>
-            <HeaderContainer>
-                <ImageContainer>
+        <HeaderContainer>
+            <ImageContainer>
                     <Image src={logo} alt="Logo do Gentlemens Club" />
-                </ImageContainer>
+            </ImageContainer>
+            <HeaderWrapper>
                 <Nav>
                     <NavInputs>
-                        <Input type="text" placeholder="Pesquise serviços ou barbearias-" />
-                        <Input type="text" placeholder="Itapecerica da Serra" />
-                        <Input type="text" placeholder="Quando?"/>
-                        <LoginSignUp href="">Entrar / Inscrever-se</LoginSignUp>
+
+                        <InputWrapper>
+                            <FaSearch style={{color: gray}} className="icons"/>
+                            <Input type="text" placeholder="Pesquise serviços e barbearias" />
+                        </InputWrapper>
+                            
+                        <InputWrapper>
+                            <FaMapMarkerAlt style={{color: gray}} className="icons" />
+                            <Input type="text" placeholder="Itapecerica da Serra" />
+                        </InputWrapper>
+
+                        <InputWrapper>
+                            <FaStopwatch style={{color: gray}} className="icons" />
+                            <Input type="text" placeholder="Quando?"/>
+                        </InputWrapper>
+                        
+                        <LoginWrapper>
+                            <FaRegUserCircle style={{color: gray}} className="icons" />
+                            <LoginSignUp href="">
+                                Entrar / Inscrever-se
+                            </LoginSignUp>
+                        </LoginWrapper>
+                        
                         <Select name="" id="">
-                            <option value="pt-br">BR</option>
-                            <option value="en-us">EN</option>
+                            <option value="pt-br">
+                                🇧🇷
+                                BR
+                            </option>
+                            <option value="en-us">
+                                🇺🇸 
+                                EN
+                            </option>
                         </Select>
                         <Input type="checkbox" name="" id="" />
                     </NavInputs>
@@ -31,8 +61,8 @@ function Header () {
                         <li><Link href="">Mais...</Link></li>
                     </NavList>
                 </Nav>
-            </HeaderContainer>    
-        </Body>
+            </HeaderWrapper>    
+        </HeaderContainer>
     );
 }
 

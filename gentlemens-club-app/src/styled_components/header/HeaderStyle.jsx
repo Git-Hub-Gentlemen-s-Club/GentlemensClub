@@ -1,11 +1,10 @@
 import styled from "styled-components";
 
 export const HeaderContainer = styled.header`
-    display: grid;
-    grid-template-columns: 0.5fr 5fr;
-    grid-gap: 1em;
-    padding: 1em;
-    max-width: 1200px; 
+    margin:auto;
+    display: flex;
+    flex-direction: row;
+    background-color: #161718;
 `;
 
 export const Nav = styled.nav`
@@ -16,9 +15,8 @@ export const Nav = styled.nav`
 
 export const NavList = styled.ul`
     list-style-type: none;
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-gap: 1em;
+    display: flex;
+    gap: 2.5rem;
     margin-top: 3em;
     font-size: 14px;
     padding: 0;
@@ -27,6 +25,11 @@ export const NavList = styled.ul`
 export const Link = styled.a`
     text-decoration: none;
     color: #b58934;
+    &:hover{
+        cursor:pointer;
+        color: #655026;
+        text-decoration:underline;
+    }
 `;
 
 export const LoginSignUp = styled.a`
@@ -35,18 +38,45 @@ export const LoginSignUp = styled.a`
     text-decoration: none;
     font-size: 14px;
     color: #ffffff;
+    &:hover {
+        cursor: pointer;
+        color: #dddddd;
+        text-decoration: underline;
+    }
+`;
+
+export const LoginWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border-radius: 5px;
+    padding: 3px;
 `;
 
 export const NavInputs = styled.div`
     display: grid;
-    grid-template-columns: 4fr 4fr 2fr 2fr 0.5fr 0.5fr;
-    gap: 1em;
+    grid-template-columns: 3fr 3fr 2fr 2fr 0.5fr 0.5fr;
+    grid-gap: 1em;
 `;
 
 export const Input = styled.input`
-    border-radius: 5px;
+    background-color: transparent;
     border: none;
-    padding: 0.75em;
+    height: 2.5rem;
+    width: 100%;
+    margin-left: 1em;
+    &:focus {
+        outline: none;
+    }
+`;
+
+export const InputWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    width: 100%;
+    border-radius: 5px;
+    padding: 3px;
 `;
 
 export const Select = styled.select`
@@ -55,13 +85,15 @@ export const Select = styled.select`
     color: #ffffff;
 `;
 
-export const Body = styled.div`
-    margin: 0 auto;
+export const HeaderWrapper = styled.div`
     display: flex;
-    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    align-items: center; 
     padding: 1em;
+    flex-direction: column;
+    max-width: 1200px;
+    background-color: #161718;
+    position: relative;
 `;
 
 export const ImageContainer = styled.div`
