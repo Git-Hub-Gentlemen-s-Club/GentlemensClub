@@ -4,23 +4,68 @@ export const HeaderContainer = styled.header`
     margin:auto;
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    background-color: #161718;
+    width: 100%;
+`;
+
+export const HeaderWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
+    max-width: 64em;
     background-color: #161718;
 `;
 
-export const Nav = styled.nav`
+export const ImageContainer = styled.div`
+    display: flex;
+    align-items: center;
+`;
+
+
+export const Image = styled.img`
+    width: 125px;
+    height: 125px;
+`;
+
+/* export const Nav = styled.nav`
     display: flex;
     flex-direction: column;
     color: #ffffff;
-`;
+    @media only screen and (max-width: 850px) {
+        padding: 1em;
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        background-color: #161718;
+        z-index: 2;
+    }
+`; */
 
-export const NavList = styled.ul`
+/* export const NavList = styled.ul`
     list-style-type: none;
     display: flex;
     gap: 2.5rem;
     margin-top: 3em;
     font-size: 14px;
     padding: 0;
-`;
+    flex-flow: row nowrap;
+    @media only screen and (max-width: 850px) {
+        flex-flow: column nowrap;
+        justify-content: flex-end;
+    } 
+`; */
+
+/* export const NavInputs = styled.div`
+    display: grid;
+    grid-template-columns: 3fr 3fr 2fr 2fr 0.5fr 0.5fr;
+    grid-gap: 1em;
+    @media only screen and (max-width: 850px) {
+        grid-template-columns: 1fr;
+    }
+`; */
 
 export const Link = styled.a`
     text-decoration: none;
@@ -53,10 +98,14 @@ export const LoginWrapper = styled.div`
     padding: 3px;
 `;
 
-export const NavInputs = styled.div`
-    display: grid;
-    grid-template-columns: 3fr 3fr 2fr 2fr 0.5fr 0.5fr;
-    grid-gap: 1em;
+export const DarkModeInput = styled.input`
+    background-color: transparent;
+    border: none;
+    height: 2.5rem;
+    width: 100%;
+    &:focus {
+        outline: none;
+    } 
 `;
 
 export const Input = styled.input`
@@ -81,27 +130,10 @@ export const InputWrapper = styled.div`
 
 export const Select = styled.select`
     border: none;
-    background-color: #000000;
-    color: #ffffff;
+    background-color: transparent;
+    color: inherit;
 `;
 
-export const HeaderWrapper = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1em;
-    flex-direction: column;
-    max-width: 1200px;
-    background-color: #161718;
-    position: relative;
-`;
-
-export const ImageContainer = styled.div`
-    display: flex;
-    align-items: center;
-`;
-
-export const Image = styled.img`
-    width: 125px;
-    height: 125px;
+export const Options = styled.option`
+    color: #000000;
 `;
