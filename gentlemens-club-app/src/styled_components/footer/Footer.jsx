@@ -7,7 +7,7 @@ export const FooterDiv = styled.footer`
   /* position: absolute; */
   bottom: 0;
   max-height: 30%;
-  width: calc(100vw - 80px); 
+  width: 100%;/* calc(100vw - 80px);  */
   text-align: center;
   background-color: #161718; 
   padding: 40px;
