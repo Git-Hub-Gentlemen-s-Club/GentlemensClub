@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import GlobalStyle from "./styled_components/GlobalStyle";
-import Header from "./components/Header";
+import Header from "./components/header_components/Header";
 import BarberCarousel from "./components/BarberCarousel";
 import LocationHeader from "./components/LocationHeader";
 import Footer from "./components/Footer";

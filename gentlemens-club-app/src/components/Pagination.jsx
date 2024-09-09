@@ -1,6 +1,6 @@
 // src/components/Pagination.jsx
 import React from "react";
-import { PaginationContainer, PageNumber, ArrowButton } from "../styled_components/body/PaginationStyle";
+import { PaginationContainer, PageNumber, ArrowButton } from "../styled_components/body_style/PaginationStyle";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 

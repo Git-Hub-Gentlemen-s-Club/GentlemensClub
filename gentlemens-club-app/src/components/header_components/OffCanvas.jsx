@@ -1,13 +1,8 @@
 import { FaSearch, FaMapMarkerAlt, FaStopwatch, FaRegUserCircle } from "react-icons/fa";
 
-/* import styled from "styled-components"; */
+import {NavInputs, NavList, NavContainer} from "../../styled_components/header_style/NavBarStyle";
 
-import {NavInputs, NavList, NavContainer} from "../styled_components/header/NavBarStyle";
-
-import {Link, LoginSignUp, Input, InputWrapper, Select, LoginWrapper, DarkModeInput, Options} from "../styled_components/header/HeaderStyle";
-
-
-
+import {Link, LoginSignUp, Input, InputWrapper, Select, LoginWrapper, DarkModeInput, Options} from "../../styled_components/header_style/HeaderStyle";
 
 const gray = "#dddddd";
 
