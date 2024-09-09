@@ -8,7 +8,6 @@ import Footer from "./components/Footer";
 import BarberInfoCard from "./components/BarberInfoCard";
 import FiltersButton from "./components/FiltersButton";
 import SortButton from "./components/SortButton";
-import LoginScreen from "./components/LoginScreen";
 import Pagination from "./components/Pagination"; // Importando o componente Pagination
 import InformationCard from "./components/InformationCard"; // Importando o componente InformationCard
 import LoginScreen from "./components/LoginScreen"; // Tela de login
@@ -41,7 +40,9 @@ function App() {
     return (
         <>
             <GlobalStyle />
-            <Header />
+            <Routes>
+                <Route path="/" element={<>
+                    <Header />
             <div className="container">
                 <LocationHeader city={city} />
                 <div className="carousel-wrapper">
@@ -61,6 +62,11 @@ function App() {
             <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
             <InformationCard city={city} /> {/* Adicionando o componente InformationCard */}
             <Footer />
+                </>}/>
+                <Route path="/Subscribe" element={<Subscribe/>}/>
+                <Route path="/Login" element={<LoginScreen/>}/>
+            </Routes>
+            
         </>
     );
 }
