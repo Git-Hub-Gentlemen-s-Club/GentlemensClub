@@ -45,14 +45,4 @@ export const Nav = styled.nav`
     display: flex;
     flex-direction: column;
     color: #ffffff;
-    /* @media only screen and (max-width: 850px) {
-        padding: 1em;
-        position: fixed;
-        top: 0;
-        right: 0;
-        height: 100vh;
-        
-        z-index: 2;
-        display: none;
-    } */
 `;
