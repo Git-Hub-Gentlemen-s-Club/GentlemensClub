@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
+<<<<<<< HEAD
 import { StyledBarberCard, BarberAddress, BarberRating } from '../styled_components/home/body/CarouselStyle';
+=======
+import { StyledBarberCard, BarberAddress, BarberRating } from '../styled_components/body_style/CarouselStyle';
+>>>>>>> loginScreen
 import { FaExclamationCircle, FaHeart } from 'react-icons/fa'; // Importando o ícone de coração
 
 const BarberCard = ({ image, name, address, rating, reviews }) => {

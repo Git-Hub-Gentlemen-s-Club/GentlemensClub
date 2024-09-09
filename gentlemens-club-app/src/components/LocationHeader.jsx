@@ -1,6 +1,10 @@
 // src/components/LocationHeader.jsx
 import React from 'react';
+<<<<<<< HEAD
 import { LocationHeaderContainer, LocationTitle, LocationIcon } from '../styled_components/home/body/LocationHeaderStyle';
+=======
+import { LocationHeaderContainer, LocationTitle, LocationIcon } from '../styled_components/body_style/LocationHeaderStyle';
+>>>>>>> loginScreen
 
 const LocationHeader = ({ city }) => {
     return (
