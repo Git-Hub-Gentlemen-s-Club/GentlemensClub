@@ -6,7 +6,7 @@ import GlobalStyle from './styled_components/GlobalStyle.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-  <GlobalStyle />
+      <GlobalStyle />
     <Router>
     <App />
     </Router>

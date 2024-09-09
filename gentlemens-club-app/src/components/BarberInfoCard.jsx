@@ -28,7 +28,7 @@ import {
   BarberPoleImage,
   ServiceDetails,
   ServiceContainer
-} from '../styled_components/body/BarberInfoCardStyle';
+} from '../styled_components/body_style/BarberInfoCardStyle';
 import { faHeart, faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import barberPole from '../assets/img/barber_pole.png';
