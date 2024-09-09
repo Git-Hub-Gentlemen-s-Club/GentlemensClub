@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-export const BurgerMenuStyled = styled.div`
+const BurgerMenuStyle = styled.div`
     width: 2rem;
     height: 2rem;
-    position: absolute;
+    position: ${({ open }) => open ? 'fixed' : 'absolute'};
     top: 15px;
     right: 15px;
     z-index: 3;
@@ -34,3 +34,5 @@ export const BurgerMenuStyled = styled.div`
         }
     }
 `;
+
+export default BurgerMenuStyle;
