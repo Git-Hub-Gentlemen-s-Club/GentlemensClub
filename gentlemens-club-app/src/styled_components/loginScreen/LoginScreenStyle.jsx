@@ -224,6 +224,9 @@ export const Forms = styled.form`
         transform:translate(-200%, 100%);
         top:0;
         z-index:2;        
+        @media (max-width: 1000px) {
+            display:none;
+        }
     }
     & h1{ //O G dessa fonte está diferente da letra G do figma, qual fonte usar?
         color: #D2D2D2;
@@ -325,8 +328,10 @@ export const OtherLinks = styled.div`
         }
         & p {
             display: flex;
+            position: relative;
             justify-content: center;
             margin: 0;
+            align-self:center;
         }
     }
     & p.BottomText{

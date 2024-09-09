@@ -35,6 +35,9 @@ export const LoginSignUp = styled.a`
     text-decoration: none;
     font-size: 14px;
     color: #ffffff;
+    &:hover{
+        cursor:pointer;
+    }
 `;
 
 export const NavInputs = styled.div`

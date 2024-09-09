@@ -2,6 +2,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 // import Slider from 'react-slick';
 import {
     Background,
@@ -46,9 +47,8 @@ const LoginScreen = () => {
             [name]: value.length
         }));
     };
-    // const togglePasswordVisibility = () => {
-    //     setShowPassword(prevState => !prevState);
-    //   };
+    
+    const navigate = useNavigate();
 
     return (
         <>
@@ -97,12 +97,11 @@ const LoginScreen = () => {
                                 <button>
                                     <img src="\src\assets\LoginScreen_images\Facebook_icon.png" alt="Facebook" />
                                     <p>Entrar com Facebook</p>
-                                    
                                 </button>
                             </div>
                             <div className="BottomDiv">
                                 <p className="BottomText">Não tem uma conta?</p>
-                                <button className="SignIn"><p>Inscreva-se</p></button>
+                                <button className="SignIn" onClick={() => { navigate('/Subscribe')}}><p>Inscreva-se</p></button>
                             </div>
                         </OtherLinks>
                     </LeftSide>

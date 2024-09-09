@@ -1,8 +1,11 @@
 import {HeaderContainer, Nav, NavList, NavInputs, Body, ImageContainer, Image, Link, LoginSignUp, Input, Select} from "../styled_components/header/HeaderStyle";
-
+import { useNavigate } from 'react-router-dom'
 import logo from '/src/assets/LogoGentlemensClub.png';
 
 function Header () {
+
+    const navigate = useNavigate()
+
     return (
         <Body>
             <HeaderContainer>
@@ -14,7 +17,9 @@ function Header () {
                         <Input type="text" placeholder="Pesquise serviços ou barbearias-" />
                         <Input type="text" placeholder="Itapecerica da Serra" />
                         <Input type="text" placeholder="Quando?"/>
-                        <LoginSignUp href="">Entrar / Inscrever-se</LoginSignUp>
+                        <div>
+                        <LoginSignUp onClick={() => {navigate('/Login')}} >Entrar</LoginSignUp> / <LoginSignUp onClick={() => {navigate('/Subscribe')}}>Inscrever-se</LoginSignUp>
+                        </div>
                         <Select name="" id="">
                             <option value="pt-br">BR</option>
                             <option value="en-us">EN</option>
