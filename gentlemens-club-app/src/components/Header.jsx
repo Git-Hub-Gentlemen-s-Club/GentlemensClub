@@ -1,12 +1,12 @@
 import React from "react";
 
-import {HeaderContainer, HeaderWrapper, ImageContainer, Image} from "../styled_components/header/HeaderStyle";
+import {HeaderContainer, HeaderWrapper, ImageContainer, Image} from "../styled_components/home/header/HeaderStyle";
 
-import { Nav } from "../styled_components/header/NavBarStyle";
+/* import { Nav } from "../styled_components/home/header/NavBarStyle"; */
 
 import NavBar from "./NavBar";
 
-import BurgerMenu from "./BurgerMenu";
+/* import BurgerMenu from "./BurgerMenu"; */
 
 import logo from '/src/assets/LogoGentlemensClub.png';
 

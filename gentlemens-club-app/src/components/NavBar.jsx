@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Nav } from "../styled_components/header/NavBarStyle";
+import { Nav } from "../styled_components/home/header/NavBarStyle";
 
 import BurgerMenu from "./BurgerMenu";
 

@@ -10,7 +10,7 @@ import SortButton from "./components/SortButton";
 import Pagination from "./components/Pagination"; // Importando o componente Pagination
 import InformationCard from "./components/InformationCard"; // Importando o componente InformationCard
 import './App.css'; // Incluindo os estilos atualizados
-import BarberShopSelected from "./components/BarberShopSelected";
+/* import BarberShopSelected from "./components/BarberShopSelected"; */
 
 function App() {
     const city = "Itapecerica da Serra";
@@ -36,7 +36,7 @@ function App() {
     return (
         <>
             <GlobalStyle />
-            {/* <Header />
+            <Header />
             <div className="container">
                 <LocationHeader city={city} />
                 <div className="carousel-wrapper">
@@ -54,8 +54,7 @@ function App() {
                 <BarberInfoCard barberData={barberData} /> 
             </div>
             <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
-            <InformationCard city={city} /> Adicionando o componente InformationCard */}
-            <BarberShopSelected />
+            <InformationCard city={city} /> 
             <Footer />
         </>
     );

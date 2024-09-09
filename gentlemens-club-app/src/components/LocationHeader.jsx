@@ -1,6 +1,6 @@
 // src/components/LocationHeader.jsx
 import React from 'react';
-import { LocationHeaderContainer, LocationTitle, LocationIcon } from '../styled_components/body/LocationHeaderStyle';
+import { LocationHeaderContainer, LocationTitle, LocationIcon } from '../styled_components/home/body/LocationHeaderStyle';
 
 const LocationHeader = ({ city }) => {
     return (

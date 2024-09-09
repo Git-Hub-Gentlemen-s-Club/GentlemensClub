@@ -2,7 +2,7 @@ import React, {useState} from "react";
 
 import styled from "styled-components";
 
-import { BurgerMenuStyled } from "../styled_components/header/BurgerMenuStyle";
+import { BurgerMenuStyled } from "../styled_components/home/header/BurgerMenuStyle";
 
 import OffCanvas from "./OffCanvas";
 

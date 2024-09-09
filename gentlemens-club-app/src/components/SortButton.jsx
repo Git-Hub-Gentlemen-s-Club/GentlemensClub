@@ -1,6 +1,6 @@
 // src/components/SortButton.jsx
 import React, { useState, useEffect, useRef } from 'react';
-import { SortButtonContainer, IconWrapper, AccordionContainer, AccordionContent, SortOptions, SortOption } from '../styled_components/body/SortButtonStyle';
+import { SortButtonContainer, IconWrapper, AccordionContainer, AccordionContent, SortOptions, SortOption } from '../styled_components/home/body/SortButtonStyle';
 import { FaSort, FaThumbsUp, FaMapMarkerAlt, FaStar } from 'react-icons/fa';
 
 const SortButton = () => {

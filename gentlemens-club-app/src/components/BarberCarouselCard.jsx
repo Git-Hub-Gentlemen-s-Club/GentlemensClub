@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyledBarberCard, BarberAddress, BarberRating } from '../styled_components/body/CarouselStyle';
+import { StyledBarberCard, BarberAddress, BarberRating } from '../styled_components/home/body/CarouselStyle';
 import { FaExclamationCircle, FaHeart } from 'react-icons/fa'; // Importando o ícone de coração
 
 const BarberCard = ({ image, name, address, rating, reviews }) => {
@@ -11,22 +11,31 @@ const BarberCard = ({ image, name, address, rating, reviews }) => {
   };
 
   return (
-    <StyledBarberCard favorited={favorited}>
-      <img src={image} alt={name} />
-      <div className="rating-badge">
-        <div className="rating-number">{rating}</div>
-        <div>{reviews} avaliações</div>
-      </div>
-      <div className="name-container">
-        <div className="name">{name}</div>
-        <FaHeart className="favorite-icon" onClick={handleFavoriteClick} />
-      </div>
-      <BarberAddress>{address}</BarberAddress>
-      <div className="highlight-section">
-        <span className="highlight-text">Destaque</span>
-        <FaExclamationCircle className="highlight-icon" />
-      </div>
-    </StyledBarberCard>
+    <>
+    
+      <StyledBarberCard favorited={favorited}>
+        <img src={image} alt={name} />
+        <div className="rating-badge">
+          <div className="rating-number">{rating}</div>
+          <div>{reviews} avaliações</div>
+        </div>
+      
+        <div className="name-container">
+          <div className="name">{name}</div>
+          <FaHeart className="favorite-icon" onClick={handleFavoriteClick} />
+        </div>
+        <BarberAddress>{address}</BarberAddress>
+        <div className="highlight-section">
+          <span className="highlight-text">Destaque</span>
+          <FaExclamationCircle className="highlight-icon" />
+        </div>
+        
+      </StyledBarberCard>
+      
+    </>
+    
+    
+    
   );
 };
 

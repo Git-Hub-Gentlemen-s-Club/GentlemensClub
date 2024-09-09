@@ -21,7 +21,7 @@ import {
   ReservationDetails,
   FavoriteIcon,
   Separator, // Importa o componente Separator
-} from '../styled_components/body/BarberInfoCardStyle';
+} from '../styled_components/home/body/BarberInfoCardStyle';
 import { faHeart, faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 

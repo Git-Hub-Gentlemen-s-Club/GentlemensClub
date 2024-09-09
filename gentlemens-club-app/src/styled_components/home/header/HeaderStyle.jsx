@@ -7,6 +7,7 @@ export const HeaderContainer = styled.header`
     justify-content: center;
     background-color: #161718;
     width: 100%;
+    padding: 1rem 0 2rem 0;
 `;
 
 export const HeaderWrapper = styled.div`
@@ -70,10 +71,12 @@ export const Image = styled.img`
 export const Link = styled.a`
     text-decoration: none;
     color: #b58934;
+    font-size: 0.7rem;
+    padding-bottom: 1rem;
     &:hover{
-        cursor:pointer;
+        cursor: pointer;
         color: #655026;
-        text-decoration:underline;
+        border-bottom: 1px solid #B58934;
     }
 `;
 

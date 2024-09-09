@@ -2,6 +2,7 @@ import Logo from '../assets/LogoGentlemensClub.png'
 import BarbershopLogo from '../assets/barbeariaJH.jpg'
 import { faHeart, faShareFromSquare } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FaGift, FaPaperPlane } from 'react-icons/fa';
 
 import styled from "styled-components"
 
@@ -9,7 +10,7 @@ const BarberShop = styled.div`
     background-color: #000;
     `
 const Header = styled.header`
-    background-color: #000;
+    background-color: #161718;
     display: flex;
     flex-direction: row;
     color: #B58934;
@@ -45,6 +46,7 @@ const ImgDiv = styled.div`
         padding: 0;
         font-weight: 600;
         margin-left: 2rem;
+        cursor: pointer;
     }
     `
 const ImgEnderecoDiv = styled.div`
@@ -93,6 +95,8 @@ const Link = styled.a`
     border-bottom: 1px solid transparent;
 
     &:hover{
+        cursor:pointer;
+        color: #655026;
         border-bottom: 1px solid #B58934;
     }
     `
@@ -101,15 +105,19 @@ const Body = styled.div`
     flex-direction: row;
 `
 const Section = styled.section`
-    width: 60%;
+    width: 75%;
     margin-left: 2rem;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 `
 const BarberShopImgDiv = styled.div`
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 2rem;
+    margin: 0 2rem 0 2rem;
 `
 const LogoBarbershopPrincipal = styled.img`
     width: 100%;
@@ -129,6 +137,7 @@ const Avaliation = styled.div`
         width: 100%;
         text-align: center;
     }
+
     p{
         width: 100%;
         text-align: center;
@@ -165,8 +174,62 @@ const DivIconsII = styled.div`
     gap: 1rem;
 `
 const Aside = styled.aside`
-    
+    color: #ffffff;
+    margin-left: 1rem;
+    margin-top: 1rem;
 `
+
+const AsideGiftCard = styled.div`
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    margin-right: 1rem;
+    padding: 5px;
+
+    h4 {
+        display: inline;
+        margin-left: 5px;
+    }
+
+    button {
+        background-color: #B58934;
+        height: 2.5rem;
+        border: none;
+        border-radius: 5px;
+        padding: 0 5px 0 5px;
+        font-weight: 600;
+        display: block;
+        margin: 10px 5px 5px 0;
+        cursor: pointer;
+    }
+`; 
+
+/* const CardMap = styled.span`
+    p {
+        font-size: 0.75rem;
+    }
+
+    span {
+        display: flex;
+        flex-direction: column;
+    }
+
+    button {
+        display: inline;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+    background-color: #B58934;
+    padding: 5px;
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: 1fr 6fr 1fr;
+    width: 20rem;
+    position: absolute;
+    top: 28rem;
+    left: 59rem
+`; */
+
 const response = {
     name: "Barbearia JH",
     address: "773 m • Avenida XV de Novembro, 408, 06850-100, Itapecerica da Serra",
@@ -268,35 +331,53 @@ const BarberShopSelected = () => {
                         <Link>Barbearias</Link>
                         <Link>Corte em casa</Link>
                         <Link>Spa & Massagem</Link>
-                        <Link>Sombrancelhas e Cílios</Link>
+                        <Link>Sobrancelhas e Cílios</Link>
                         <Link>Agendamentos</Link>
                         <Link>Mais...</Link>
                     </LinkDiv>
                 </HeaderDiv>
             </Header>
             <Body>
-                <Section>
-                    <BarberShopImgDiv>
-                        <LogoBarbershopPrincipal src={BarbershopLogo} alt="Logo Gentlemen's Club" />
-                        <Avaliation>
-                            <h2>{response.reviews.rate.toFixed(1)}</h2>
-                            <p>{response.reviews.total} avaliações</p>
-                        </Avaliation>
-                    </BarberShopImgDiv>
-                    <BarberShopEnderecoDiv>
-                        <NameDiv>
-                            <h2>{response.name}</h2>
-                            <p>{response.address}</p>
-                        </NameDiv>
-                        <DivIconsII>
-                            <FontAwesomeIcon icon={faShareFromSquare} style={{ width: '1.3rem', height: '1.3rem', color: '#B58934' }} />
-                            <FontAwesomeIcon icon={faHeart} style={{ width: '1.3rem', height: '1.3rem', color: '#B58934' }} />
-                        </DivIconsII>
-                    </BarberShopEnderecoDiv>
-                </Section>
-                <Aside>
-
-                </Aside>
+                    <Section>
+                        <BarberShopImgDiv>
+                            <LogoBarbershopPrincipal src={BarbershopLogo} alt="Logo Gentlemen's Club" />
+                            <Avaliation>
+                                <h2>{response.reviews.rate.toFixed(1)}</h2>
+                                <p>{response.reviews.total} avaliações</p>
+                            </Avaliation>
+                        </BarberShopImgDiv>
+                        <BarberShopEnderecoDiv>
+                            <NameDiv>
+                                <h2>{response.name}</h2>
+                                <p>{response.address}</p>
+                            </NameDiv>
+                            <DivIconsII>
+                                <FontAwesomeIcon icon={faShareFromSquare} style={{ width: '1.3rem', height: '1.3rem', color: '#B58934' }} />
+                                <FontAwesomeIcon icon={faHeart} style={{ width: '1.3rem', height: '1.3rem', color: '#B58934' }} />
+                            </DivIconsII>
+                        </BarberShopEnderecoDiv>
+                    </Section>
+                    <Aside>
+                        <AsideGiftCard>
+                            <FaGift style={{color: '#B58934'}} />
+                            <h4>Cartão presente</h4>
+                            <p>Procurando o presente perfeito? Explore os Cartões 
+                            Presente disponíveis.</p>
+                            <button>Mostrar cartões presentes</button>
+                        </AsideGiftCard>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.9800718021656!2d-46.85126772466523!3d-23.712405678696406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cfad16a4fa7f99%3A0x1ad1b32a1c7a6a5d!2sAv.%20Quinze%20de%20Novembro%2C%20408%20-%20Centro%2C%20Itapecerica%20da%20Serra%20-%20SP%2C%2006850-100!5e0!3m2!1spt-BR!2sbr!4v1725887313324!5m2!1spt-BR!2sbr" width="455" height="200" style={{border:0, margin: "1rem 1rem 1rem 0"}} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+                        {/* <CardMap>
+                            <LogoBarbershop src={BarbershopLogo} alt="Logo Gentlemen's Club" />
+                            <span>
+                                <h5>Barbearia JH</h5>
+                                <p>Rua Major Telles, 167, 1 Andar - Sala 3,
+                                06850-001, Itapecerica da Serra</p>
+                            </span>
+                            <button>
+                                <FaPaperPlane style={{color: '#ffffff'}} />
+                            </button>
+                        </CardMap> */} 
+                    </Aside>
             </Body>
         </BarberShop>
     )
