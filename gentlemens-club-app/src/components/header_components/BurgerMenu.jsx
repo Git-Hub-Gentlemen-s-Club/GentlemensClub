@@ -1,8 +1,6 @@
 import React, {useState} from "react";
 
-import styled from "styled-components";
-
-import { BurgerMenuStyled } from "../styled_components/header/BurgerMenuStyle";
+import BurgerMenuStyle from "../../styled_components/header_style/BurgerMenuStyle";
 
 import OffCanvas from "./OffCanvas";
 
@@ -11,11 +9,11 @@ function BurgerMenu() {
 
     return (
         <>
-            <BurgerMenuStyled open={open} onClick={() => setOpen(!open)}>
+            <BurgerMenuStyle open={open} onClick={() => setOpen(!open)}>
                 <div></div>
                 <div></div>
                 <div></div>
-            </BurgerMenuStyled>
+            </BurgerMenuStyle>
             <OffCanvas open={open}/>
         </>
     );
