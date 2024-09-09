@@ -13,7 +13,11 @@ import InformationCard from "./components/InformationCard"; // Importando o comp
 import LoginScreen from "./components/LoginScreen"; // Tela de login
 import Subscribe from './components/Subscribe';
 import './App.css'; // Incluindo os estilos atualizados
+<<<<<<< HEAD
+/* import BarberShopSelected from "./components/BarberShopSelected"; */
+=======
 import { Route, Routes } from "react-router-dom"; // Removendo comentários desnecessários
+>>>>>>> loginScreen
 
 function App() {
     const city = "Itapecerica da Serra";
@@ -59,7 +63,7 @@ function App() {
                 <BarberInfoCard barberData={barberData} /> 
             </div>
             <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
-            <InformationCard city={city} /> {/* Adicionando o componente InformationCard */}
+            <InformationCard city={city} /> 
             <Footer />
                 </>}/>
                 <Route path="/Subscribe" element={<Subscribe/>}/>

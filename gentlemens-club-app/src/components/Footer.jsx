@@ -14,7 +14,11 @@ import {
     DOWNcontainer,
     StyledSVGcontainer,
     MiniLogo
+<<<<<<< HEAD
+} from "../styled_components/home/footer/Footer"
+=======
 } from "../styled_components/footer_style/Footer"
+>>>>>>> loginScreen
 
 // Função principal que será exportada para o App.jsx
 const Footer = () => {
