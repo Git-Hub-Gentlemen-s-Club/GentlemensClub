@@ -4,6 +4,8 @@ import {NavInputs, NavList, NavContainer} from "../../styled_components/header_s
 
 import {Link, LoginSignUp, Input, InputWrapper, Select, LoginWrapper, DarkModeInput, Options} from "../../styled_components/header_style/HeaderStyle";
 
+import { useNavigate } from "react-router-dom";
+
 const gray = "#dddddd";
 
 function OffCanvas({ open }) {
