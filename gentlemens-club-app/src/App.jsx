@@ -35,8 +35,8 @@ function App() {
 
     return (
         <>
-            <GlobalStyle />
-            {/* <Header />
+            {/* <GlobalStyle />
+            <Header />
             <div className="container">
                 <LocationHeader city={city} />
                 <div className="carousel-wrapper">

@@ -1,18 +1,40 @@
 import React, { useState } from 'react';
 import Select from 'react-select';
-import { Background, Container, LeftSection, RightSection, LogoContainer, Title, Subtitle, InputContainer, Input, Label, DateOfBirthContainer, GenderContainer, GenderOption, TermsText, Button, Icon, customSelectStyles } from '../styled_components/SubscribeStyles';
+import Slider from 'react-slick';
+import {
+  Background, Container, LeftSection, RightSection, LogoContainer, Title, Subtitle, InputContainer, Input, Label,
+  DateOfBirthContainer, GenderContainer, GenderOption, TermsText, Button, Icon, customSelectStyles, CarouselContainer,
+  QuoteContainer, QuoteText, QuoteAuthor, DotsContainer, Dot
+} from '../styled_components/SubscribeStyles';
 import { FaUserAlt, FaPhoneAlt, FaEnvelope, FaLock, FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const days = Array.from({ length: 31 }, (_, i) => ({ value: i + 1, label: i + 1 }));
 const months = Array.from({ length: 12 }, (_, i) => ({ value: i + 1, label: i + 1 }));
 const years = Array.from({ length: 100 }, (_, i) => ({ value: new Date().getFullYear() - i, label: new Date().getFullYear() - i }));
 
+const quotes = [
+  { text: '“Tradição e elegância em cada corte.”', author: "— Gentlemen's Club" },
+  { text: '“Sua barba, nosso cuidado."', author: "— Gentlemen's Club" },
+  { text: '“Estilo para homens de bom gosto.”', author: "— Gentlemen's Club" }
+];
+
 const Subscribe = () => {
   const [selectedGender, setSelectedGender] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [currentQuote, setCurrentQuote] = useState(0);
 
   const togglePasswordVisibility = () => {
     setShowPassword(prevState => !prevState);
+  };
+
+  const settings = {
+    dots: false,
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    arrows: false,
+    beforeChange: (current, next) => setCurrentQuote(next),
+    afterChange: (current) => setCurrentQuote(current),
   };
 
   return (
@@ -43,14 +65,14 @@ const Subscribe = () => {
 
           <InputContainer>
             <Icon as={FaLock} />
-            <Input 
-              type={showPassword ? 'text' : 'password'} 
-              placeholder="Senha" 
+            <Input
+              type={showPassword ? 'text' : 'password'}
+              placeholder="Senha"
             />
-            <Icon 
-              as={showPassword ? FaEyeSlash : FaEye} 
+            <Icon
+              as={showPassword ? FaEyeSlash : FaEye}
               onClick={togglePasswordVisibility}
-              style={{ cursor: 'pointer', marginLeft: '10px' }} 
+              style={{ cursor: 'pointer', marginLeft: '10px' }}
             />
           </InputContainer>
 
@@ -88,7 +110,22 @@ const Subscribe = () => {
         </LeftSection>
 
         <RightSection>
-          {/* Adicione qualquer conteúdo necessário no RightSection */}
+          <CarouselContainer>
+            <Slider {...settings}>
+              <div><img src="/src/assets/subscribe/imgCarousel1.jpg" alt="Imagem 1" /></div>
+              <div><img src="/src/assets/subscribe/imgCarousel2.jpg" alt="Imagem 2" /></div>
+              <div><img src="/src/assets/subscribe/imgCarousel3.jpg" alt="Imagem 3" /></div>
+            </Slider>
+            <QuoteContainer>
+              <QuoteText>{quotes[currentQuote].text}</QuoteText>
+              <QuoteAuthor>{quotes[currentQuote].author}</QuoteAuthor>
+              <DotsContainer>
+                {quotes.map((_, index) => (
+                  <Dot key={index} className={currentQuote === index ? 'active' : ''} />
+                ))}
+              </DotsContainer>
+            </QuoteContainer>
+          </CarouselContainer>
         </RightSection>
       </Container>
     </Background>
