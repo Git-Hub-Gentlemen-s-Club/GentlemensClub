@@ -1,6 +1,12 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
     @font-face {
         font-family: 'Inter';
         src: url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
@@ -13,6 +19,11 @@ const GlobalStyle = createGlobalStyle`
     background-color: black;
     /* overflow-x: hidden; */
 };
+
+    .icons {
+        font-size: 2rem;
+        padding: 5px;
+    }
 `;
 
 export default GlobalStyle;

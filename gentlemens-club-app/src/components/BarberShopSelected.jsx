@@ -96,7 +96,77 @@ const Link = styled.a`
         border-bottom: 1px solid #B58934;
     }
     `
+const Body = styled.div`
+    display: flex;
+    flex-direction: row;
+`
+const Section = styled.section`
+    width: 60%;
+    margin-left: 2rem;
+`
+const BarberShopImgDiv = styled.div`
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 2rem;
+`
+const LogoBarbershopPrincipal = styled.img`
+    width: 100%;
+    height: 30rem;
+    border-radius: 5px;
+`
+const Avaliation = styled.div`
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #B58934;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding: 0.5rem;
 
+    h2{
+        width: 100%;
+        text-align: center;
+    }
+    p{
+        width: 100%;
+        text-align: center;
+        font-size: 0.8rem;
+    }
+`
+const BarberShopEnderecoDiv = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    margin-left: 1rem;
+`
+const NameDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    width: 80%;
+    padding: 1rem;
+    h2{
+        color: #B58934;
+    }
+    p{
+        color: rgba(255,255,255, 0.5);
+        font-size: 0.7rem;
+    }
+`
+const DivIconsII = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    width: 20%;
+    gap: 1rem;
+`
+const Aside = styled.aside`
+    
+`
 const response = {
     name: "Barbearia JH",
     address: "773 m • Avenida XV de Novembro, 408, 06850-100, Itapecerica da Serra",
@@ -188,8 +258,8 @@ const BarberShopSelected = () => {
                             <p>{response.address}</p>
                         </ImgEnderecoDiv>
                         <DivIcons>
-                            <FontAwesomeIcon icon={faShareFromSquare} style={{ width: '1.3rem', height: '1.3rem' }} />
-                            <FontAwesomeIcon icon={faHeart} style={{ width: '1.3rem', height: '1.3rem' }} />
+                            <FontAwesomeIcon icon={faShareFromSquare} style={{ width: '1.3rem', height: '1.3rem', color: '#B58934' }} />
+                            <FontAwesomeIcon icon={faHeart} style={{ width: '1.3rem', height: '1.3rem', color: '#B58934' }} />
                         </DivIcons>
                         <button>Reservar agora</button>
                     </ImgDiv>
@@ -204,6 +274,30 @@ const BarberShopSelected = () => {
                     </LinkDiv>
                 </HeaderDiv>
             </Header>
+            <Body>
+                <Section>
+                    <BarberShopImgDiv>
+                        <LogoBarbershopPrincipal src={BarbershopLogo} alt="Logo Gentlemen's Club" />
+                        <Avaliation>
+                            <h2>{response.reviews.rate.toFixed(1)}</h2>
+                            <p>{response.reviews.total} avaliações</p>
+                        </Avaliation>
+                    </BarberShopImgDiv>
+                    <BarberShopEnderecoDiv>
+                        <NameDiv>
+                            <h2>{response.name}</h2>
+                            <p>{response.address}</p>
+                        </NameDiv>
+                        <DivIconsII>
+                            <FontAwesomeIcon icon={faShareFromSquare} style={{ width: '1.3rem', height: '1.3rem', color: '#B58934' }} />
+                            <FontAwesomeIcon icon={faHeart} style={{ width: '1.3rem', height: '1.3rem', color: '#B58934' }} />
+                        </DivIconsII>
+                    </BarberShopEnderecoDiv>
+                </Section>
+                <Aside>
+
+                </Aside>
+            </Body>
         </BarberShop>
     )
 }
