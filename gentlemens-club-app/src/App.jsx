@@ -9,6 +9,7 @@ import FiltersButton from "./components/FiltersButton";
 import SortButton from "./components/SortButton";
 import Pagination from "./components/Pagination"; // Importando o componente Pagination
 import InformationCard from "./components/InformationCard"; // Importando o componente InformationCard
+import BarberShopSelected from "./components/BarberShopSelected"
 import './App.css'; // Incluindo os estilos atualizados
 /* import BarberShopSelected from "./components/BarberShopSelected"; */
 
@@ -36,7 +37,8 @@ function App() {
     return (
         <>
             <GlobalStyle />
-            <Header />
+            <BarberShopSelected />
+            {/* <Header />
             <div className="container">
                 <LocationHeader city={city} />
                 <div className="carousel-wrapper">
@@ -54,7 +56,7 @@ function App() {
                 <BarberInfoCard barberData={barberData} /> 
             </div>
             <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
-            <InformationCard city={city} /> 
+            <InformationCard city={city} />  */}
             <Footer />
         </>
     );
