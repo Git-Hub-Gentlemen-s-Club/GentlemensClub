@@ -38,18 +38,17 @@ public class UserVerifierService {
     public String verifierAccount(String uuid){
 
         try{
-             UserVerifier userVerifier = userVerifierRepository.findByUuid(UUID.fromString(uuid)).get();
-             if(userVerifier != null && userVerifier.getVerifiedAt().compareTo(Instant.now()) > 0){
+            UserVerifier userVerifier = userVerifierRepository.findByUuid(UUID.fromString(uuid)).get();
+            if(userVerifier != null && userVerifier.getVerifiedAt().compareTo(Instant.now()) > 0){
 
-                 User userVerifierNew = userVerifier.getUser();
-                 userVerifierNew.setSituation(UserSituation.ACTIVE);
-                 userVerifierRepository.save(userVerifier);
-                 return "User Verified!";
-             }else {
-
-                 userVerifierRepository.delete(userVerifier);
-                 return "User not found or code expired!";
-             }
+                User userVerifierNew = userVerifier.getUser();
+                userVerifierNew.setSituation(UserSituation.ACTIVE);
+                userVerifierRepository.save(userVerifier);
+                return "User Verified!";
+            }else {
+                userVerifierRepository.delete(userVerifier);
+                return "User not found or code expired!";
+            }
 
         }catch (Exception e){
            return "User not found!";
