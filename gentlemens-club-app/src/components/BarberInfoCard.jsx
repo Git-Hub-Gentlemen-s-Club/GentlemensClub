@@ -24,16 +24,11 @@ import {
   ServiceSubtitle,
   ReservationDetails,
   FavoriteIcon,
-<<<<<<< HEAD
-  Separator, // Importa o componente Separator
-} from '../styled_components/home/body/BarberInfoCardStyle';
-=======
   Separator,
   BarberPoleImage,
   ServiceDetails,
   ServiceContainer
 } from '../styled_components/body_style/BarberInfoCardStyle';
->>>>>>> loginScreen
 import { faHeart, faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import barberPole from '../assets/img/barber_pole.png';

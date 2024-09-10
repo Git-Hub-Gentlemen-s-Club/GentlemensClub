@@ -1,9 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-<<<<<<< HEAD
-import { FiltersButtonContainer, IconWrapper, AccordionContainer, AccordionContent, FilterOptions, FilterOption, ButtonContainer } from '../styled_components/home/body/FiltersButtonStyle';
-=======
 import { FiltersButtonContainer, IconWrapper, AccordionContainer, AccordionContent, FilterOptions, FilterOption, ButtonContainer } from '../styled_components/body_style/FiltersButtonStyle';
->>>>>>> loginScreen
 import { FaFilter, FaTag, FaMobileAlt, FaGlobe } from 'react-icons/fa';
 
 const FiltersButton = () => {

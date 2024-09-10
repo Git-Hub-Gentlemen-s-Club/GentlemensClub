@@ -1,10 +1,6 @@
 // src/components/InformationCard.jsx
 import React from "react";
-<<<<<<< HEAD
-import { CardContainer, Heading, Paragraph, Image } from "../styled_components/home/body/InformationCardStyle";
-=======
 import { CardContainer, Heading, Paragraph, Image } from "../styled_components/body_style/InformationCardStyle";
->>>>>>> loginScreen
 import desenho from "../assets/img/iconeInformationCard.png"; // Certifique-se de que o caminho está correto
 
 const InformationCard = ({ city }) => {

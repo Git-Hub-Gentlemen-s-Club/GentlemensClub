@@ -1,12 +1,6 @@
 import React, {useState} from "react";
 
-<<<<<<< HEAD:gentlemens-club-app/src/components/BurgerMenu.jsx
-import styled from "styled-components";
-
-import { BurgerMenuStyled } from "../styled_components/home/header/BurgerMenuStyle";
-=======
 import BurgerMenuStyle from "../../styled_components/header_style/BurgerMenuStyle";
->>>>>>> loginScreen:gentlemens-club-app/src/components/header_components/BurgerMenu.jsx
 
 import OffCanvas from "./OffCanvas";
 
