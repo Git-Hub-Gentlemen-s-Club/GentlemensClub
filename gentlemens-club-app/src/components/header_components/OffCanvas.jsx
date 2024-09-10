@@ -30,7 +30,7 @@ function OffCanvas({ open }) {
                 </InputWrapper>
 
                 <LoginWrapper>
-                    <FaRegUserCircle style={{ color: gray }} className="icons" />
+                <FaRegUserCircle style={{ color: gray, width: '30px', height: '30px' }} className="icons" />
                     <LoginSignUp onClick={() => {navigate('/Login')}}>
                         Entrar 
                     </LoginSignUp>/

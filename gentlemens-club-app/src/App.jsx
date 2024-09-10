@@ -12,8 +12,8 @@ import Pagination from "./components/Pagination"; // Importando o componente Pag
 import InformationCard from "./components/InformationCard"; // Importando o componente InformationCard
 import LoginScreen from "./components/LoginScreen"; // Tela de login
 import Subscribe from './components/Subscribe';
-import './App.css'; // Incluindo os estilos atualizados
-/* import BarberShopSelected from "./components/BarberShopSelected"; */
+import './App.css';
+import BarberShopSelected from "./components/BarberShopSelected";
 import { Route, Routes } from "react-router-dom"; // Removendo comentários desnecessários
 
 function App() {
@@ -41,6 +41,7 @@ function App() {
         <>
             <GlobalStyle />
             <Routes>
+                <Route path="/BarbeariaSelecionada" element={<BarberShopSelected/>}/>
                 <Route path="/" element={<>
                     <Header />
             <div className="container">

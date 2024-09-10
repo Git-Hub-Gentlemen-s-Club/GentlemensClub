@@ -39,7 +39,7 @@ const ImgDiv = styled.div`
 
     button{
         background-color: #B58934;
-        width: 30%;
+        width: 20%;
         height: 2.5rem;
         border: none;
         border-radius: 5px;
@@ -121,7 +121,7 @@ const BarberShopImgDiv = styled.div`
 `
 const LogoBarbershopPrincipal = styled.img`
     width: 100%;
-    height: 30rem;
+    height: 45rem;
     border-radius: 5px;
 `
 const Avaliation = styled.div`
@@ -183,7 +183,8 @@ const AsideGiftCard = styled.div`
     border: 1px solid #ffffff;
     border-radius: 5px;
     margin-right: 1rem;
-    padding: 5px;
+    padding: 15px;
+    width: 82%;
 
     h4 {
         display: inline;

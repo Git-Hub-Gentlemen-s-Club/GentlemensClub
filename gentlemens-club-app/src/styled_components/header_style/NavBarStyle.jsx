@@ -22,7 +22,7 @@ export const NavList = styled.ul`
     list-style-type: none;
     display: flex;
     gap: 2.5rem;
-    margin-top: 3em;
+    margin-top: 2em;
     padding: 0;
     flex-flow: row nowrap;
     @media only screen and (max-width: 850px) {
@@ -34,7 +34,7 @@ export const NavList = styled.ul`
 
 export const NavInputs = styled.div`
     display: grid;
-    grid-template-columns: 3fr 3fr 2fr 2fr 0.5fr 0.5fr;
+    grid-template-columns: 3fr 3fr 3fr 2.3fr 0.5fr 0.5fr;
     grid-gap: 1em;
     @media only screen and (max-width: 850px) {
         grid-template-columns: 1fr;

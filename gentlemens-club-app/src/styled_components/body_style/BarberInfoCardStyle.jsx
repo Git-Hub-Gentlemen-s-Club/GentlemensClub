@@ -118,7 +118,7 @@ export const Recommendation = styled.div`
   font-weight: bold;
   font-size: 12px;
   text-align: left;
-  max-width: 250px;
+  max-width: 270px;
   flex-shrink: 0; /* Impede que o Recommendation encolha */
 `;
 

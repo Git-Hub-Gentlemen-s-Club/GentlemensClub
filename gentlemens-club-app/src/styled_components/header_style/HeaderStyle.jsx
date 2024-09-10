@@ -7,7 +7,7 @@ export const HeaderContainer = styled.header`
     justify-content: center;
     background-color: #161718;
     width: 100%;
-    padding: 1rem 0 2rem 0;
+    padding: 1rem 0 1rem 0;
 `;
 
 export const HeaderWrapper = styled.div`
