@@ -56,6 +56,35 @@ public class UserService {
         return user;
     }
 
+    public boolean updateUser(Long id, UserDTO userDTO) {
+        return userRepository.findById(id).map(user -> {
+            user.setName(userDTO.getName());
+            user.setEmail(userDTO.getEmail());
+            user.setBirthday(userDTO.getBirthday());
+            userRepository.save(user);
+            return true;
+        }).orElse(false);
+    }
+
+    public boolean updatePassword(Long id, PasswordChangeDTO passwordChangeDTO) {
+        return userRepository.findById(id).map(user -> {
+            if (bCryptPasswordEncoder.matches(passwordChangeDTO.getOldPassword(), user.getPassword())) {
+                user.setPassword(bCryptPasswordEncoder.encode(passwordChangeDTO.getNewPassword()));
+                userRepository.save(user);
+                return true;
+            }
+            return false;
+        }).orElse(false);
+    }
+
+    public boolean updateSituation(Long id, String situationCode) {
+        return userRepository.findById(id).map(user -> {
+            user.setUserSituation(UserSituation.valueCode(situationCode));
+            userRepository.save(user);
+            return true;
+        }).orElse(false);
+    }
+
     public boolean deleteUser(Long id) {
         if (userRepository.existsById(id)) {
             userRepository.deleteById(id);
