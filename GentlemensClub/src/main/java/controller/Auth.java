@@ -24,6 +24,29 @@ public class Auth {
         return userSave ? ResponseEntity.ok().body(userDTO) : ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
     }
 
+    // Controller UpdateUser
+    @PutMapping(value = "/update/{id}")
+    public ResponseEntity<UserDTO> updateProfile(@PathVariable Long id, @RequestBody UserDTO userDTO) {
+        boolean updated = userService.updateUser(id, userDTO);
+        return updated ? ResponseEntity.ok().body(userDTO) : ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+    }
+
+    // Controller UpdatePassword
+    @PutMapping(value = "/update-password/{id}")
+    public ResponseEntity<Void> updatePassword(@PathVariable Long id,
+            @RequestBody PasswordChangeDTO passwordChangeDTO) {
+        boolean updated = userService.updatePassword(id, passwordChangeDTO);
+        return updated ? ResponseEntity.noContent().build() : ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+    }
+
+    // Controller UpdateSituation
+    @PutMapping(value = "/update-situation/{id}")
+    public ResponseEntity<Void> updateSituation(@PathVariable Long id, @RequestBody String situationCode) {
+        boolean updated = userService.updateSituation(id, situationCode);
+        return updated ? ResponseEntity.noContent().build() : ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+    }
+
+    // Controller DeletarUser
     @DeleteMapping(value = "/delete/{id}")
     public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
         boolean deleted = userService.deleteUser(id);
