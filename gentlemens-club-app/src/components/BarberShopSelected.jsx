@@ -1,9 +1,21 @@
+import React, { useState } from 'react';
+
 import Logo from '../assets/LogoGentlemensClub.png'
 import BarbershopLogo from '../assets/barbeariaJH.jpg'
+import img1 from '../assets/barbearia/img-1.png'
+import img2 from '../assets/barbearia/img-2.png'
+import img3 from '../assets/barbearia/img-3.png'
+import img4 from '../assets/barbearia/img-4.png'
+import img5 from '../assets/barbearia/img-5.png'
+import img6 from '../assets/barbearia/img-6.png'
+import equipe1 from '../assets/barbearia/equipe1.png'
+import equipe2 from '../assets/barbearia/equipe2.png'
+import equipe3 from '../assets/barbearia/equipe3.png'
+
 import { faHeart, faShareFromSquare } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { FaGift, FaPaperPlane } from 'react-icons/fa';
-import { IoIosInformationCircleOutline, IoIosSearch } from "react-icons/io";
+import { FaGift, FaPaperPlane, FaShieldVirus } from 'react-icons/fa';
+import { IoIosInformationCircleOutline, IoIosSearch, IoIosPhonePortrait } from "react-icons/io";
 
 
 import styled from "styled-components"
@@ -230,6 +242,25 @@ const Aside = styled.aside`
     color: #ffffff;
     margin-left: 1rem;
     margin-top: 1rem;
+
+    p{
+        font-size: 0.8rem;
+        font-weight: 400;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    h3{
+        color: #B58934;
+        font-size: 0.8rem;
+        font-weight: 400;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+    hr{
+        border: none;
+        border-top: 1px solid #B58934;
+    }
 `
 
 const AsideGiftCard = styled.div`
@@ -276,6 +307,85 @@ const AsideIframe = styled.div`
         border: none;
     }
 `
+const MembrosEquipe = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-radius: 10px;
+`
+const TeamMember = styled.div`
+  border-radius: 10px;
+  text-align: center;
+  width: 150px;
+`;
+
+const TeamImage = styled.img`
+  width: 4rem;
+  height: auto;
+  border-radius: 50%;
+`;
+
+const TeamName = styled.h4`
+  margin-top: 0.5rem;
+  color: white;
+  font-size: 0.6rem;
+  font-weight: 400;
+`;
+
+const ContatoAside = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+    div{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    button {
+        background-color: #B58934;
+        height: 2rem;
+        width: 4rem;
+        border: none;
+        border-radius: 5px;
+        padding: 0 5px 0 5px;
+        font-weight: 600;
+        font-size: 0.7rem;
+        cursor: pointer;
+    }
+`
+const OpeningHoursContainer = styled.div`
+  padding: 1rem;
+  border-radius: 10px;
+  margin-top: 1rem;
+`;
+
+const Day = styled.div`
+  padding: 0.5rem 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+`;
+
+const DayName = styled.div`
+  font-weight: bold;
+  color: #B58934;
+`;
+
+const Hours = styled.div`
+  display: flex;
+  flex-direction: column;
+  color: rgba(255,255,255,0.8);
+`;
 
 const CardMap = styled.div`
     p {
@@ -307,22 +417,155 @@ const CardMap = styled.div`
     right: 0;
     margin: auto;
 `
+const Accordion = styled.button`
+  background-color: transparent;
+  color: #ffff;
+  cursor: pointer;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+  display: flex;
+  justify-content: start;
+  gap: 0.5rem;
+  align-items: center;
+  font-size: 1.2rem;
+
+  &::before {
+    content: '${props => (props.active ? '▲' : '▶')}';
+    font-size: 12px;
+    margin-left: 10px;
+  }
+`;
+
+const Panel = styled.div`
+  padding: 0 18px;
+  background-color: transparent;
+  display: ${props => (props.active ? 'none' : 'block')};
+  overflow: hidden;
+`;
+
+const DivKeyPanel = styled.div`
+    display: flex;
+    flex-direction: row;
+    font-size: 0.8rem;
+    color: rgba(255,255,255, 0.8);
+    justify-content: space-between;
+    width: 100%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+`
+const DivButton = styled.div`
+    display:flex;
+    gap: 1rem;
+
+    button{
+        background-color:#B58934 ;
+        padding: 0px 10px 0px 10px;
+        height: 1.8rem;
+        border: none;
+        border-radius: 5px;
+        font-size: 0.8rem;
+    }
+`
+const DivPanel = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    
+    h4{
+        font-weight: 400;
+        color: rgba(255,255,255, 0.7);
+        
+    }
+    p{
+        font-size: 0.7rem;
+        color: rgba(255,255,255, 0.6);
+    }
+`
+
+const RegrasSaude = styled.div`
+    color: white;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+
+    h2{
+        width: 100%;
+        color: #B58934;
+    }
+
+    div{
+        width: 40%;
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        align-items: center;
+    }
+`
+
+const NossoTrabalho = styled.div`
+    h2 {
+        color: #B58934;
+        padding-bottom: 2rem;
+    }
+    div {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+        gap: 1rem;
+        background-color: #181818;
+        border-radius: 10px;
+        padding: 1rem;
+        align-items: center;
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        img:first-child {
+            height: 100%;
+            width: 100%;
+            grid-row: span 2;
+            grid-column: span 2;
+        }
+    }
+    button {
+        margin-top: 1rem;
+        padding: 0.5rem 1rem;
+        background-color: #B58934;
+        border: none;
+        border-radius: 5px;
+        width: 100%;
+        margin-bottom: 3rem;
+        cursor: pointer;
+        &:hover {
+            background-color: #A4782C;
+        }
+    }
+`;
 
 const response = {
     name: "Barbearia JH",
     address: "773 m • Avenida XV de Novembro, 408, 06850-100, Itapecerica da Serra",
     telephone: "(11) 93779-9840",
     openingHours: {
-        mon: ["10:00 - 13:30", "14:30 - 19:30"],
-        tue: ["10:00 - 13:30", "14:30 - 20:00"],
-        wed: ["10:00 - 13:30", "14:30 - 19:30"],
-        thu: ["10:00 - 13:30", "14:30 - 20:00"],
-        fri: ["10:00 - 13:30", "14:30 - 19:30"],
-        sat: ["10:00 - 13:00", "14:00 - 17:00"],
-        sun: null
+        "Segunda-Feira": ["10:00 - 13:30", "14:30 - 19:30"],
+        "Terça-Feira": ["10:00 - 13:30", "14:30 - 20:00"],
+        "Quarta-Feira": ["10:00 - 13:30", "14:30 - 19:30"],
+        "Quinta-Feira": ["10:00 - 13:30", "14:30 - 20:00"],
+        "Sexta-Feira": ["10:00 - 13:30", "14:30 - 19:30"],
+        "Sábado": ["10:00 - 13:00", "14:00 - 17:00"],
+        "Domingo": null
     },
     destaque: true,
-    team: [{ name: "Rafael Santos", img: 'path' }, { name: "Marcos Souza", img: 'path' }, { name: "Pedro Camargo", img: 'path' }],
+    team: [{ name: "Rafael Santos", img: equipe1 }, { name: "Marcos Souza", img: equipe2 }, { name: "Pedro Camargo", img: equipe3 }],
     location: "Localização do estabelicimento",
     socialLinks: {
         facebook: 'link',
@@ -339,7 +582,7 @@ const response = {
         oneStars: 0
     },
     services: {
-        popularServices: [
+        "Serviços Populares": [
             {
                 name: 'Corte de cabelo (Moderno e clássico)',
                 description: 'O não comparecimento e cancelamentos consecutivos implicará no pagamento d…',
@@ -359,7 +602,7 @@ const response = {
                 time: "1h 45m"
             },
         ],
-        anotherServices: [
+        "Outros Serviços": [
             {
                 name: 'Taxa sobre cancelamento e não comparecimento.',
                 description: 'O não comparecimento implicará no pagamento do valor do corte.',
@@ -367,7 +610,7 @@ const response = {
                 time: "5m"
             }
         ],
-        hair: [
+        Cabelo: [
             {
                 name: 'Corte de cabelo (Moderno e clássico)',
                 description: 'O não comparecimento e cancelamentos consecutivos implicará no pagamento d…',
@@ -384,8 +627,13 @@ const response = {
     },
 }
 
-
 const BarberShopSelected = () => {
+    const [activeIndex, setActiveIndex] = useState(null);
+
+    const toggleAccordion = (index) => {
+        setActiveIndex(activeIndex === index ? null : index);
+    };
+
     return (
         <BarberShop>
             <Header>
@@ -447,18 +695,73 @@ const BarberShopSelected = () => {
                     <ServicosDiv>
                         {Object.keys(response.services).map((category, index) => (
                             <div key={index}>
-                                <h2>{category}</h2>
-                                {response.services[category].map((servico, idx) => (
-                                    <div key={idx}>
-                                        <h3>{servico.name}</h3>
-                                        <p>{servico.description}</p>
-                                        <p>Valor: R${servico.value}</p>
-                                        <p>Tempo: {servico.time}</p>
-                                    </div>
-                                ))}
+                                <Accordion
+                                    className={activeIndex === index ? 'active' : ''}
+                                    onClick={() => toggleAccordion(index)}
+                                    active={activeIndex === index}
+                                >
+                                    {category}
+                                </Accordion>
+                                <Panel active={activeIndex === index}>
+                                    {response.services[category].map((servico, idx) => (
+                                        <DivKeyPanel key={idx}>
+                                            <DivPanel>
+                                                <h3>{servico.name}</h3>
+                                                <p>{servico.description}</p>
+                                            </DivPanel>
+                                            <DivButton>
+                                                <button>Reservar</button>
+                                                <DivPanel>
+                                                    <h4>R$ {servico.value.toFixed(2)}</h4>
+                                                    <p>{servico.time}</p>
+                                                </DivPanel>
+                                            </DivButton>
+                                        </DivKeyPanel>
+                                    ))}
+                                </Panel>
                             </div>
                         ))}
+                        <hr />
                     </ServicosDiv>
+                    <RegrasSaude>
+                        <h2>Regras Local de Saúde e Segurança</h2>
+                        <div>
+                            <FaShieldVirus style={{ color: '#B58934', height: '1.3rem', width: '1.8rem' }} />
+                            <p>Somente com horário agendado</p>
+                        </div>
+                        <div>
+                            <FaShieldVirus style={{ color: '#B58934', height: '1.3rem', width: '1.8rem' }} />
+                            <p>Funcionários usam luvas</p>
+                        </div>
+                        <div>
+                            <FaShieldVirus style={{ color: '#B58934', height: '1.3rem', width: '1.8rem' }} />
+                            <p>Desinfetamos os equipamentos entre atendimentos</p>
+                        </div>
+                        <div>
+                            <FaShieldVirus style={{ color: '#B58934', height: '1.3rem', width: '1.8rem' }} />
+                            <p>Ventilação adequada</p>
+                        </div>
+                        <div>
+                            <FaShieldVirus style={{ color: '#B58934', height: '1.3rem', width: '1.8rem' }} />
+                            <p>Espaço de tempo extendido entre os agendamentos</p>
+                        </div>
+                        <div>
+                            <FaShieldVirus style={{ color: '#B58934', height: '1.3rem', width: '1.8rem' }} />
+                            <p>Alcool em gel disponivel para uso dos clientes</p>
+                        </div>
+                    </RegrasSaude>
+                    <NossoTrabalho>
+                        <h2>Veja nosso trabalho</h2>
+                        <div>
+                            <img src={img1} />
+                            <img src={img2} />
+                            <img src={img3} />
+                            <img src={img4} />
+                            <img src={img5} />
+                            <img src={img6} />
+                        </div>
+                        <button>VEJA TODOS</button>
+                    </NossoTrabalho>
                 </Section>
                 <Aside>
                     <AsideGiftCard>
@@ -482,6 +785,47 @@ const BarberShopSelected = () => {
                             </button>
                         </CardMap>
                     </AsideIframe>
+                    <h3>SOBRE NÓS</h3>
+                    <p>Cada um tem seu estilo, nós temos todos!</p>
+                    <h3>MEMBROS DA EQUIPE</h3>
+                    <MembrosEquipe>
+                        {response.team.map((member, index) => (
+                            <TeamMember key={index}>
+                                <TeamImage src={member.img} alt={member.name} />
+                                <TeamName>{member.name}</TeamName>
+                            </TeamMember>
+                        ))}
+                    </MembrosEquipe>
+                    <p>CONTATOS E HORÁRIO DE FUNCIONAMENTO</p>
+                    <hr />
+                    <ContatoAside>
+                        <div>
+                            <IoIosPhonePortrait style={{ color: '#B58934', height: '1.7rem', width: '1.7rem' }} />
+                            <p>{response.telephone}</p>
+                        </div>
+                        <button>Ligar</button>
+                    </ContatoAside>
+                    <hr />
+                    <OpeningHoursContainer>
+                        {Object.entries(response.openingHours).map(([day, hours], index) => (
+                            <Day key={index}>
+                                <DayName>{day}</DayName>
+                                <Hours>
+                                    {hours ? (
+                                        hours.map((hour, idx) => (
+                                            <div key={idx}>{hour}</div>
+                                        ))
+                                    ) : (
+                                        <div>Fechado</div>
+                                    )}
+                                </Hours>
+                            </Day>
+                        ))}
+                    </OpeningHoursContainer>
+                    <p>Chegar por favor com 5 a 10 minutos de antecedência, não
+                        é permitido desmarcar em cima da hora, tolerância de
+                        espera pelo cliente será no máximo sem excessão de 15
+                        minutos.Obrigado pela compreensão.. .</p>
                 </Aside>
             </Body>
         </BarberShop >
