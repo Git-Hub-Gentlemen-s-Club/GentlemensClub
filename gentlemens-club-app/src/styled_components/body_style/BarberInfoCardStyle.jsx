@@ -8,11 +8,11 @@ export const CardContainer = styled.div`
   flex-direction: column;
   background-color: #fff;
   color: #000;
-  padding: 20px;
+  padding: 35px;
   margin: 20px auto;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  max-width: 1200px;
   width: 100%;
+  max-width: 75%;
   box-sizing: border-box;
   position: relative;
   clip-path: polygon(0 0, 100% 0, 100% 73%, 90% 100%, 0 100%);
@@ -20,6 +20,7 @@ export const CardContainer = styled.div`
   @media (max-width: 768px) {
     padding: 10px;
     clip-path: none;
+    max-width: 100%;
   }
 `;
 
@@ -87,6 +88,7 @@ export const CardMiddle = styled.div`
 `;
 
 export const Title = styled.h1`
+  font-family: 'Rye', sans-serif;
   font-size: 1.5em;
   margin: 0 0 5px 0;
 
@@ -177,12 +179,12 @@ export const BarberPoleImage = styled.img`
   user-select: none;
   pointer-events: none;
   position: relative;
-  top: 0.6rem; 
+  top: 2px; 
 
   @media (max-width: 768px) {
     order: 5;
     align-self: flex-end;
-    margin-bottom: 0.1rem;
+    margin-bottom: 0.2rem;
   }
 `;
 
@@ -218,8 +220,8 @@ export const ServiceContainer = styled.div`
   gap: 20px;
 
   @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: flex-start;
+    justify-content: space-between;
+    gap: 140px;
   }
 `;
 
@@ -271,6 +273,10 @@ export const ButtonContainer = styled.div`
   @media (max-width: 768px) {
     flex-direction: column;
   }
+`;
+
+export const ContainerReservationButton = styled.div`
+  display: flex;
 `;
 
 export const FavoriteButton = styled.button`

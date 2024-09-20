@@ -24,6 +24,11 @@ export const Container = styled.div`
   padding: 0;
   box-sizing: border-box; 
   overflow: hidden;
+
+  @media only screen and (max-width: 600px) {
+    width: 100vw;
+    height: 100vh;
+  }
 `;
 
 export const LeftSection = styled.div`
@@ -38,6 +43,11 @@ export const LeftSection = styled.div`
   align-items: center;
   justify-content: center;
   position: relative;
+
+  @media only screen and (max-width: 600px) {
+    padding: 20px;
+    overflow: scroll;
+  }
 `;
 
 export const LogoContainer = styled.div`
@@ -58,6 +68,10 @@ export const Title = styled.h1`
   font-size: 28px;
   color: #B58934;
   margin-bottom: 10px;
+
+  @media only screen and (max-width: 600px) {
+    margin-top: 200px;
+  }
 `;
 
 export const Subtitle = styled.h2`
@@ -103,9 +117,14 @@ export const DateOfBirthContainer = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  max-width: 520px;
+  max-width: 500px;
   margin-bottom: 15px;
   gap: 5px;
+
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const DateInput = styled.select`
@@ -134,12 +153,15 @@ export const customSelectStyles = {
       display: 'flex',
       alignItems: 'center',
       fontSize: '16px',
-      width: '165px',
+      width: '150px',
       maxWidth: '520px',
       boxShadow: 'none',
       '&:hover': {
         borderColor: '#B58934',
       },
+      '@media (max-width: 600px)': {
+        width: '90vw',
+    },
     }),
     singleValue: (provided) => ({
       ...provided,
@@ -172,7 +194,7 @@ export const GenderContainer = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  max-width: 520px;
+  max-width: 490px;
   margin-bottom: 15px;
   gap: 5px;
 `;
@@ -240,8 +262,12 @@ export const RightSection = styled.div`
   background-color: #1C1D21;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
-  overflow: hidden; 
+  overflow: hidden;
   position: relative;
+
+  @media only screen and (max-width: 1077px) {
+    display: none;
+  }
 `;
 
 export const CarouselContainer = styled.div`
@@ -264,7 +290,7 @@ export const CarouselContainer = styled.div`
 
 export const QuoteContainer = styled.div`
   position: absolute;
-  bottom: 70px;
+  bottom: 90px;
   background-color: #1C1D21;
   color: #B58934;
   width: 100%;
@@ -293,6 +319,9 @@ export const QuoteAuthor = styled.p`
 `;
 
 export const DotsContainer = styled.div`
+  position: absolute;
+  bottom: 50px; /* Ajuste conforme necessário */
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -300,10 +329,10 @@ export const DotsContainer = styled.div`
 `;
 
 export const Dot = styled.div`
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: #B58934;
+  width: 15px;
+  height: 5px;
+  border-radius: 20%;
+  background-color: #ffffff;
   margin: 0 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
