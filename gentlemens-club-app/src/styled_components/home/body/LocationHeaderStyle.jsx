@@ -21,17 +21,12 @@ const pulse = keyframes`
 export const LocationHeaderContainer = styled.div`
   margin: 20px auto;
   width: 100%;
-  max-width: 75%; /* Limite a largura máxima */
+  max-width: 1200px; /* Limite a largura máxima */
   padding: 0 10px; /* Adiciona padding lateral */
   text-align: left; /* Alinha o texto à esquerda */
-
-  @media (max-width: 768px) {
-    max-width: 100%;
-  }
 `;
 
 export const LocationTitle = styled.h1`
-  font-family: 'Rye', sans-serif;
   font-size: 1.8rem;
   color: #B58934; /* Cor do texto */
   margin: 0;
@@ -42,7 +37,7 @@ export const LocationTitle = styled.h1`
   flex-wrap: wrap; /* Permite que o texto e o ícone se movam para a linha abaixo, se necessário */
 
   @media (max-width: 768px) {
-    font-size: 1.4rem; /* Tamanho menor do texto em telas menores */
+    font-size: 1.5rem; /* Tamanho menor do texto em telas menores */
     flex-direction: row; /* Garante que o ícone fique ao lado do texto em dispositivos móveis */
     justify-content: flex-start; /* Alinha o conteúdo ao início do container */
   }
