@@ -6,8 +6,8 @@ export const CardContainer = styled.div`
     color: #000;
     padding: 20px;
     border-radius: 10px;
-    max-width: 75%;
-    margin: 30px auto;
+    max-width: 1200px;
+    margin: 20px auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
     box-sizing: border-box;
@@ -18,7 +18,7 @@ export const CardContainer = styled.div`
     @media (max-width: 768px) {
         padding: 15px;
         max-width: 90%; /* Ajuste para telas menores */
-        margin-top: 100px; /* Adiciona margem superior para evitar sobreposição */
+        margin-top: 50px; /* Adiciona margem superior para evitar sobreposição */
     }
 `;
 
