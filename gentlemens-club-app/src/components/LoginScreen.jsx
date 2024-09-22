@@ -2,6 +2,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 // import Slider from 'react-slick';
 import {
     Background,
@@ -46,9 +47,8 @@ const LoginScreen = () => {
             [name]: value.length
         }));
     };
-    // const togglePasswordVisibility = () => {
-    //     setShowPassword(prevState => !prevState);
-    //   };
+    
+    const navigate = useNavigate();
 
     return (
         <>
@@ -57,7 +57,7 @@ const LoginScreen = () => {
                     <LeftSide>
                         <Forms>
                             <img src="\src\assets\footer_svg\miniLogo_icon.svg" className="mini_logo" alt="Mini Logo" />
-                            <img src="\src\assets\LoginScreen_images\Welcome_message.svg" alt="Mensagem de boas vindas" />
+                            <img src="\src\assets\loginScreen_images\Welcome_message.svg" alt="Mensagem de boas vindas" />
                             <h1>Login</h1>
                             <p>Insira os detalhes da sua conta</p>
                             <div>
@@ -91,18 +91,17 @@ const LoginScreen = () => {
                         <OtherLinks>
                             <div>
                                 <button>
-                                    <img src="\src\assets\LoginScreen_images\Google_icon.png" alt="Google" />
+                                    <img src="\src\assets\loginScreen_images\Google_icon.png" alt="Google" />
                                     <p>Entrar com Google</p>
                                 </button>
                                 <button>
-                                    <img src="\src\assets\LoginScreen_images\Facebook_icon.png" alt="Facebook" />
+                                    <img src="\src\assets\loginScreen_images\Facebook_icon.png" alt="Facebook" />
                                     <p>Entrar com Facebook</p>
-                                    
                                 </button>
                             </div>
                             <div className="BottomDiv">
                                 <p className="BottomText">Não tem uma conta?</p>
-                                <button className="SignIn"><p>Inscreva-se</p></button>
+                                <button className="SignIn" onClick={() => { navigate('/Subscribe')}}><p>Inscreva-se</p></button>
                             </div>
                         </OtherLinks>
                     </LeftSide>
@@ -113,11 +112,11 @@ const LoginScreen = () => {
                                 </ImageLabel>
                         <CarouselContainer>
                             <StyledCarousel {...settings}>
-                                <ImageSlide show="/src/assets/LoginScreen_images/Slide_1.png">
+                                <ImageSlide show="/src/assets/loginScreen_images/Slide_1.png">
                                 </ImageSlide>
-                                <ImageSlide show="/src/assets/LoginScreen_images/Slide_2.jpg">
+                                <ImageSlide show="/src/assets/loginScreen_images/Slide_2.jpg">
                                 </ImageSlide>
-                                <ImageSlide show="/src/assets/LoginScreen_images/Slide_3.jpg">
+                                <ImageSlide show="/src/assets/loginScreen_images/Slide_3.jpg">
                                 </ImageSlide>
                             </StyledCarousel>
                         </CarouselContainer>

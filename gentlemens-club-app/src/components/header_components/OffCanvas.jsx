@@ -4,6 +4,8 @@ import {NavInputs, NavList, NavContainer} from "../../styled_components/header_s
 
 import {Link, LoginSignUp, Input, InputWrapper, Select, LoginWrapper, DarkModeInput, Options} from "../../styled_components/header_style/HeaderStyle";
 
+import { useNavigate } from "react-router-dom";
+
 const gray = "#dddddd";
 
 function OffCanvas({ open }) {
@@ -28,12 +30,12 @@ function OffCanvas({ open }) {
                 </InputWrapper>
 
                 <LoginWrapper>
-                    <FaRegUserCircle style={{ color: gray }} className="icons" />
+                <FaRegUserCircle style={{ color: gray, width: '30px', height: '30px' }} className="icons" />
                     <LoginSignUp onClick={() => {navigate('/Login')}}>
-                        Entrar /
-                    </LoginSignUp>
+                        Entrar 
+                    </LoginSignUp>/
                     <LoginSignUp onClick={() => {navigate('/Subscribe')}}>
-                        Inscrever-se
+                    Inscrever-se
                     </LoginSignUp>
                 </LoginWrapper>
 
