@@ -140,11 +140,6 @@ export const ImageSlide = styled.div`
     }
 `;
 
-// export const Image = styled.img`
-//     width: 100%;
-//     height: 100%;
-    
-// `;
 
 export const ImageLabel = styled.div`
     position: absolute;
@@ -188,12 +183,12 @@ export const LeftSide = styled.div`
     border-radius: 50px 0 0 50px;
     margin: 0 auto;
     overflow-y:auto;
+    overflow-x:hidden;
     scrollbar-color: #757575 #1C1D20;
     min-width:fit-content;
     @media (max-width: 810px) {
         /* overflow:unset; */
         border-radius: 0;
-        height:100%;
     }
 `;
 
@@ -202,8 +197,9 @@ export const Forms = styled.form`
     display: flex;
     align-items: top;
     flex-direction: column;
-    min-height: fit-content;
+    /* min-height: fit-content; */
     margin: 0 auto;
+    margin-bottom:2rem;
     width: 60%;
     padding: 36px;
     margin-top: 20px; /* Espaço adicional na parte superior */
@@ -214,6 +210,10 @@ export const Forms = styled.form`
         object-fit: none;
         width: 0;
         min-width: 17rem; 
+        @media (max-width: 400px) {
+            position:relative;
+            left:-12.5%;
+        }
     }
 
     & img.mini_logo{ // A cor ta meio fraca
@@ -228,7 +228,7 @@ export const Forms = styled.form`
             display:none;
         }
     }
-    & h1{ //O G dessa fonte está diferente da letra G do figma, qual fonte usar?
+    & h1{
         color: #D2D2D2;
         font-size:3rem;
         height:fit-content;
@@ -290,6 +290,7 @@ export const Forms = styled.form`
     }
     @media (max-width: 810px), (max-height:510px) {
         height:fit-content;
+        padding:0;
     }
 `
 
@@ -324,6 +325,7 @@ export const OtherLinks = styled.div`
         & img{
             position:relative;
             margin-right:8px;
+            margin-left:8px;
             transform:translateY(-15%)
         }
         & p {
@@ -331,6 +333,7 @@ export const OtherLinks = styled.div`
             position: relative;
             justify-content: center;
             margin: 0;
+            margin-right:8px;
             align-self:center;
         }
     }
@@ -348,11 +351,6 @@ export const OtherLinks = styled.div`
             color:#9C9C9C;
             width:auto;
             padding:1rem;
-        & p {
-            @media (max-width: 810px), (max-height:510px) {
-                transform:translateY(-20%)
-            }
-        }
     }
 }   
 `
