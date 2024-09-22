@@ -83,7 +83,7 @@ const LoginScreen = () => {
 
                             </div>
                             <div>
-                                <a href="" >Esqueceu sua senha?</a>
+                                <a href="" onClick={() => {navigate("/ForgotPassword")}}>Esqueceu sua senha?</a>
                                 <button>Login</button>
                             </div>
                         </Forms>

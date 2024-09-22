@@ -54,7 +54,7 @@ export const RightSide = styled.div`
     border-radius: 0 50px 50px 0;
     margin: 0;
     background-color:unset;
-    @media (max-width: 810px) {
+    @media (max-width: 1077px) {
         display:none;
         border-radius: 0;
     }

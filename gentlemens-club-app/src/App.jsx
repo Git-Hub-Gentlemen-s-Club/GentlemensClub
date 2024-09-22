@@ -12,6 +12,7 @@ import Pagination from "./components/Pagination"; // Importando o componente Pag
 import InformationCard from "./components/InformationCard"; // Importando o componente InformationCard
 import LoginScreen from "./components/LoginScreen"; // Tela de login
 import Subscribe from './components/Subscribe';
+import ForgotPassword from "./components/ForgotPassword";
 import './App.css';
 import BarberShopSelected from "./components/BarberShopSelected";
 import { Route, Routes } from "react-router-dom"; // Removendo comentários desnecessários
@@ -66,6 +67,7 @@ function App() {
                 </>}/>
                 <Route path="/Subscribe" element={<Subscribe/>}/>
                 <Route path="/Login" element={<LoginScreen/>}/>
+                <Route path="/ForgotPassword" element={<ForgotPassword/>}/>
             </Routes>
             
         </>
