@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
-// import Slider from 'react-slick';
 import {
     Background,
     Container,
@@ -84,7 +83,7 @@ const LoginScreen = () => {
 
                             </div>
                             <div>
-                                <a href="#">Esqueceu sua senha?</a>
+                                <a href="" >Esqueceu sua senha?</a>
                                 <button>Login</button>
                             </div>
                         </Forms>
