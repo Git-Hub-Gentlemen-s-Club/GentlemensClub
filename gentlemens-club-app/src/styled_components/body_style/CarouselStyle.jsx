@@ -3,8 +3,12 @@ import styled from 'styled-components';
 export const CarouselContainer = styled.div`
   margin: 20px auto;
   width: 100%; /* Ajuste a largura para ocupar toda a tela */
-  max-width: 1200px; /* Limite a largura máxima */
+  max-width: 75%; /* Limite a largura máxima */
   position: relative; /* Adicione esta propriedade para ajustar a posição dos botões */
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
   
   .slick-prev, .slick-next {
     z-index: 1;
@@ -22,6 +26,10 @@ export const CarouselContainer = styled.div`
     top: 50%; /* Centraliza verticalmente */
     transform: translateY(-50%); /* Corrige o alinhamento vertical */
     border: 2px solid #fff; /* Adiciona o contorno branco */
+
+    @media (max-width: 768px) {
+    padding: 10px;
+    }
   }
 
   .slick-prev {
@@ -59,7 +67,6 @@ export const StyledBarberCard = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between; /* Garante que os elementos sejam distribuídos ao longo do card */
-  height: 350px; /* Aumenta a altura do card para acomodar a etiqueta destaque */
 
   img {
     width: 100%;
@@ -95,7 +102,7 @@ export const StyledBarberCard = styled.div`
     .rating-number {
       font-size: 1rem; /* Ajusta o tamanho da nota para ficar proporcional */
       font-weight: bold;
-      margin: 7px 40px; /* Adiciona margin de 7px para cima e para baixo e 40px para a direita */
+      margin: 7px 4px; /* Adiciona margin de 7px para cima e para baixo e 40px para a direita */
     }
 
     div {
@@ -106,7 +113,6 @@ export const StyledBarberCard = styled.div`
   .highlight-section {
     position: absolute;
     bottom: 15px; /* Alinha no fundo do card */
-    left: 15px; /* Alinha ao lado esquerdo */
     display: flex;
     align-items: center;
     background-color: #ce9c39; /* Cor de fundo da etiqueta "Destaque" */
@@ -118,7 +124,7 @@ export const StyledBarberCard = styled.div`
     z-index: 2; /* Garante que fique sobre a imagem */
     
     .highlight-text {
-      margin-right: 10px; /* Espaço entre o texto e o ícone */
+      margin-right: 16px; /* Espaço entre o texto e o ícone */
     }
 
     .highlight-icon {
@@ -130,9 +136,11 @@ export const StyledBarberCard = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-top: 10px;
     margin-bottom: 10px; /* Espaço entre o nome da barbearia e o endereço */
 
     .name {
+      font-family: 'Rye', sans-serif;
       font-size: 1.2rem;
       color: #B58934;
     }

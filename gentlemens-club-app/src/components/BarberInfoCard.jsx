@@ -27,7 +27,8 @@ import {
   Separator,
   BarberPoleImage,
   ServiceDetails,
-  ServiceContainer
+  ServiceContainer,
+  ContainerReservationButton
 } from '../styled_components/body_style/BarberInfoCardStyle';
 import { faHeart, faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -93,10 +94,10 @@ const BarberInfoCard = () => {
                     <ServicePrice>R${service.price}</ServicePrice>
                     <ServiceDuration>{service.duration}</ServiceDuration>
                   </ServiceDetails>
-                  <div className="reservation-container">
+                  <ContainerReservationButton>
                     <ReservationButton>Reservar</ReservationButton>
                     <BarberPoleImage src={barberPole} alt="Barber Pole" />
-                  </div>
+                  </ContainerReservationButton>
                 </ServiceContainer>
               </ReservationRow>
               <Separator />
