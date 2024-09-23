@@ -1,6 +1,7 @@
+
 import React, { useState } from "react";
 import GlobalStyle from "./styled_components/GlobalStyle";
-import Header from "./components/Header";
+import Header from "./components/header_components/Header";
 import BarberCarousel from "./components/BarberCarousel";
 import LocationHeader from "./components/LocationHeader";
 import Footer from "./components/Footer";
@@ -9,9 +10,11 @@ import FiltersButton from "./components/FiltersButton";
 import SortButton from "./components/SortButton";
 import Pagination from "./components/Pagination"; // Importando o componente Pagination
 import InformationCard from "./components/InformationCard"; // Importando o componente InformationCard
-import BarberShopSelected from "./components/BarberShopSelected"
-import './App.css'; // Incluindo os estilos atualizados
-/* import BarberShopSelected from "./components/BarberShopSelected"; */
+import LoginScreen from "./components/LoginScreen"; // Tela de login
+import Subscribe from './components/Subscribe';
+import './App.css';
+import BarberShopSelected from "./components/BarberShopSelected";
+import { Route, Routes } from "react-router-dom"; // Removendo comentários desnecessários
 
 function App() {
     const city = "Itapecerica da Serra";
@@ -37,8 +40,10 @@ function App() {
     return (
         <>
             <GlobalStyle />
-            <BarberShopSelected />
-            {/* <Header />
+            <Routes>
+                <Route path="/BarbeariaSelecionada" element={<BarberShopSelected/>}/>
+                <Route path="/" element={<>
+                    <Header />
             <div className="container">
                 <LocationHeader city={city} />
                 <div className="carousel-wrapper">
@@ -56,8 +61,13 @@ function App() {
                 <BarberInfoCard barberData={barberData} /> 
             </div>
             <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
-            <InformationCard city={city} />  */}
+            <InformationCard city={city} />  
             <Footer />
+                </>}/>
+                <Route path="/Subscribe" element={<Subscribe/>}/>
+                <Route path="/Login" element={<LoginScreen/>}/>
+            </Routes>
+            
         </>
     );
 }

@@ -1,12 +1,10 @@
 import React from "react";
 
-import {HeaderContainer, HeaderWrapper, ImageContainer, Image} from "../styled_components/home/header/HeaderStyle";
+//Importa os componentes estilizados do header
+import {HeaderContainer, HeaderWrapper, ImageContainer, Image} from "../../styled_components/header_style/HeaderStyle";
 
-/* import { Nav } from "../styled_components/home/header/NavBarStyle"; */
-
+//Importa o componente de nav bar
 import NavBar from "./NavBar";
-
-/* import BurgerMenu from "./BurgerMenu"; */
 
 import logo from '/src/assets/LogoGentlemensClub.png';
 
@@ -14,7 +12,7 @@ function Header() {
     return (
         <HeaderContainer>
             <ImageContainer>
-                    <Image src={logo} alt="Logo do Gentlemens Club" />
+                    {/* <Image src={logo} alt="Logo do Gentlemens Club" /> */}
             </ImageContainer>
             <HeaderWrapper>
                 <NavBar/>

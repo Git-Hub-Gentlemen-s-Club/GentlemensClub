@@ -56,7 +56,7 @@ const ImgDiv = styled.div`
 
     button{
         background-color: #B58934;
-        width: 30%;
+        width: 20%;
         height: 2.5rem;
         border: none;
         border-radius: 5px;
@@ -138,7 +138,7 @@ const BarberShopImgDiv = styled.div`
 `
 const LogoBarbershopPrincipal = styled.img`
     width: 100%;
-    height: 30rem;
+    height: 45rem;
     border-radius: 5px;
 `
 const Avaliation = styled.div`
