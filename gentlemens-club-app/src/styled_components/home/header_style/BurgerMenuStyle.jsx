@@ -9,7 +9,7 @@ const BurgerMenuStyle = styled.div`
     z-index: 3;
     display: none;
 
-    @media only screen and (max-width: 850px) {
+    @media only screen and (max-width: 1166px) {
         display: flex;
         justify-content: space-around;
         flex-flow: column nowrap;

@@ -2,14 +2,14 @@
 import React, { useState } from "react";
 import GlobalStyle from "./styled_components/GlobalStyle";
 import Header from "./components/home/header_components/Header";
-import BarberCarousel from "./components/home/body/BarberCarousel";
-import LocationHeader from "./components/home/body/LocationHeader";
+import BarberCarousel from "./components/home/body_components/BarberCarousel";
+import LocationHeader from "./components/home/body_components/LocationHeader";
 import Footer from "./components/Footer";
-import BarberInfoCard from "./components/home/body/BarberInfoCard";
-import FiltersButton from "./components/home/body/FiltersButton";
-import SortButton from "./components/home/body/SortButton";
-import Pagination from "./components/home/body/Pagination"; // Importando o componente Pagination
-import InformationCard from "./components/home/body/InformationCard"; // Importando o componente InformationCard
+import BarberInfoCard from "./components/home/body_components/BarberInfoCard";
+import FiltersButton from "./components/home/body_components/FiltersButton";
+import SortButton from "./components/home/body_components/SortButton";
+import Pagination from "./components/home/body_components/Pagination"; // Importando o componente Pagination
+import InformationCard from "./components/home/body_components/InformationCard"; // Importando o componente InformationCard
 import LoginScreen from "./components/LoginScreen"; // Tela de login
 import Subscribe from './components/Subscribe';
 import './App.css';

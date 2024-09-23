@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const NavContainer = styled.div`
     background-color: #161718;
-    @media only screen and (max-width: 850px) {
+    max-width: 100%;
+    @media only screen and (max-width: 1166px) {
         position: fixed;
         transform: ${({open}) => open ? "translateX(0)" : "translateX(100%)"};
         top: 0;
@@ -26,7 +27,7 @@ export const NavList = styled.ul`
     padding: 0;
     flex-flow: row nowrap;
     font-family: Rye;
-    @media only screen and (max-width: 850px) {
+    @media only screen and (max-width: 1166px) {
         flex-flow: column nowrap;
         justify-content: flex-end;
         background-color: #161718;
@@ -37,7 +38,7 @@ export const NavInputs = styled.div`
     display: grid;
     grid-template-columns: 3fr 3fr 3fr 2.3fr 0.5fr 0.5fr;
     grid-gap: 1em;
-    @media only screen and (max-width: 850px) {
+    @media only screen and (max-width: 1166px) {
         grid-template-columns: 1fr;
     }
 `;

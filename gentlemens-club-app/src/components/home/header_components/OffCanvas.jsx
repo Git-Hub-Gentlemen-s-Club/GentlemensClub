@@ -71,7 +71,10 @@ function OffCanvas({ open }) {
                     <Link href="">Sobrancelhas & Cílios</Link>
                 </li>
                 <li>
-                    <Link href="">Agendamentos</Link>
+                    <Link href="">Tratamentos Capilares</Link>
+                </li>
+                <li>
+                    <Link href="">Alisamento</Link>
                 </li>
                 <li>
                     <Link href="">Mais...</Link>
