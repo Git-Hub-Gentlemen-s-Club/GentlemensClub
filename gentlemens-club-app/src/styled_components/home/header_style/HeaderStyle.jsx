@@ -25,10 +25,7 @@ export const ImageContainer = styled.div`
 `;
 
 
-export const Image = styled.img`
-    width: 125px;
-    height: 125px;
-`;
+
 
 /* export const Nav = styled.nav`
     display: flex;

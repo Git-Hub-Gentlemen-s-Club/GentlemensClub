@@ -25,6 +25,7 @@ export const NavList = styled.ul`
     margin-top: 2em;
     padding: 0;
     flex-flow: row nowrap;
+    font-family: Rye;
     @media only screen and (max-width: 850px) {
         flex-flow: column nowrap;
         justify-content: flex-end;
