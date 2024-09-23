@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import GlobalStyle from "./styled_components/GlobalStyle";
 import Header from "./components/header_components/Header";
@@ -10,8 +11,10 @@ import SortButton from "./components/SortButton";
 import Pagination from "./components/Pagination"; // Importando o componente Pagination
 import InformationCard from "./components/InformationCard"; // Importando o componente InformationCard
 import LoginScreen from "./components/LoginScreen"; // Tela de login
-// import Subscribe from './components/Subscribe';
-import './App.css'; // Incluindo os estilos atualizados
+import Subscribe from './components/Subscribe';
+import ForgotPassword from "./components/ForgotPassword";
+import './App.css';
+import BarberShopSelected from "./components/BarberShopSelected";
 import { Route, Routes } from "react-router-dom"; // Removendo comentários desnecessários
 
 function App() {
@@ -39,29 +42,34 @@ function App() {
         <>
             <GlobalStyle />
             <Routes>
-                <Route path="/Login" element={<LoginScreen />} />
-                <Route path="/" element={
-                    <>
-                        <Header />
-                        <div className="container">
-                            <LocationHeader city={city} />
-                            <div className="carousel-wrapper">
-                                <div className="buttons-container">
-                                    <FiltersButton />
-                                    <SortButton />
-                                </div>
-                                <BarberCarousel />
-                            </div>
-                            {[...Array(6)].map((_, index) => (
-                                <BarberInfoCard key={index} barberData={barberData} />
-                            ))}
-                        </div>
-                        <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
-                        <InformationCard city={city} /> {/* Adicionando o componente InformationCard */}
-                        <Footer />
-                    </>
-                } />
+                <Route path="/BarbeariaSelecionada" element={<BarberShopSelected/>}/>
+                <Route path="/" element={<>
+                    <Header />
+            <div className="container">
+                <LocationHeader city={city} />
+                <div className="carousel-wrapper">
+                    <div className="buttons-container">
+                        <FiltersButton />
+                        <SortButton />
+                    </div>
+                    <BarberCarousel />
+                </div>
+                <BarberInfoCard barberData={barberData} /> 
+                <BarberInfoCard barberData={barberData} /> 
+                <BarberInfoCard barberData={barberData} /> 
+                <BarberInfoCard barberData={barberData} />
+                <BarberInfoCard barberData={barberData} /> 
+                <BarberInfoCard barberData={barberData} /> 
+            </div>
+            <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
+            <InformationCard city={city} /> 
+            <Footer />
+                </>}/>
+                <Route path="/Subscribe" element={<Subscribe/>}/>
+                <Route path="/Login" element={<LoginScreen/>}/>
+                <Route path="/ForgotPassword" element={<ForgotPassword/>}/>
             </Routes>
+            
         </>
     );
 }

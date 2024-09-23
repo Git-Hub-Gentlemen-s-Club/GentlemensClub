@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+// Subscribe.jsx
+import React, { useState, useCallback } from 'react';
 import Select from 'react-select';
 import Slider from 'react-slick';
 import {
@@ -18,14 +19,22 @@ const quotes = [
   { text: '“Estilo para homens de bom gosto.”', author: "— Gentlemen's Club" }
 ];
 
+const PasswordInput = ({ showPassword, togglePasswordVisibility }) => (
+  <InputContainer>
+    <Icon as={FaLock} />
+    <Input type={showPassword ? 'text' : 'password'} placeholder="Senha" />
+    <Icon as={showPassword ? FaEyeSlash : FaEye} onClick={togglePasswordVisibility} style={{ cursor: 'pointer', marginLeft: '10px' }} />
+  </InputContainer>
+);
+
 const Subscribe = () => {
   const [selectedGender, setSelectedGender] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [currentQuote, setCurrentQuote] = useState(0);
 
-  const togglePasswordVisibility = () => {
+  const togglePasswordVisibility = useCallback(() => {
     setShowPassword(prevState => !prevState);
-  };
+  }, []);
 
   const settings = {
     dots: false,
@@ -42,7 +51,7 @@ const Subscribe = () => {
       <Container>
         <LeftSection>
           <LogoContainer>
-            <img src="/src/assets/img/mini_logo.png" alt="Logo G" />
+            <img src="/src/assets/img/mini_logo.png" alt="Logo Gentlemen's Club" />
           </LogoContainer>
 
           <Title>Bem Vindo!</Title>
@@ -63,18 +72,7 @@ const Subscribe = () => {
             <Input type="email" placeholder="E-mail" />
           </InputContainer>
 
-          <InputContainer>
-            <Icon as={FaLock} />
-            <Input
-              type={showPassword ? 'text' : 'password'}
-              placeholder="Senha"
-            />
-            <Icon
-              as={showPassword ? FaEyeSlash : FaEye}
-              onClick={togglePasswordVisibility}
-              style={{ cursor: 'pointer', marginLeft: '10px' }}
-            />
-          </InputContainer>
+          <PasswordInput showPassword={showPassword} togglePasswordVisibility={togglePasswordVisibility} />
 
           <Label>Data de nascimento:</Label>
           <DateOfBirthContainer>
@@ -112,19 +110,19 @@ const Subscribe = () => {
         <RightSection>
           <CarouselContainer>
             <Slider {...settings}>
-              <div><img src="/src/assets/subscribe/imgCarousel1.jpg" alt="Imagem 1" /></div>
-              <div><img src="/src/assets/subscribe/imgCarousel2.jpg" alt="Imagem 2" /></div>
-              <div><img src="/src/assets/subscribe/imgCarousel3.jpg" alt="Imagem 3" /></div>
+              <div><img src="/src/assets/subscribe/imgCarousel1.jpg" alt="Imagem 1 do Carrossel" /></div>
+              <div><img src="/src/assets/subscribe/imgCarousel2.jpg" alt="Imagem 2 do Carrossel" /></div>
+              <div><img src="/src/assets/subscribe/imgCarousel3.jpg" alt="Imagem 3 do Carrossel" /></div>
             </Slider>
             <QuoteContainer>
               <QuoteText>{quotes[currentQuote].text}</QuoteText>
               <QuoteAuthor>{quotes[currentQuote].author}</QuoteAuthor>
-              <DotsContainer>
+            </QuoteContainer>
+            <DotsContainer>
                 {quotes.map((_, index) => (
                   <Dot key={index} className={currentQuote === index ? 'active' : ''} />
                 ))}
               </DotsContainer>
-            </QuoteContainer>
           </CarouselContainer>
         </RightSection>
       </Container>
