@@ -15,7 +15,10 @@ import equipe3 from '../assets/barbearia/equipe3.png'
 import { faHeart, faShareFromSquare } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FaGift, FaPaperPlane, FaShieldVirus } from 'react-icons/fa';
+import { FaCircleCheck, FaRegFlag } from "react-icons/fa6";
 import { IoIosInformationCircleOutline, IoIosSearch, IoIosPhonePortrait } from "react-icons/io";
+import { BiLike, BiDislike } from "react-icons/bi";
+
 
 
 import styled from "styled-components"
@@ -551,6 +554,63 @@ const NossoTrabalho = styled.div`
     }
 `;
 
+const ReviewContainer = styled.div`
+  border-bottom: 1px solid #ccc;
+  padding: 16px;
+  margin: 16px 0;
+  color: white;
+`;
+
+const ServiceTitle = styled.h3`
+  margin: 0 0 8px 0;
+`;
+
+const Barber = styled.p`
+  margin: 4px 0;
+`;
+
+const Rating = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const Star = styled.span`
+  color: ${props => (props.filled ? '#B58934' : '#ccc')};
+  margin-right: 4px;
+`;
+
+const Comment = styled.p`
+  margin: 8px 0;
+`;
+
+const User = styled.p`
+  margin: 4px 0;
+`;
+
+const Date = styled.p`
+  margin: 4px 0;
+  font-size: 0.9em;
+  color: #666;
+`;
+
+const Like = styled.button`
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 10px;
+    color: white;
+    background-color: transparent;
+    display: flex;
+    gap: 0.5rem;
+`
+const Report = styled.button`
+    border: none;
+    background-color:#B58934;
+    display: flex;
+    gap: 0.5rem;
+    padding: 10px 5px;
+    border-radius: 20px;
+`
+
 const response = {
     name: "Barbearia JH",
     address: "773 m • Avenida XV de Novembro, 408, 06850-100, Itapecerica da Serra",
@@ -569,7 +629,7 @@ const response = {
     location: "Localização do estabelicimento",
     socialLinks: {
         facebook: 'link',
-        xuitter: 'link',
+        xuitter: '',
         instagram: 'link'
     },
     reviews: {
@@ -579,7 +639,42 @@ const response = {
         fourStars: 3,
         threeStars: 0,
         twoStars: 0,
-        oneStars: 0
+        oneStars: 0,
+        reviews: [
+            {
+                id: "0000",
+                rate: 5,
+                service: "Corte de cabelo (Moderno e clássico)",
+                barber: "Rafael Santos",
+                review: "Excelente Atendimento",
+                user: "Henrique M",
+                date: "ago 10, 2024",
+                like: 0,
+                deslike: 0
+            },
+            {
+                id: "0001",
+                rate: 5,
+                service: "Corte Infantil (2 aos 10 ) idade",
+                barber: "Rafael Santos",
+                review: "Simplesmente o melhor",
+                user: "Kelly M",
+                date: "jul 24, 2024",
+                like: 0,
+                deslike: 0
+            },
+            {
+                id: "0002",
+                rate: 5,
+                service: "Corte + barba ( barba S/toalha e cabelo S/lavagem)",
+                barber: "Rafael Santos",
+                review: "Sempre superando expectativas",
+                user: "Henrique M",
+                date: "jun 28, 2024",
+                like: 0,
+                deslike: 0
+            },
+        ]
     },
     services: {
         "Serviços Populares": [
@@ -625,7 +720,17 @@ const response = {
             },
         ],
     },
+    commodities: {
+        creditCard: true,
+        wifi: true,
+    }
 }
+
+const renderStars = (rate) => {
+    return Array.from({ length: 5 }, (_, index) => (
+        <Star key={index} filled={index < rate}>★</Star>
+    ));
+};
 
 const BarberShopSelected = () => {
     const [activeIndex, setActiveIndex] = useState(null);
@@ -762,6 +867,31 @@ const BarberShopSelected = () => {
                         </div>
                         <button>VEJA TODOS</button>
                     </NossoTrabalho>
+                    <div>
+                        {response.reviews.reviews.map((review) => (
+                            <ReviewContainer key={review.id}>
+                                <Rating>
+                                    {renderStars(review.rate)}
+                                </Rating>
+                                <ServiceTitle>{review.service}</ServiceTitle>
+                                <Barber>por {review.barber}</Barber>
+                                <Comment>{review.review}</Comment>
+                                <User>{review.user}</User>
+                                <Date>{review.date} <FaCircleCheck /></Date>
+                                <div>
+                                    <Like>
+                                        <BiLike />
+                                        {review.like}
+                                    </Like>
+                                    <Like>
+                                        <BiDislike />
+                                        {review.like}
+                                    </Like>
+                                </div>
+                                <Report>Reportar <FaRegFlag /></Report>
+                            </ReviewContainer>
+                        ))}
+                    </div>
                 </Section>
                 <Aside>
                     <AsideGiftCard>
