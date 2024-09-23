@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-import BurgerMenuStyle from "../../styled_components/header_style/BurgerMenuStyle";
+import BurgerMenuStyle from "../../../styled_components/home/header_style/BurgerMenuStyle";
 
 import OffCanvas from "./OffCanvas";
 

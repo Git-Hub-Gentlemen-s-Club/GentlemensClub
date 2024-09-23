@@ -1,7 +1,7 @@
 import React from "react";
 
 //Importa os componentes estilizados do header
-import {HeaderContainer, HeaderWrapper, ImageContainer, Image} from "../../styled_components/header_style/HeaderStyle";
+import {HeaderContainer, HeaderWrapper, ImageContainer, Image} from "../../../styled_components/home/header_style/HeaderStyle";
 
 //Importa o componente de nav bar
 import NavBar from "./NavBar";

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyledBarberCard, BarberAddress, BarberRating } from '../styled_components/body_style/CarouselStyle';
+import { StyledBarberCard, BarberAddress, BarberRating } from '../../../styled_components/home/body_style/CarouselStyle';
 import { FaExclamationCircle, FaHeart } from 'react-icons/fa'; // Importando o ícone de coração
 import { useNavigate } from 'react-router-dom';
 

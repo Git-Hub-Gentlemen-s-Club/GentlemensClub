@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { FiltersButtonContainer, IconWrapper, AccordionContainer, AccordionContent, FilterOptions, FilterOption, ButtonContainer } from '../styled_components/body_style/FiltersButtonStyle';
+import { FiltersButtonContainer, IconWrapper, AccordionContainer, AccordionContent, FilterOptions, FilterOption, ButtonContainer } from '../../../styled_components/home/body_style/FiltersButtonStyle';
 import { FaFilter, FaTag, FaMobileAlt, FaGlobe } from 'react-icons/fa';
 
 const FiltersButton = () => {

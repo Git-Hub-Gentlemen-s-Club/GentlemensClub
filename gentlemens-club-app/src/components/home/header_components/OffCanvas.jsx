@@ -1,8 +1,8 @@
 import { FaSearch, FaMapMarkerAlt, FaStopwatch, FaRegUserCircle } from "react-icons/fa";
 
-import {NavInputs, NavList, NavContainer} from "../../styled_components/header_style/NavBarStyle";
+import {NavInputs, NavList, NavContainer} from "../../../styled_components/home/header_style/NavBarStyle";
 
-import {Link, LoginSignUp, Input, InputWrapper, Select, LoginWrapper, DarkModeInput, Options} from "../../styled_components/header_style/HeaderStyle";
+import {Link, LoginSignUp, Input, InputWrapper, Select, LoginWrapper, DarkModeInput, Options} from "../../../styled_components/home/header_style/HeaderStyle";
 
 import { useNavigate } from "react-router-dom";
 
