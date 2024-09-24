@@ -14,12 +14,14 @@ import equipe3 from '../../assets/barbearia/equipe3.png'
 
 import { faHeart, faShareFromSquare } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { FaGift, FaPaperPlane, FaShieldVirus } from 'react-icons/fa';
-import { FaCircleCheck, FaRegFlag } from "react-icons/fa6";
+import { FaGift, FaPaperPlane, FaShieldVirus, FaWifi, FaStar } from 'react-icons/fa';
+import { FaCircleCheck, FaRegFlag, FaRegCreditCard } from "react-icons/fa6";
 import { IoIosInformationCircleOutline, IoIosSearch, IoIosPhonePortrait } from "react-icons/io";
 import { BiLike, BiDislike } from "react-icons/bi";
 
-import {BarberShop, Header, LogoDiv, HeaderDiv, ImgDiv, ImgEnderecoDiv, DivIcons, LogoImg, LogoBarbershop, LinkDiv, Link, Body, Section, BarberShopImgDiv, LogoBarbershopPrincipal, Avaliation, BarberShopEnderecoDiv, NameDiv, DivIconsII, DestaqueDiv, BuscaDiv, ServicosDiv, Aside, AsideGiftCard, AsideIframe, MembrosEquipe, TeamMember, TeamImage, TeamName, ContatoAside, OpeningHoursContainer, Day, DayName, Hours, CardMap, Accordion, Panel, DivKeyPanel, DivButton, DivPanel, RegrasSaude, NossoTrabalho, ReviewContainer, ServiceTitle, Barber, Rating, Star, Comment, User, Date, Like, Report} from "../../styled_components/barbershop_selected/BarberShopSelectedStyle";
+import { BarberShop, Header, LogoDiv, HeaderDiv, ImgDiv, ImgEnderecoDiv, DivIcons, LogoImg, LogoBarbershop, LinkDiv, Link, Body, Section, BarberShopImgDiv, LogoBarbershopPrincipal, Avaliation, BarberShopEnderecoDiv, NameDiv, DivIconsII, DestaqueDiv, BuscaDiv, ServicosDiv, Aside, AsideGiftCard, AsideIframe, MembrosEquipe, TeamMember, TeamImage, TeamName, ContatoAside, OpeningHoursContainer, Day, DayName, Hours, CardMap, Accordion, Panel, DivKeyPanel, DivButton, DivPanel, RegrasSaude, NossoTrabalho, ReviewContainer, ServiceTitle, Barber, Rating, Star, Comment, User, Date, Like, Report, Commodities, Reviews, RateDiv, Hrdiv, RateDivRate, ReviewsText } from "../../styled_components/barbershop_selected/BarberShopSelectedStyle";
+import Pagination from '../home/body_components/Pagination';
+
 
 const response = {
     name: "Barbearia JH",
@@ -277,6 +279,68 @@ const BarberShopSelected = () => {
                         </div>
                         <button>VEJA TODOS</button>
                     </NossoTrabalho>
+                    <Commodities>
+                        <h2>Comodidades</h2>
+                        {response.commodities.wifi &&
+                            <div>
+                                <FaWifi style={{ color: '#B58934', height: '1.3rem', width: '1.8rem' }} />
+                                <h4>Wi-Fi</h4>
+                            </div>}
+                        {response.commodities.creditCard &&
+                            <div>
+                                <FaRegCreditCard style={{ color: '#B58934', height: '1.3rem', width: '1.8rem' }} />
+                                <h4>Pagamento com cartão de crédito</h4>
+                            </div>}
+                    </Commodities>
+                    <Reviews>
+                        <ReviewsText>
+                            <h2>Avaliações</h2>
+                            <p>O Gentleman's Club garante que as avaliações com a tag "Verificado pelo
+                                Gentleman's" foram adicionadas por usuários registrados que
+                                tiveram um agendamento com o provedor. Um usuário registrado no
+                                tem a oportunidade de adicionar uma avaliação apenas
+                                depois que o serviço foi prestado.</p>
+                        </ReviewsText>
+                        <RateDiv>
+                            <RateDivRate>
+                                <h2>{response.reviews.rate.toFixed(1)}<span>/5</span></h2>
+                                {renderStars(response.reviews.rate)}
+                                <p>Com base em {response.reviews.total} avaliações</p>
+                            </RateDivRate>
+                            <Hrdiv>
+                                <div>
+                                    <FaStar style={{ color: '#B58934', height: '1.5rem', width: '1.8rem' }} />
+                                    <p>5</p>
+                                    <div style={{ border: "1px solid #B58934", width: "100%", height: 1 }}></div>
+                                    <span>{response.reviews.fiveStars}</span>
+                                </div>
+                                <div>
+                                    <FaStar style={{ color: '#B58934', height: '1.3rem', width: '1.8rem' }} />
+                                    <p>4</p>
+                                    <div style={{ border: "1px solid white", width: "100%", height: 1 }}></div>
+                                    <span>{response.reviews.fourStars}</span>
+                                </div>
+                                <div>
+                                    <FaStar style={{ color: '#B58934', height: '1.3rem', width: '1.8rem' }} />
+                                    <p>3</p>
+                                    <div style={{ border: "1px solid white", width: "100%", height: 1 }}></div>
+                                    <span>{response.reviews.threeStars}</span>
+                                </div>
+                                <div>
+                                    <FaStar style={{ color: '#B58934', height: '1.3rem', width: '1.8rem' }} />
+                                    <p>2</p>
+                                    <div style={{ border: "1px solid white", width: "100%", height: 1 }}></div>
+                                    <span>{response.reviews.twoStars}</span>
+                                </div>
+                                <div>
+                                    <FaStar style={{ color: '#B58934', height: '1.3rem', width: '1.8rem' }} />
+                                    <p>1</p>
+                                    <div style={{ border: "1px solid white", width: "100%", height: 1 }}></div>
+                                    <span>{response.reviews.oneStars}</span>
+                                </div>
+                            </Hrdiv>
+                        </RateDiv>
+                    </Reviews>
                     <div>
                         {response.reviews.reviews.map((review) => (
                             <ReviewContainer key={review.id}>
@@ -302,6 +366,7 @@ const BarberShopSelected = () => {
                             </ReviewContainer>
                         ))}
                     </div>
+                    <Pagination />
                 </Section>
                 <Aside>
                     <AsideGiftCard>

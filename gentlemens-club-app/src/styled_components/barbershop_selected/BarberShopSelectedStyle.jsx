@@ -587,3 +587,66 @@ export const Report = styled.button`
     padding: 10px 5px;
     border-radius: 20px;
 `;
+
+export const Commodities = styled.div`
+    color: white;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    h2{
+        color:#B58934 ;
+        width: 100%;
+    }
+    div{
+        display: flex;
+        flex-direction: row;
+        width: 50%;
+        gap: 1rem;
+        align-items: center;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+`
+
+export const Reviews = styled.div`
+    color: white;
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+`
+
+export const ReviewsText = styled.div`
+    width: 50%;
+`
+
+export const RateDiv = styled.div`
+    display: flex;
+    flex-direction: row;
+    border: 1px solid white;
+    border-radius: 10px;
+    text-align: center;
+    align-items: center;
+`
+export const RateDivRate = styled.div`
+    width: 30%;
+    padding: 1rem;
+`
+
+export const Hrdiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid #B58934;
+    height: 100%;
+    width: 75%;
+    justify-content: center;
+    padding: 1rem;
+
+    div{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        align-items: center;
+        gap: 1.5rem;
+    }
+`
