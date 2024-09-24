@@ -1,31 +1,27 @@
 package entities;
 
-
 import jakarta.persistence.*;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.Instant;
-import java.util.UUID;
-
-@AllArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
-@Entity
-@Table(name = "Usuario_Identificador")
-public class UserVerifier {
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity(name = "FILIAL")
+public class Branches {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private UUID uuid;
-
-    @Column(nullable = false)
-    private Instant verifiedAt;
+    private String name;
+    private boolean status;
 
     @ManyToOne
     @JoinColumn(name = "id_usuario", referencedColumnName = "id", unique = true)
-    private User user;
+    private User user_barber;
+
 }
