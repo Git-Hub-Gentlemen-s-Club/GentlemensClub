@@ -543,16 +543,50 @@ export const ReviewContainer = styled.div`
   margin: 16px 0;
   color: white;
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
 `;
 export const ReviewContainerRating = styled.div`
-    
+    width: 70%;
 `
+export const ReviewContainerUser = styled.div`
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: baseline;
+    justify-content: flex-end;
+
+    span{
+        font-size: 2rem;
+    }
+`
+export const ReviewContainerLike = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 1rem;
+
+    div{
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+    }
+`
+
 export const ServiceTitle = styled.h3`
   margin: 0 0 8px 0;
+  font-weight: 400;
+  font-size: 0.8rem;
 `;
 
 export const Barber = styled.p`
   margin: 4px 0;
+  font-weight: 400;
+  font-size: 0.8rem;
+  padding-bottom: 2rem;
 `;
 
 export const Rating = styled.div`
@@ -568,26 +602,26 @@ export const Star = styled.span`
 
 export const Comment = styled.p`
   margin: 8px 0;
+  width: 100%;
 `;
 
 export const User = styled.p`
-  margin: 4px 0;
+  font-size: 0.8rem;
 `;
 
 export const Date = styled.p`
-  margin: 4px 0;
-  font-size: 0.9em;
-  color: #666;
+  font-size: 0.8rem;
 `;
 
 export const Like = styled.button`
     border: 1px solid white;
-    border-radius: 10px;
-    padding: 10px;
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
     color: white;
     background-color: transparent;
     display: flex;
-    gap: 0.5rem;
+    gap: 1rem;
+    align-items: center;
 `
 export const Report = styled.button`
     border: none;
@@ -596,6 +630,7 @@ export const Report = styled.button`
     gap: 0.5rem;
     padding: 10px 5px;
     border-radius: 20px;
+    align-items: center;
 `;
 
 export const Commodities = styled.div`
@@ -628,6 +663,7 @@ export const Reviews = styled.div`
     color: white;
     display: flex;
     flex-direction: row;
+    width: 100%;
     gap: 3rem;
 `
 
@@ -650,6 +686,7 @@ export const RateDiv = styled.div`
     border-radius: 10px;
     text-align: center;
     align-items: center;
+    width: 50%;
 `
 export const RateDivRate = styled.div`
     width: 40%;

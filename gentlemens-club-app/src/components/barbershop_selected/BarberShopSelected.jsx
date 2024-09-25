@@ -14,12 +14,13 @@ import equipe3 from '../../assets/barbearia/equipe3.png'
 
 import { faHeart, faShareFromSquare } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { FaGift, FaPaperPlane, FaShieldVirus, FaWifi, FaStar } from 'react-icons/fa';
+import { FaGift, FaPaperPlane, FaShieldVirus, FaWifi, FaStar, FaCar, FaGamepad, } from 'react-icons/fa';
 import { FaCircleCheck, FaRegFlag, FaRegCreditCard } from "react-icons/fa6";
 import { IoIosInformationCircleOutline, IoIosSearch, IoIosPhonePortrait } from "react-icons/io";
+import { IoBeer } from "react-icons/io5";
 import { BiLike, BiDislike } from "react-icons/bi";
 
-import { BarberShop, Header, LogoDiv, HeaderDiv, ImgDiv, ImgEnderecoDiv, DivIcons, LogoImg, LogoBarbershop, LinkDiv, Link, Body, Section, BarberShopImgDiv, LogoBarbershopPrincipal, Avaliation, BarberShopEnderecoDiv, NameDiv, DivIconsII, DestaqueDiv, BuscaDiv, ServicosDiv, Aside, AsideGiftCard, AsideIframe, MembrosEquipe, TeamMember, TeamImage, TeamName, ContatoAside, OpeningHoursContainer, Day, DayName, Hours, CardMap, Accordion, Panel, DivKeyPanel, DivButton, DivPanel, RegrasSaude, NossoTrabalho, ReviewContainer, ServiceTitle, Barber, Rating, Star, Comment, User, Date, Like, Report, Commodities, Reviews, RateDiv, Hrdiv, RateDivRate, ReviewsText, ReviewContainerRating } from "../../styled_components/barbershop_selected/BarberShopSelectedStyle";
+import { BarberShop, Header, LogoDiv, HeaderDiv, ImgDiv, ImgEnderecoDiv, DivIcons, LogoImg, LogoBarbershop, LinkDiv, Link, Body, Section, BarberShopImgDiv, LogoBarbershopPrincipal, Avaliation, BarberShopEnderecoDiv, NameDiv, DivIconsII, DestaqueDiv, BuscaDiv, ServicosDiv, Aside, AsideGiftCard, AsideIframe, MembrosEquipe, TeamMember, TeamImage, TeamName, ContatoAside, OpeningHoursContainer, Day, DayName, Hours, CardMap, Accordion, Panel, DivKeyPanel, DivButton, DivPanel, RegrasSaude, NossoTrabalho, ReviewContainer, ServiceTitle, Barber, Rating, Star, Comment, User, Date, Like, Report, Commodities, Reviews, RateDiv, Hrdiv, RateDivRate, ReviewsText, ReviewContainerRating, ReviewContainerUser, ReviewContainerLike } from "../../styled_components/barbershop_selected/BarberShopSelectedStyle";
 import Pagination from '../home/body_components/Pagination';
 
 
@@ -133,8 +134,11 @@ const response = {
         ],
     },
     commodities: {
-        creditCard: true,
+        creditCard: true, //NÃO EXISTE NO BANCO
         wifi: true,
+        estacionamento: true,
+        video_game: true,
+        bar: true,
     }
 }
 
@@ -291,6 +295,21 @@ const BarberShopSelected = () => {
                                 <FaRegCreditCard style={{ color: '#B58934', height: '1.3rem', width: '1.8rem' }} />
                                 <h4>Pagamento com cartão de crédito</h4>
                             </div>}
+                        {response.commodities.estacionamento &&
+                            <div>
+                                <FaCar style={{ color: '#B58934', height: '1.3rem', width: '1.8rem' }} />
+                                <h4>Estacionamento</h4>
+                            </div>}
+                        {response.commodities.video_game &&
+                            <div>
+                                <FaGamepad style={{ color: '#B58934', height: '1.3rem', width: '1.8rem' }} />
+                                <h4>VideoGame</h4>
+                            </div>}
+                        {response.commodities.bar &&
+                            <div>
+                                <IoBeer style={{ color: '#B58934', height: '1.3rem', width: '1.8rem' }} />
+                                <h4>Bar</h4>
+                            </div>}
                     </Commodities>
                     <Reviews>
                         <ReviewsText>
@@ -350,25 +369,25 @@ const BarberShopSelected = () => {
                                     </Rating>
                                     <ServiceTitle>{review.service}</ServiceTitle>
                                     <Barber>por {review.barber}</Barber>
-                                    <Comment>{review.review}</Comment>
                                 </ReviewContainerRating>
-                                <div>
-                                    <User>{review.user}</User>
-                                    <Date>{review.date} <FaCircleCheck /></Date>
-                                </div>
-                                <div>
+                                <ReviewContainerUser>
+                                    <User>{review.user} <span>.</span></User>
+                                    <Date>{review.date} <FaCircleCheck style={{ color: '#B58934', height: '1.2rem', width: '1.2rem', marginLeft: "1rem" }} /></Date>
+                                </ReviewContainerUser>
+                                <Comment>{review.review}</Comment>
+                                <ReviewContainerLike>
                                     <div>
                                         <Like>
-                                            <BiLike />
                                             {review.like}
+                                            <BiLike style={{ height: "1.5rem", width: "1.5rem" }} />
                                         </Like>
                                         <Like>
-                                            <BiDislike />
                                             {review.like}
+                                            <BiDislike style={{ height: "1.5rem", width: "1.5rem" }} />
                                         </Like>
                                     </div>
-                                    <Report>Reportar <FaRegFlag /></Report>
-                                </div>
+                                    <Report>REPORTAR <FaRegFlag /></Report>
+                                </ReviewContainerLike>
                             </ReviewContainer>
                         ))}
                     </div>
