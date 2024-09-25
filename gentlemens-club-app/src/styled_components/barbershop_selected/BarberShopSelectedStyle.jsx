@@ -97,6 +97,10 @@ export const Link = styled.a`
 export const Body = styled.div`
     display: flex;
     flex-direction: row;
+
+    h2{
+        font-weight: 400;
+    }
 `
 export const Section = styled.section`
     width: 65%;
@@ -111,7 +115,7 @@ export const BarberShopImgDiv = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 2rem 0 2rem;
+    margin: 0 2rem 0 0rem;
 `
 export const LogoBarbershopPrincipal = styled.img`
     width: 100%;
@@ -139,11 +143,10 @@ export const Avaliation = styled.div`
     }
 `
 export const BarberShopEnderecoDiv = styled.div`
+    width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: start;
     align-items: center;
-    margin-left: 1rem;
 `
 export const NameDiv = styled.div`
     display: flex;
@@ -151,7 +154,8 @@ export const NameDiv = styled.div`
     align-items: start;
     justify-content: center;
     width: 80%;
-    padding: 1rem;
+    padding: 1rem 0 1rem 0;
+    
     h2{
         color: #B58934;
     }
@@ -173,13 +177,12 @@ export const DestaqueDiv = styled.div`
     gap: 2rem;
     align-items: center;
     margin-bottom: 1rem;
-    margin-left: 1rem;
     
     span{
         display: flex;
         font-size: 0.7rem;
         color: white;
-        padding: 1rem;
+        padding: 1rem 0 1rem 0;
         gap: 0.4rem;
     }
 
@@ -196,7 +199,7 @@ export const BuscaDiv = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-left: 2rem;
+    /* margin-left: 2rem; */
     margin-right: 2rem;
     font-weight: 400;
     margin-bottom: 1rem;
@@ -221,6 +224,7 @@ export const Aside = styled.aside`
     width: 35%;
     color: #ffffff;
     margin-left: 1rem;
+    margin-right: 1rem;
     margin-top: 1rem;
 
     p{
@@ -228,6 +232,7 @@ export const Aside = styled.aside`
         font-weight: 400;
         padding-top: 1rem;
         padding-bottom: 1rem;
+        padding-left: 1rem;
     }
 
     h3{
@@ -479,6 +484,7 @@ export const RegrasSaude = styled.div`
     h2{
         width: 100%;
         color: #B58934;
+        padding-bottom: 1rem;
     }
 
     div{
@@ -536,8 +542,11 @@ export const ReviewContainer = styled.div`
   padding: 16px;
   margin: 16px 0;
   color: white;
+  display: flex;
 `;
-
+export const ReviewContainerRating = styled.div`
+    
+`
 export const ServiceTitle = styled.h3`
   margin: 0 0 8px 0;
 `;
@@ -552,8 +561,9 @@ export const Rating = styled.div`
 `;
 
 export const Star = styled.span`
-  color: ${props => (props.filled ? '#B58934' : '#ccc')};
+  color: ${props => (props.filled ? '#FF9400' : '#ccc')};
   margin-right: 4px;
+  font-size: 2rem;
 `;
 
 export const Comment = styled.p`
@@ -593,10 +603,15 @@ export const Commodities = styled.div`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    padding-bottom: 2rem;
 
     h2{
         color:#B58934 ;
         width: 100%;
+    }
+    h4{
+        font-weight: 400;
+        font-size: 0.9rem;
     }
     div{
         display: flex;
@@ -618,6 +633,14 @@ export const Reviews = styled.div`
 
 export const ReviewsText = styled.div`
     width: 50%;
+
+    h2{
+        color: #B58934;
+        padding-bottom: 1rem;
+    }
+    p{
+        font-size: 0.8rem;
+    }
 `
 
 export const RateDiv = styled.div`
@@ -629,8 +652,16 @@ export const RateDiv = styled.div`
     align-items: center;
 `
 export const RateDivRate = styled.div`
-    width: 30%;
+    width: 40%;
     padding: 1rem;
+
+    span{
+        font-size: 1rem;
+    }
+
+    p{
+        font-size: 0.8rem;
+    }
 `
 
 export const Hrdiv = styled.div`
@@ -638,15 +669,17 @@ export const Hrdiv = styled.div`
     flex-direction: column;
     border-left: 1px solid #B58934;
     height: 100%;
-    width: 75%;
+    width: 60%;
     justify-content: center;
-    padding: 1rem;
+    padding: 0.5rem;
+    font-size: 0.7rem;
+
 
     div{
         display: flex;
         flex-direction: row;
         width: 100%;
         align-items: center;
-        gap: 1.5rem;
+        gap: 1.4rem;
     }
 `

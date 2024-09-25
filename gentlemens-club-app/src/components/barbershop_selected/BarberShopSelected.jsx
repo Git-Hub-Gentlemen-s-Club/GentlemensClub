@@ -19,7 +19,7 @@ import { FaCircleCheck, FaRegFlag, FaRegCreditCard } from "react-icons/fa6";
 import { IoIosInformationCircleOutline, IoIosSearch, IoIosPhonePortrait } from "react-icons/io";
 import { BiLike, BiDislike } from "react-icons/bi";
 
-import { BarberShop, Header, LogoDiv, HeaderDiv, ImgDiv, ImgEnderecoDiv, DivIcons, LogoImg, LogoBarbershop, LinkDiv, Link, Body, Section, BarberShopImgDiv, LogoBarbershopPrincipal, Avaliation, BarberShopEnderecoDiv, NameDiv, DivIconsII, DestaqueDiv, BuscaDiv, ServicosDiv, Aside, AsideGiftCard, AsideIframe, MembrosEquipe, TeamMember, TeamImage, TeamName, ContatoAside, OpeningHoursContainer, Day, DayName, Hours, CardMap, Accordion, Panel, DivKeyPanel, DivButton, DivPanel, RegrasSaude, NossoTrabalho, ReviewContainer, ServiceTitle, Barber, Rating, Star, Comment, User, Date, Like, Report, Commodities, Reviews, RateDiv, Hrdiv, RateDivRate, ReviewsText } from "../../styled_components/barbershop_selected/BarberShopSelectedStyle";
+import { BarberShop, Header, LogoDiv, HeaderDiv, ImgDiv, ImgEnderecoDiv, DivIcons, LogoImg, LogoBarbershop, LinkDiv, Link, Body, Section, BarberShopImgDiv, LogoBarbershopPrincipal, Avaliation, BarberShopEnderecoDiv, NameDiv, DivIconsII, DestaqueDiv, BuscaDiv, ServicosDiv, Aside, AsideGiftCard, AsideIframe, MembrosEquipe, TeamMember, TeamImage, TeamName, ContatoAside, OpeningHoursContainer, Day, DayName, Hours, CardMap, Accordion, Panel, DivKeyPanel, DivButton, DivPanel, RegrasSaude, NossoTrabalho, ReviewContainer, ServiceTitle, Barber, Rating, Star, Comment, User, Date, Like, Report, Commodities, Reviews, RateDiv, Hrdiv, RateDivRate, ReviewsText, ReviewContainerRating } from "../../styled_components/barbershop_selected/BarberShopSelectedStyle";
 import Pagination from '../home/body_components/Pagination';
 
 
@@ -309,31 +309,31 @@ const BarberShopSelected = () => {
                             </RateDivRate>
                             <Hrdiv>
                                 <div>
-                                    <FaStar style={{ color: '#B58934', height: '1.5rem', width: '1.8rem' }} />
+                                    <FaStar style={{ color: '#FF9400', height: '1.5rem', width: '1.8rem' }} />
                                     <p>5</p>
                                     <div style={{ border: "1px solid #B58934", width: "100%", height: 1 }}></div>
                                     <span>{response.reviews.fiveStars}</span>
                                 </div>
                                 <div>
-                                    <FaStar style={{ color: '#B58934', height: '1.3rem', width: '1.8rem' }} />
+                                    <FaStar style={{ color: '#FF9400', height: '1.3rem', width: '1.8rem' }} />
                                     <p>4</p>
                                     <div style={{ border: "1px solid white", width: "100%", height: 1 }}></div>
                                     <span>{response.reviews.fourStars}</span>
                                 </div>
                                 <div>
-                                    <FaStar style={{ color: '#B58934', height: '1.3rem', width: '1.8rem' }} />
+                                    <FaStar style={{ color: '#FF9400', height: '1.3rem', width: '1.8rem' }} />
                                     <p>3</p>
                                     <div style={{ border: "1px solid white", width: "100%", height: 1 }}></div>
                                     <span>{response.reviews.threeStars}</span>
                                 </div>
                                 <div>
-                                    <FaStar style={{ color: '#B58934', height: '1.3rem', width: '1.8rem' }} />
+                                    <FaStar style={{ color: '#FF9400', height: '1.3rem', width: '1.8rem' }} />
                                     <p>2</p>
                                     <div style={{ border: "1px solid white", width: "100%", height: 1 }}></div>
                                     <span>{response.reviews.twoStars}</span>
                                 </div>
                                 <div>
-                                    <FaStar style={{ color: '#B58934', height: '1.3rem', width: '1.8rem' }} />
+                                    <FaStar style={{ color: '#FF9400', height: '1.3rem', width: '1.8rem' }} />
                                     <p>1</p>
                                     <div style={{ border: "1px solid white", width: "100%", height: 1 }}></div>
                                     <span>{response.reviews.oneStars}</span>
@@ -344,25 +344,31 @@ const BarberShopSelected = () => {
                     <div>
                         {response.reviews.reviews.map((review) => (
                             <ReviewContainer key={review.id}>
-                                <Rating>
-                                    {renderStars(review.rate)}
-                                </Rating>
-                                <ServiceTitle>{review.service}</ServiceTitle>
-                                <Barber>por {review.barber}</Barber>
-                                <Comment>{review.review}</Comment>
-                                <User>{review.user}</User>
-                                <Date>{review.date} <FaCircleCheck /></Date>
+                                <ReviewContainerRating>
+                                    <Rating>
+                                        {renderStars(review.rate)}
+                                    </Rating>
+                                    <ServiceTitle>{review.service}</ServiceTitle>
+                                    <Barber>por {review.barber}</Barber>
+                                    <Comment>{review.review}</Comment>
+                                </ReviewContainerRating>
                                 <div>
-                                    <Like>
-                                        <BiLike />
-                                        {review.like}
-                                    </Like>
-                                    <Like>
-                                        <BiDislike />
-                                        {review.like}
-                                    </Like>
+                                    <User>{review.user}</User>
+                                    <Date>{review.date} <FaCircleCheck /></Date>
                                 </div>
-                                <Report>Reportar <FaRegFlag /></Report>
+                                <div>
+                                    <div>
+                                        <Like>
+                                            <BiLike />
+                                            {review.like}
+                                        </Like>
+                                        <Like>
+                                            <BiDislike />
+                                            {review.like}
+                                        </Like>
+                                    </div>
+                                    <Report>Reportar <FaRegFlag /></Report>
+                                </div>
                             </ReviewContainer>
                         ))}
                     </div>

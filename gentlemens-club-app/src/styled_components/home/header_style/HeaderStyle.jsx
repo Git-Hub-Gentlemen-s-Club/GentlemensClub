@@ -12,7 +12,7 @@ export const HeaderContainer = styled.header`
     /* align-items: center;
     justify-content: center; */
     grid-template-columns: 1fr 5fr;
-    max-width: 75%;
+    /* max-width: 75%; */
     background-color: #161718;
     @media only screen and (max-width: 1166px) {
         height: 4rem;
