@@ -539,7 +539,7 @@ export const NossoTrabalho = styled.div`
 
 export const ReviewContainer = styled.div`
   border-bottom: 1px solid #ccc;
-  padding: 16px;
+  padding-bottom: 1rem;
   margin: 16px 0;
   color: white;
   display: flex;
