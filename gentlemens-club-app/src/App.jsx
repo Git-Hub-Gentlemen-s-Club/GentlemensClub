@@ -15,6 +15,7 @@ import Subscribe from './components/Subscribe';
 import ForgotPassword from "./components/ForgotPassword";
 import './App.css';
 import BarberShopSelected from "./components/BarberShopSelected";
+import ClientScheduling from "./components/ClientScheduling";
 import { Route, Routes } from "react-router-dom"; // Removendo comentários desnecessários
 
 function App() {
@@ -40,7 +41,7 @@ function App() {
 
     return (
         <>
-            <GlobalStyle />
+            {/* <GlobalStyle />
             <Routes>
                 <Route path="/BarbeariaSelecionada" element={<BarberShopSelected/>}/>
                 <Route path="/" element={<>
@@ -68,8 +69,8 @@ function App() {
                 <Route path="/Subscribe" element={<Subscribe/>}/>
                 <Route path="/Login" element={<LoginScreen/>}/>
                 <Route path="/ForgotPassword" element={<ForgotPassword/>}/>
-            </Routes>
-            
+            </Routes> */}
+            <ClientScheduling/>
         </>
     );
 }
