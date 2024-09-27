@@ -156,27 +156,46 @@ export const FilterContainer = styled.div`
     }
   }
 
-  /* Media Queries */
+  /* Media Queries - celular*/
   @media (max-width: 479px) {
     padding: 30px;
 
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
-    padding: 30px;
-  }
-
-  @media (min-width: 1024px) and (max-width: 1279px) {
-    padding: 40px;
-  }
-
-  @media (min-width: 1280px) {
+  /* Media Queries - notebook*/
+  @media (min-width: 1280px) and (max-width: 1919px) {
     padding: 60px;
 
     h4 {
       font-size: 16px;
     }
   }
+
+  /* Media Queries - desktop*/
+  @media (min-width: 1920px) {
+      padding: 100px;
+
+      h4 {
+        font-size: 17px;
+      }
+
+      .input-container {
+        width: auto;
+        height: 50px;
+      }
+
+      .date-picker-container {
+        
+        .date-input {
+          width: auto;
+          height: 50px;
+        }
+      }
+
+      span {
+        font-size: 20px;
+      }
+    }
 `;
 
 
@@ -205,6 +224,19 @@ export const TitleContainer = styled.div`
 
     p {
       font-size: 14px;
+    }
+  }
+
+  /* Media Queries - desktop*/
+  @media (min-width: 1920px) {
+    margin-bottom: 10px;
+
+    h3 {
+      font-size: 27px;
+    }
+
+    p {
+      font-size: 15px;
     }
   }
 `;

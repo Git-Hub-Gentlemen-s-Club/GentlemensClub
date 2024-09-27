@@ -109,7 +109,7 @@ const ClientScheduling = () => {
                 </div>
 
                 <div>
-                    <h4>Período</h4>
+                    <h4>Intervalo do Período</h4>
                     <div className="input-container">
    
                         <div className="date-picker-container">
