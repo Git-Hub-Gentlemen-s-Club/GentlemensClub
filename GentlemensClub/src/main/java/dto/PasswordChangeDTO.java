@@ -9,7 +9,11 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+
 public class PasswordChangeDTO {
-    private String oldPassword;
+
+    private String token;
     private String newPassword;
+    private String confirmPassword;
+
 }
