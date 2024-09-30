@@ -434,7 +434,7 @@ export const InputContainer = styled.div`
   input {
     background: transparent;
     border: none;
-    color: white;
+    color: #000;
     padding: 5px;
     flex: 1;
     &:focus {
@@ -502,7 +502,7 @@ export const StatusContainer = styled.div`
 `;
 
 export const CheckboxContainer = styled.div`
-  width: 50px; /* Ajuste a largura conforme necessário */
+  width: auto; /* Ajuste a largura conforme necessário */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -513,7 +513,7 @@ export const CheckboxContainer = styled.div`
     cursor: pointer;
     appearance: none;
     background-color: #fff;
-    border: 2px solid #ccc;
+    border: 2px solid #B58934;
     border-radius: 3px;
     position: relative;
     outline: none;

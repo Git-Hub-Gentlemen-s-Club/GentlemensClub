@@ -5,6 +5,8 @@ import { Container, LogoContainer, FilterContainer, FilterButtonContainer, Title
 import logo from '../assets/ClientScheduling/LogoTelaAgendamento.png';
 import { FaCut, FaUser, FaBuilding, FaBriefcase, FaFilter } from 'react-icons/fa'; 
 import DatePicker from 'react-datepicker';
+import { ptBR } from 'date-fns/locale';
+import { parse, isAfter, isBefore } from 'date-fns';
 import 'react-datepicker/dist/react-datepicker.css'; 
 
 const ClientScheduling = () => {
@@ -21,9 +23,16 @@ const ClientScheduling = () => {
 
     const [data, setData] = useState([
         { id: 1, barberShop: 'Juninho Barbearia SP', service: 'Corte de Cabelo', professional: 'Juninho', client: 'Carlos', date: '30/09/2024', value: 'R$50', status: 'AGENDADO' },
-        { id: 2, barberShop: 'Juninho Barbearia SP', service: 'Corte de Cabelo', professional: 'Juninho', client: 'Carlos', date: '30/09/2024', value: 'R$50', status: 'CANCELADO' },
-        { id: 3, barberShop: 'Juninho Barbearia SP', service: 'Corte de Cabelo', professional: 'Juninho', client: 'Carlos', date: '30/09/2024', value: 'R$50', status: 'CONCLUIDO' },
+        { id: 2, barberShop: 'Sr. Costa Barbershop', service: 'Corte de Cabelo', professional: 'Juninho', client: 'Carlos', date: '30/09/2024', value: 'R$50', status: 'CANCELADO' },
+        { id: 3, barberShop: 'Barbearia da vila', service: 'Corte de Cabelo', professional: 'Juninho', client: 'Carlos', date: '30/09/2024', value: 'R$50', status: 'CONCLUIDO' },
+        { id: 4, barberShop: 'Consolação Barbearia', service: 'Corte de Cabelo', professional: 'Juninho', client: 'Carlos', date: '30/09/2024', value: 'R$50', status: 'CONCLUIDO' },
+        { id: 5, barberShop: 'Barbearia sei lá', service: 'Corte de Cabelo', professional: 'Juninho', client: 'Carlos', date: '30/09/2024', value: 'R$50', status: 'CONCLUIDO' },
+        { id: 6, barberShop: 'Barbearia tal', service: 'Corte de Cabelo', professional: 'Juninho', client: 'Carlos', date: '30/09/2024', value: 'R$50', status: 'CONCLUIDO' },
+        { id: 7, barberShop: 'Outra Barbearia', service: 'Corte de Cabelo', professional: 'Juninho', client: 'Carlos', date: '30/09/2024', value: 'R$50', status: 'CONCLUIDO' },
+        { id: 8, barberShop: 'já cansei barbearia', service: 'Corte de Cabelo', professional: 'Juninho', client: 'Carlos', date: '30/09/2024', value: 'R$50', status: 'CONCLUIDO' },
     ]);
+
+    const [filteredData, setFilteredData] = useState(data);
 
     const columns = React.useMemo(
         () => [
@@ -31,6 +40,7 @@ const ClientScheduling = () => {
                 Header: 'Selecionar',
                 accessor: 'select',
                 Cell: ({ row }) => (
+                    
                     <CheckboxContainer>
                         <input
                             type="checkbox"
@@ -62,7 +72,48 @@ const ClientScheduling = () => {
         headerGroups,
         rows,
         prepareRow,
-    } = useTable({ columns, data });
+    } = useTable({ columns, data: filteredData });
+
+    const handleFilter = () => {
+        let filtered = data;
+
+        // Filtrando os dados com base nos filtros
+        if (filter.barberShop) {
+            filtered = filtered.filter(item => 
+                item.barberShop.toLowerCase().includes(filter.barberShop.toLowerCase())
+            );
+        }
+        if (filter.service) {
+            filtered = filtered.filter(item => 
+                item.service.toLowerCase().includes(filter.service.toLowerCase())
+            );
+        }
+        if (filter.professional) {
+            filtered = filtered.filter(item => 
+                item.professional.toLowerCase().includes(filter.professional.toLowerCase())
+            );
+        }
+        if (filter.client) {
+            filtered = filtered.filter(item => 
+                item.client.toLowerCase().includes(filter.client.toLowerCase())
+            );
+        }
+        if (filter.startDate) {
+            filtered = filtered.filter(item => {
+                const itemDate = parse(item.date, 'dd/MM/yyyy', new Date());
+                return isAfter(itemDate, filter.startDate) || itemDate.getTime() === filter.startDate.getTime();
+            });
+        }
+        
+        if (filter.endDate) {
+            filtered = filtered.filter(item => {
+                const itemDate = parse(item.date, 'dd/MM/yyyy', new Date());
+                return isBefore(itemDate, filter.endDate) || itemDate.getTime() === filter.endDate.getTime();
+            });
+        }       
+
+        setFilteredData(filtered);
+    };
 
     const handleSelect = (id) => {
         setSelectedIds((prevSelected) => 
@@ -72,26 +123,46 @@ const ClientScheduling = () => {
         );
     };
 
+    const [searchTerm, setSearchTerm] = useState('');
+
     const handleDelete = () => {
-        // Excluir itens que têm status "Concluído" ou "CANCELADO"
-        const newData = data.filter(item => {
+        // Excluir itens que têm status "CONCLUIDO" ou "CANCELADO"
+        const updatedData = data.filter(item => {
             return !selectedIds.includes(item.id) || (item.status !== 'CONCLUIDO' && item.status !== 'CANCELADO');
         });
-        setData(newData);
+    
+        setData(updatedData);
+    
+        // Atualizar também o estado de filteredData para garantir que a tabela filtrada reflita a remoção
+        const updatedFilteredData = filteredData.filter(item => {
+            return !selectedIds.includes(item.id) || (item.status !== 'CONCLUIDO' && item.status !== 'CANCELADO');
+        });
+    
+        setFilteredData(updatedFilteredData);
         setSelectedIds([]);
     };
-
+    
     const handleCancel = () => {
-        // Cancelar itens que têm status "AGENDADO"
         const updatedData = data.map(item => {
             if (selectedIds.includes(item.id) && item.status === 'AGENDADO') {
                 return { ...item, status: 'CANCELADO' };
             }
             return item;
         });
+    
         setData(updatedData);
+    
+        // Atualizar também o estado de filteredData
+        const updatedFilteredData = filteredData.map(item => {
+            if (selectedIds.includes(item.id) && item.status === 'AGENDADO') {
+                return { ...item, status: 'CANCELADO' };
+            }
+            return item;
+        });
+    
+        setFilteredData(updatedFilteredData);
         setSelectedIds([]);
-    };
+    };   
 
     return (
         <Container>
@@ -165,6 +236,8 @@ const ClientScheduling = () => {
                                 selected={filter.startDate}
                                 onChange={(date) => setFilter({ ...filter, startDate: date })}
                                 placeholderText="Data Inicial"
+                                locale={ptBR}
+                                dateFormat="dd/MM/yyyy"
                                 className="date-input"
                             />
                         </div>
@@ -177,16 +250,19 @@ const ClientScheduling = () => {
                                 selected={filter.endDate}
                                 onChange={(date) => setFilter({ ...filter, endDate: date })}
                                 placeholderText="Data Final"
+                                locale={ptBR}
+                                dateFormat="dd/MM/yyyy"
                                 className="date-input"
                             />
                         </div>
                     </div>
                 </div>
 
-                <FilterButtonContainer onClick={() => {/* lógica para filtrar os dados */}}>
+                <FilterButtonContainer onClick={handleFilter}>
                     <FaFilter style={{ marginRight: '8px' }} />
                     FILTRAR
                 </FilterButtonContainer>
+
             </FilterContainer>
 
             <TableContainer>
@@ -199,7 +275,7 @@ const ClientScheduling = () => {
                 </NavBarContainer>
 
                 <TitleSubtitleContainer>
-                    <h1>Serviços</h1>
+                    <h1>Sua agenda</h1>
                     <p>Gerencie seus agendamentos de forma eficiente.</p>
                 </TitleSubtitleContainer>
 
@@ -208,9 +284,9 @@ const ClientScheduling = () => {
                         <FaSearch className="icon" />
                         <input
                             type="text"
-                            placeholder="Pesquisar"
-                            value={filter.client}
-                            onChange={(e) => setFilter({ ...filter, client: e.target.value })}
+                            placeholder="Pesquise por Barbearia, Seriviço, Profissonal, Cliente, Data, Valor ou Status."
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
                         />
                     </InputContainer>
                     <ButtonContainer>
