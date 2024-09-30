@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useTable } from 'react-table';
-import { FaCalendarAlt } from 'react-icons/fa'; // Ícone de calendário
-import { Container, LogoContainer, FilterContainer, FilterButtonContainer, TitleContainer, TableContainer, Table, Th, Td } from '../styled_components/ClientSchedulingStyle'; // Importando estilos
+import { FaCalendarAlt, FaSearch, FaTrashAlt, FaTimes } from 'react-icons/fa'; // Ícones adicionais
+import { Container, LogoContainer, FilterContainer, FilterButtonContainer, TitleContainer, NavBarContainer, TitleSubtitleContainer, TableContainer, Table, Th, Td, SearchContainer, InputContainer, ButtonContainer, FooterContainer } from '../styled_components/ClientSchedulingStyle'; // Importando estilos
 import logo from '../assets/ClientScheduling/LogoTelaAgendamento.png';
 import { FaCut, FaUser, FaBuilding, FaBriefcase, FaFilter } from 'react-icons/fa'; // Importando ícones
 import DatePicker from 'react-datepicker';
@@ -19,7 +19,14 @@ const ClientScheduling = () => {
 
     const data = React.useMemo(
         () => [
-            { barberShop: 'Juninho Barbearia SP', service: 'Corte de Cabelo', professional: 'Juninho', client: 'Carlos', date: '2024-09-25', value: '50', status: 'Agendado' },
+            { barberShop: 'Juninho Barbearia SP', service: 'Corte de Cabelo', professional: 'Juninho', client: 'Carlos', date: '30/09/2024', value: 'R$50', status: 'Agendado' },
+            { barberShop: 'Juninho Barbearia SP', service: 'Corte de Cabelo', professional: 'Juninho', client: 'Carlos', date: '30/09/2024', value: 'R$50', status: 'Agendado' },
+            { barberShop: 'Juninho Barbearia SP', service: 'Corte de Cabelo', professional: 'Juninho', client: 'Carlos', date: '30/09/2024', value: 'R$50', status: 'Agendado' },
+            { barberShop: 'Juninho Barbearia SP', service: 'Corte de Cabelo', professional: 'Juninho', client: 'Carlos', date: '30/09/2024', value: 'R$50', status: 'Agendado' },
+            { barberShop: 'Juninho Barbearia SP', service: 'Corte de Cabelo', professional: 'Juninho', client: 'Carlos', date: '30/09/2024', value: 'R$50', status: 'Agendado' },
+            { barberShop: 'Juninho Barbearia SP', service: 'Corte de Cabelo', professional: 'Juninho', client: 'Carlos', date: '30/09/2024', value: 'R$50', status: 'Agendado' }, 
+            { barberShop: 'Juninho Barbearia SP', service: 'Corte de Cabelo', professional: 'Juninho', client: 'Carlos', date: '30/09/2024', value: 'R$50', status: 'Agendado' }, 
+            { barberShop: 'Juninho Barbearia SP', service: 'Corte de Cabelo', professional: 'Juninho', client: 'Carlos', date: '30/09/2024', value: 'R$50', status: 'Agendado' }, 
         ],
         []
     );
@@ -62,7 +69,7 @@ const ClientScheduling = () => {
                         <FaBuilding className="icon" />
                         <input
                             type="text"
-                            placeholder="Barbearia"
+                            placeholder="Sr. Costa  Barbershop"
                             value={filter.barberShop}
                             onChange={(e) => setFilter({ ...filter, barberShop: e.target.value })}
                         />
@@ -75,7 +82,7 @@ const ClientScheduling = () => {
                         <FaCut className="icon" />
                         <input
                             type="text"
-                            placeholder="Serviço"
+                            placeholder="Corte simples"
                             value={filter.service}
                             onChange={(e) => setFilter({ ...filter, service: e.target.value })}
                         />
@@ -88,7 +95,7 @@ const ClientScheduling = () => {
                         <FaBriefcase className="icon" />
                         <input
                             type="text"
-                            placeholder="Profissional"
+                            placeholder="Não selecionado"
                             value={filter.professional}
                             onChange={(e) => setFilter({ ...filter, professional: e.target.value })}
                         />
@@ -101,7 +108,7 @@ const ClientScheduling = () => {
                         <FaUser className="icon" />
                         <input
                             type="text"
-                            placeholder="Cliente"
+                            placeholder="Rafael Santos"
                             value={filter.client}
                             onChange={(e) => setFilter({ ...filter, client: e.target.value })}
                         />
@@ -111,7 +118,6 @@ const ClientScheduling = () => {
                 <div>
                     <h4>Intervalo do Período</h4>
                     <div className="input-container">
-   
                         <div className="date-picker-container">
                             <FaCalendarAlt className="date-icon" />
                             <DatePicker
@@ -143,8 +149,31 @@ const ClientScheduling = () => {
             </FilterContainer>
 
             <TableContainer>
-                <h4>Sua Agenda</h4>
-                <p>Consulte os seus cortes de cabelo agendados por periodo</p>
+                <NavBarContainer>
+                    <li>Home</li>
+                    <li className="active">Agendamentos</li>
+                    <li>Carteira</li>
+                    <li>Planos e Preço</li>
+                    <li>Perfil</li>
+                </NavBarContainer>
+
+                <TitleSubtitleContainer>
+                    <h1>Sua Agenda</h1>
+                    <p>Consulte os seus cortes de cabelo agendados por período</p>
+                </TitleSubtitleContainer>
+
+                <SearchContainer>
+                    <InputContainer>
+                        <FaSearch className="icon" />
+                        <input type="text" placeholder="Pesquise por Barbearia, Seriviço, Profissonal, Cliente, Data, Valor ou Status..." />
+                    </InputContainer>
+                    <ButtonContainer>
+                        <button><FaTrashAlt /> Excluir</button>
+                        <button className="delete-button"><FaTimes /> Cancelar</button>
+                    </ButtonContainer>
+                </SearchContainer>
+
+                {/* Estrutura da tabela */}
                 <Table {...getTableProps()}>
                     <thead>
                         {headerGroups.map(headerGroup => (
@@ -168,9 +197,17 @@ const ClientScheduling = () => {
                         })}
                     </tbody>
                 </Table>
-                <button>Excluir</button>
-                <button>Cancelar</button>
+
+                <FooterContainer>
+                    <div className="rows-per-page">
+                        Linhas por página: <span>8</span>
+                    </div>
+                    <div className="pagination-info">
+                        Página: 1 de 8
+                    </div>
+                </FooterContainer>
             </TableContainer>
+
         </Container>
     );
 };

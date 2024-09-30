@@ -278,19 +278,60 @@ export const FilterButtonContainer = styled.button`
   }
 `;
 
+
+export const NavBarContainer = styled.ul`
+    display: flex;
+    justify-content: center; 
+    gap: 40px;
+    list-style: none;  /* Remove as bolinhas */
+    padding: 10px;
+    width: 100%;
+    width: auto;
+    font-family: 'Rye', cursive;
+
+    li {
+        color: #B58934;
+        font-size: 15px;
+        cursor: pointer;
+        padding: 10px 7px;
+        position: relative;
+        text-transform: uppercase;
+
+        &:hover {
+            opacity: 0.8;
+            transform: scale(1.1);
+        }
+    }
+
+    li.active {
+        border-bottom: 2px solid #B58934; /* Linha abaixo para o menu ativo */
+    }
+`;
+
+export const TitleSubtitleContainer = styled.div`
+    text-align: left;
+    margin: 20px 0;
+
+    h1 {
+        color: #B58934;
+        font-size: 26px;
+        /* font-family: 'Rye', cursive; */
+    }
+
+    p {
+        color: #98959D;
+        font-size: 16px;
+        margin-top: 10px;
+    }
+`;
+
 export const TableContainer = styled.div`
   flex: 3;
   margin-left: 20px;
   background-color: #232225;
   padding: 20px;
   border-radius: 12px;
-  max-height: 400px;
-  overflow-y: auto;
-
-  h4 {
-    color: #B58934;
-    margin-bottom: 10px;
-  }
+  height: 100%;
 
   @media (max-width: 479px) {
     margin-left: 0;
@@ -302,19 +343,16 @@ export const TableContainer = styled.div`
   @media (min-width: 768px) and (max-width: 1023px) {
     margin-left: 15px;
     padding: 18px;
-    max-height: 350px;
   }
 
   @media (min-width: 1024px) and (max-width: 1279px) {
     margin-left: 20px;
     padding: 20px;
-    max-height: 400px;
   }
 
   @media (min-width: 1280px) {
     margin-left: 25px;
     padding: 25px;
-    max-height: 500px;
   }
 `;
 
@@ -324,8 +362,8 @@ export const Table = styled.table`
 `;
 
 export const Th = styled.th`
-  background-color: #444;
-  color: white;
+  background-color: #A76E00;
+  color: #000;
   padding: 10px;
 
   @media (max-width: 479px) {
@@ -348,12 +386,12 @@ export const Th = styled.th`
     font-size: 16px;
   }
 `;
-
 
 export const Td = styled.td`
-  background-color: #19181B;
-  color: white;
+  background-color: #fff;
+  color: #000;
   padding: 10px;
+  text-align: center;
 
   @media (max-width: 479px) {
     padding: 8px;
@@ -375,3 +413,90 @@ export const Td = styled.td`
     font-size: 16px;
   }
 `;
+
+export const SearchContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  background-color: #B58934;
+  border-radius: 10px 10px 0 0; // Arredonda as bordas superiores do container
+  padding: 20px;
+`;
+
+export const InputContainer = styled.div`
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 5px;
+  margin-right: 10px;
+  flex-grow: 2;
+
+  input {
+    background: transparent;
+    border: none;
+    color: white;
+    padding: 5px;
+    flex: 1;
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .icon {
+    color: #000;
+    margin-right: 5px;
+  }
+`;
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  align-items: center;
+  flex-grow: 1; 
+  justify-content: flex-end;
+
+  button {
+    background-color: #fff;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    cursor: pointer;
+    margin-left: 10px;
+    font-weight: bold; /* Deixa a fonte mais grossa */
+    transition: transform 0.2s; /* Adiciona uma transição suave para o efeito de hover */
+    font-size: 15px;
+
+    &:hover {
+      transform: scale(1.1); /* Aumenta o tamanho do botão ao passar o mouse */
+    }
+  }
+
+  .delete-button {
+
+    background-color: red;
+    color: #fff;
+    &:hover {
+      transform: scale(1.1); /* Aumenta o tamanho do botão ao passar o mouse */
+    }
+  }
+`;
+
+export const FooterContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #B58934;
+  border-radius: 0 0 10px 10px; // Arredonda as bordas inferiores do container
+
+  .rows-per-page {
+    color: #000;
+    font-weight: bold;
+  }
+
+  .pagination-info {
+    color: #000;
+    font-weight: bold;
+  }
+`;
+
