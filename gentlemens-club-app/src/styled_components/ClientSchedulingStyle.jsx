@@ -471,12 +471,66 @@ export const ButtonContainer = styled.div`
     }
   }
 
-  .delete-button {
+  .cancel-button {
 
     background-color: red;
     color: #fff;
     &:hover {
       transform: scale(1.1); /* Aumenta o tamanho do botão ao passar o mouse */
+    }
+  }
+`;
+
+// Estilos para os containers de status
+export const StatusContainer = styled.div`
+    padding: 8px;
+    border-radius: 8px;
+    color: black; /* Cor do texto para todos os status */
+    font-weight: bold;
+
+    &.agendado {
+        background-color: #d4ba6d; /* Cor para status "Agendado" */
+    }
+
+    &.concluido {
+        background-color: #99fd99; /* Cor para status "Concluído" */
+    }
+
+    &.cancelado {
+        background-color: #ff6565; /* Cor para status "Cancelado" */
+    }
+`;
+
+export const CheckboxContainer = styled.div`
+  width: 50px; /* Ajuste a largura conforme necessário */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  input[type="checkbox"] {
+    width: 20px; /* Ajuste a largura do checkbox */
+    height: 20px; /* Ajuste a altura do checkbox */
+    cursor: pointer;
+    appearance: none;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 3px;
+    position: relative;
+    outline: none;
+
+    &:checked {
+      background-color: #B58934;
+      border-color: #B58934;
+    }
+
+    &:checked::after {
+      content: '\\2714'; /* Unicode para o símbolo de check */
+      color: #fff;
+      font-size: 15px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
   }
 `;
@@ -499,4 +553,3 @@ export const FooterContainer = styled.div`
     font-weight: bold;
   }
 `;
-

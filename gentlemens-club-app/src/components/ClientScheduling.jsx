@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useTable } from 'react-table';
-import { FaCalendarAlt, FaSearch, FaTrashAlt, FaTimes } from 'react-icons/fa'; // Ícones adicionais
-import { Container, LogoContainer, FilterContainer, FilterButtonContainer, TitleContainer, NavBarContainer, TitleSubtitleContainer, TableContainer, Table, Th, Td, SearchContainer, InputContainer, ButtonContainer, FooterContainer } from '../styled_components/ClientSchedulingStyle'; // Importando estilos
+import { FaCalendarAlt, FaSearch, FaTrashAlt, FaTimes } from 'react-icons/fa'; 
+import { Container, LogoContainer, FilterContainer, FilterButtonContainer, TitleContainer, NavBarContainer, TitleSubtitleContainer, TableContainer, Table, Th, Td, SearchContainer, InputContainer, ButtonContainer, FooterContainer, StatusContainer, CheckboxContainer } from '../styled_components/ClientSchedulingStyle';
 import logo from '../assets/ClientScheduling/LogoTelaAgendamento.png';
-import { FaCut, FaUser, FaBuilding, FaBriefcase, FaFilter } from 'react-icons/fa'; // Importando ícones
+import { FaCut, FaUser, FaBuilding, FaBriefcase, FaFilter } from 'react-icons/fa'; 
 import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css'; // Importando estilos do DatePicker
+import 'react-datepicker/dist/react-datepicker.css'; 
 
 const ClientScheduling = () => {
     const [filter, setFilter] = useState({
@@ -17,32 +17,44 @@ const ClientScheduling = () => {
         endDate: null,
     });
 
-    const data = React.useMemo(
-        () => [
-            { barberShop: 'Juninho Barbearia SP', service: 'Corte de Cabelo', professional: 'Juninho', client: 'Carlos', date: '30/09/2024', value: 'R$50', status: 'Agendado' },
-            { barberShop: 'Juninho Barbearia SP', service: 'Corte de Cabelo', professional: 'Juninho', client: 'Carlos', date: '30/09/2024', value: 'R$50', status: 'Agendado' },
-            { barberShop: 'Juninho Barbearia SP', service: 'Corte de Cabelo', professional: 'Juninho', client: 'Carlos', date: '30/09/2024', value: 'R$50', status: 'Agendado' },
-            { barberShop: 'Juninho Barbearia SP', service: 'Corte de Cabelo', professional: 'Juninho', client: 'Carlos', date: '30/09/2024', value: 'R$50', status: 'Agendado' },
-            { barberShop: 'Juninho Barbearia SP', service: 'Corte de Cabelo', professional: 'Juninho', client: 'Carlos', date: '30/09/2024', value: 'R$50', status: 'Agendado' },
-            { barberShop: 'Juninho Barbearia SP', service: 'Corte de Cabelo', professional: 'Juninho', client: 'Carlos', date: '30/09/2024', value: 'R$50', status: 'Agendado' }, 
-            { barberShop: 'Juninho Barbearia SP', service: 'Corte de Cabelo', professional: 'Juninho', client: 'Carlos', date: '30/09/2024', value: 'R$50', status: 'Agendado' }, 
-            { barberShop: 'Juninho Barbearia SP', service: 'Corte de Cabelo', professional: 'Juninho', client: 'Carlos', date: '30/09/2024', value: 'R$50', status: 'Agendado' }, 
-        ],
-        []
-    );
+    const [selectedIds, setSelectedIds] = useState([]);
+
+    const [data, setData] = useState([
+        { id: 1, barberShop: 'Juninho Barbearia SP', service: 'Corte de Cabelo', professional: 'Juninho', client: 'Carlos', date: '30/09/2024', value: 'R$50', status: 'AGENDADO' },
+        { id: 2, barberShop: 'Juninho Barbearia SP', service: 'Corte de Cabelo', professional: 'Juninho', client: 'Carlos', date: '30/09/2024', value: 'R$50', status: 'CANCELADO' },
+        { id: 3, barberShop: 'Juninho Barbearia SP', service: 'Corte de Cabelo', professional: 'Juninho', client: 'Carlos', date: '30/09/2024', value: 'R$50', status: 'CONCLUIDO' },
+    ]);
 
     const columns = React.useMemo(
         () => [
+            {
+                Header: 'Selecionar',
+                accessor: 'select',
+                Cell: ({ row }) => (
+                    <CheckboxContainer>
+                        <input
+                            type="checkbox"
+                            checked={selectedIds.includes(row.original.id)}
+                            onChange={() => handleSelect(row.original.id)}
+                        />
+                    </CheckboxContainer>
+                )
+            },
             { Header: 'Barbearia', accessor: 'barberShop' },
             { Header: 'Serviço', accessor: 'service' },
             { Header: 'Profissional', accessor: 'professional' },
             { Header: 'Cliente', accessor: 'client' },
             { Header: 'Data', accessor: 'date' },
             { Header: 'Valor', accessor: 'value' },
-            { Header: 'Status', accessor: 'status' },
+            { Header: 'Status', accessor: 'status', Cell: ({ value }) => (
+                <StatusContainer className={value.toLowerCase()}>
+                    {value}
+                </StatusContainer>
+            )}
         ],
-        []
+        [selectedIds]
     );
+    
 
     const {
         getTableProps,
@@ -51,6 +63,35 @@ const ClientScheduling = () => {
         rows,
         prepareRow,
     } = useTable({ columns, data });
+
+    const handleSelect = (id) => {
+        setSelectedIds((prevSelected) => 
+            prevSelected.includes(id) 
+                ? prevSelected.filter(selectedId => selectedId !== id) 
+                : [...prevSelected, id]
+        );
+    };
+
+    const handleDelete = () => {
+        // Excluir itens que têm status "Concluído" ou "CANCELADO"
+        const newData = data.filter(item => {
+            return !selectedIds.includes(item.id) || (item.status !== 'CONCLUIDO' && item.status !== 'CANCELADO');
+        });
+        setData(newData);
+        setSelectedIds([]);
+    };
+
+    const handleCancel = () => {
+        // Cancelar itens que têm status "AGENDADO"
+        const updatedData = data.map(item => {
+            if (selectedIds.includes(item.id) && item.status === 'AGENDADO') {
+                return { ...item, status: 'CANCELADO' };
+            }
+            return item;
+        });
+        setData(updatedData);
+        setSelectedIds([]);
+    };
 
     return (
         <Container>
@@ -143,7 +184,7 @@ const ClientScheduling = () => {
                 </div>
 
                 <FilterButtonContainer onClick={() => {/* lógica para filtrar os dados */}}>
-                    <FaFilter style={{ marginRight: '8px' }} /> {/* Ícone de filtro */}
+                    <FaFilter style={{ marginRight: '8px' }} />
                     FILTRAR
                 </FilterButtonContainer>
             </FilterContainer>
@@ -158,22 +199,32 @@ const ClientScheduling = () => {
                 </NavBarContainer>
 
                 <TitleSubtitleContainer>
-                    <h1>Sua Agenda</h1>
-                    <p>Consulte os seus cortes de cabelo agendados por período</p>
+                    <h1>Serviços</h1>
+                    <p>Gerencie seus agendamentos de forma eficiente.</p>
                 </TitleSubtitleContainer>
 
                 <SearchContainer>
                     <InputContainer>
                         <FaSearch className="icon" />
-                        <input type="text" placeholder="Pesquise por Barbearia, Seriviço, Profissonal, Cliente, Data, Valor ou Status..." />
+                        <input
+                            type="text"
+                            placeholder="Pesquisar"
+                            value={filter.client}
+                            onChange={(e) => setFilter({ ...filter, client: e.target.value })}
+                        />
                     </InputContainer>
                     <ButtonContainer>
-                        <button><FaTrashAlt /> Excluir</button>
-                        <button className="delete-button"><FaTimes /> Cancelar</button>
+                        <button onClick={handleDelete}>
+                            <FaTrashAlt style={{ marginRight: '8px' }} />
+                            Excluir
+                        </button>
+                        <button className="cancel-button" onClick={handleCancel}>
+                            <FaTimes style={{ marginRight: '8px' }} />
+                            Cancelar
+                        </button>
                     </ButtonContainer>
                 </SearchContainer>
 
-                {/* Estrutura da tabela */}
                 <Table {...getTableProps()}>
                     <thead>
                         {headerGroups.map(headerGroup => (
@@ -203,11 +254,10 @@ const ClientScheduling = () => {
                         Linhas por página: <span>8</span>
                     </div>
                     <div className="pagination-info">
-                        Página: 1 de 8
+                        Página: 1 de 1
                     </div>
                 </FooterContainer>
             </TableContainer>
-
         </Container>
     );
 };
