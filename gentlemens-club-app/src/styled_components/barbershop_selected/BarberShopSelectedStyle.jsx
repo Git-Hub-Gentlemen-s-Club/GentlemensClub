@@ -4,21 +4,26 @@ export const BarberShop = styled.div`
     background-color: #000;
     `
 export const Header = styled.header`
-    background-color: #161718;
+    /* background-color: #161718;
     display: flex;
-    flex-direction: row;
+    flex-direction: row;*/
     color: #B58934;
     font-family: Rye, sans-serif;
-    width: 100%;
-    gap: 2rem;
-    padding-top: 1rem;
-    /* padding-left: 5%; */
+    margin: 0 auto;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    background-color: #161718;
+    /* @media only screen and (max-width: 1166px) {
+        height: 4rem;
+        max-width: 100%;
+    } */
     `
 export const LogoDiv = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 15%;
+    /* width: 15%; */
     `
 export const LogoBarbaDiv = styled.div`
     display: flex;

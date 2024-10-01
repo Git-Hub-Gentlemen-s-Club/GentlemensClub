@@ -43,10 +43,10 @@ function App() {
             <Routes>
                 <Route path="/BarbeariaSelecionada" element={<BarberShopSelected/>}/>
                 <Route path="/" element={<>
-                    <Header />
-            <div className="container">
-                <LocationHeader city={city} />
-                <div className="carousel-wrapper">
+                <Header />
+                <div className="container">
+                    <LocationHeader city={city} />
+                    <div className="carousel-wrapper">
                     <div className="buttons-container">
                         <FiltersButton />
                         <SortButton />

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import Logo from "../../assets/Logo_Gentlemens_Club.png"
+import BarberShopLogo from "../../assets/barbeariaJH.jpg"
 import img1 from '../../assets/barbearia/img-1.png'
 import img2 from '../../assets/barbearia/img-2.png'
 import img3 from '../../assets/barbearia/img-3.png'
@@ -19,8 +20,10 @@ import { IoIosInformationCircleOutline, IoIosSearch, IoIosPhonePortrait } from "
 import { IoBeer } from "react-icons/io5";
 import { BiLike, BiDislike } from "react-icons/bi";
 
-import { BarberShop, Header, LogoDiv, HeaderDiv, ImgDiv, ImgEnderecoDiv, DivIcons, LogoImg, LogoBarbershop, LinkDiv, Link, Body, Section, BarberShopImgDiv, LogoBarbershopPrincipal, Avaliation, BarberShopEnderecoDiv, NameDiv, DivIconsII, DestaqueDiv, BuscaDiv, ServicosDiv, Aside, AsideGiftCard, AsideIframe, MembrosEquipe, TeamMember, TeamImage, TeamName, ContatoAside, OpeningHoursContainer, Day, DayName, Hours, CardMap, Accordion, Panel, DivKeyPanel, DivButton, DivPanel, RegrasSaude, NossoTrabalho, ReviewContainer, ServiceTitle, Barber, Rating, Star, Comment, User, Date, Like, Report, Commodities, Reviews, RateDiv, Hrdiv, RateDivRate, ReviewsText, ReviewContainerRating, ReviewContainerUser, ReviewContainerLike, LogoBarbaDiv } from "../../styled_components/barbershop_selected/BarberShopSelectedStyle";
+import { BarberShop, HeaderDiv, ImgDiv, ImgEnderecoDiv, DivIcons, LogoImg, LogoBarbershop, Body, Section, BarberShopImgDiv, LogoBarbershopPrincipal, Avaliation, BarberShopEnderecoDiv, NameDiv, DivIconsII, DestaqueDiv, BuscaDiv, ServicosDiv, Aside, AsideGiftCard, AsideIframe, MembrosEquipe, TeamMember, TeamImage, TeamName, ContatoAside, OpeningHoursContainer, Day, DayName, Hours, CardMap, Accordion, Panel, DivKeyPanel, DivButton, DivPanel, RegrasSaude, NossoTrabalho, ReviewContainer, ServiceTitle, Barber, Rating, Star, Comment, User, Date, Like, Report, Commodities, Reviews, RateDiv, Hrdiv, RateDivRate, ReviewsText, ReviewContainerRating, ReviewContainerUser, ReviewContainerLike } from "../../styled_components/barbershop_selected/BarberShopSelectedStyle";
 import Pagination from '../home/body_components/Pagination';
+import { HeaderContainer, ImageContainer, Select, Options, DarkModeInput } from '../../styled_components/home/header_style/HeaderStyle';
+import NavListComponent from '../NavList';
 
 
 const response = {
@@ -156,17 +159,14 @@ const BarberShopSelected = () => {
 
     return (
         <BarberShop>
-            <Header>
-                <LogoDiv>
-                    <LogoImg src={PlacaBarbearia}></LogoImg>
-                    <LogoBarbaDiv>
-                        Gentlemens Club
-                        <LogoImg src={BarbaBarbearia} alt="Logo Gentlemen's Club" />
-                    </LogoBarbaDiv>
-                </LogoDiv>
+            <HeaderContainer>
+                <ImageContainer>
+                    <LogoImg src={Logo} />
+                    Gentlemen's Club
+                </ImageContainer>
                 <HeaderDiv>
                     <ImgDiv>
-                        <LogoBarbershop src={BarbershopLogo} alt="Logo Gentlemen's Club" />
+                        <LogoBarbershop src={BarberShopLogo} alt="Logo Gentlemen's Club" />
                         <ImgEnderecoDiv>
                             <h2>{response.name}</h2>
                             <p>{response.address}</p>
@@ -177,21 +177,26 @@ const BarberShopSelected = () => {
                         </DivIcons>
                         <button>Reservar agora</button>
                     </ImgDiv>
-                    <LinkDiv>
-                        <Link>Corte de Cabelo</Link>
-                        <Link>Barbearias</Link>
-                        <Link>Corte em casa</Link>
-                        <Link>Spa & Massagem</Link>
-                        <Link>Sobrancelhas e Cílios</Link>
-                        <Link>Agendamentos</Link>
-                        <Link>Mais...</Link>
-                    </LinkDiv>
+
+                    <Select name="" id="">
+                        <Options value="pt-br">
+                            🇧🇷
+                            BR
+                        </Options>
+                        <Options value="en-us">
+                            🇺🇸
+                            EN
+                        </Options>
+                    </Select>
+
+                    <DarkModeInput type="checkbox" name="dark-mode" id="dark-mode" />
+                    <NavListComponent />
                 </HeaderDiv>
-            </Header>
+            </HeaderContainer>
             <Body>
                 <Section>
                     <BarberShopImgDiv>
-                        <LogoBarbershopPrincipal src={BarbershopLogo} alt="Logo Gentlemen's Club" />
+                        <LogoBarbershopPrincipal src={BarberShopLogo} alt="Logo Gentlemen's Club" />
                         <Avaliation>
                             <h2>{response.reviews.rate.toFixed(1)}</h2>
                             <p>{response.reviews.total} avaliações</p>
@@ -407,7 +412,7 @@ const BarberShopSelected = () => {
                     <AsideIframe>
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.9800718021656!2d-46.85126772466523!3d-23.712405678696406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cfad16a4fa7f99%3A0x1ad1b32a1c7a6a5d!2sAv.%20Quinze%20de%20Novembro%2C%20408%20-%20Centro%2C%20Itapecerica%20da%20Serra%20-%20SP%2C%2006850-100!5e0!3m2!1spt-BR!2sbr!4v1725887313324!5m2!1spt-BR!2sbr" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
                         <CardMap>
-                            <LogoBarbershop src={BarbershopLogo} alt="Logo Gentlemen's Club" />
+                            <LogoBarbershop src={BarberShopLogo} alt="Logo Gentlemen's Club" />
                             <span>
                                 <h5>Barbearia JH</h5>
                                 <p>Rua Major Telles, 167, 1 Andar - Sala 3,

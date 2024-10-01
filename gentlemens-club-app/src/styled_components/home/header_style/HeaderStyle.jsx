@@ -2,86 +2,22 @@ import styled from "styled-components";
 
 export const HeaderContainer = styled.header`
     margin: 0 auto;
-    /* display: flex;
-    flex-direction: row;
-    justify-content: center;
-    background-color: #161718;
-    width: 100%; */
     padding: 1rem;
     display: grid;
-    /* align-items: center;
-    justify-content: center; */
     grid-template-columns: 1fr 5fr;
-    /* max-width: 75%; */
     background-color: #161718;
-    @media only screen and (max-width: 1166px) {
-        height: 4rem;
-        max-width: 100%;
-    }
+    color: #B58934;
+    font-family: Rye, sans-serif;
 `;
-
-/* export const HeaderWrapper = styled.div`
-    display: grid;
-    align-items: center;
-    justify-content: center; 
-    grid-template-columns: 1fr 5fr;
-    padding: 1em;
-    max-width: 75%;
-    background-color: #161718;
-`; */
 
 export const ImageContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    @media only screen and (max-width: 1166px) {
-        display: none;
-    }
     font-family: Rye, sans-serif;
     color: #b58934;
 `;
-
-
-
-
-/* export const Nav = styled.nav`
-    display: flex;
-    flex-direction: column;
-    color: #ffffff;
-    @media only screen and (max-width: 850px) {
-        padding: 1em;
-        position: fixed;
-        top: 0;
-        right: 0;
-        height: 100vh;
-        background-color: #161718;
-        z-index: 2;
-    }
-`; */
-
-/* export const NavList = styled.ul`
-    list-style-type: none;
-    display: flex;
-    gap: 2.5rem;
-    margin-top: 3em;
-    font-size: 14px;
-    padding: 0;
-    flex-flow: row nowrap;
-    @media only screen and (max-width: 850px) {
-        flex-flow: column nowrap;
-        justify-content: flex-end;
-    } 
-`; */
-
-/* export const NavInputs = styled.div`
-    display: grid;
-    grid-template-columns: 3fr 3fr 2fr 2fr 0.5fr 0.5fr;
-    grid-gap: 1em;
-    @media only screen and (max-width: 850px) {
-        grid-template-columns: 1fr;
-    }
-`; */
 
 export const Link = styled.a`
     text-decoration: none;
