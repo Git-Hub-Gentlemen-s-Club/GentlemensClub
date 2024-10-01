@@ -29,10 +29,14 @@ const ClientScheduling = () => {
         { id: 5, barberShop: 'Barbearia sei lá', service: 'Corte de Cabelo', professional: 'Juninho', client: 'Carlos', date: '30/09/2024', value: 'R$50', status: 'CONCLUIDO' },
         { id: 6, barberShop: 'Barbearia tal', service: 'Corte de Cabelo', professional: 'Juninho', client: 'Carlos', date: '30/09/2024', value: 'R$50', status: 'CONCLUIDO' },
         { id: 7, barberShop: 'Outra Barbearia', service: 'Corte de Cabelo', professional: 'Juninho', client: 'Carlos', date: '30/09/2024', value: 'R$50', status: 'CONCLUIDO' },
-        { id: 8, barberShop: 'já cansei barbearia', service: 'Corte de Cabelo', professional: 'Juninho', client: 'Carlos', date: '30/09/2024', value: 'R$50', status: 'CONCLUIDO' },
+        { id: 8, barberShop: 'já cansei barbearia', service: 'Corte de Cabelo', professional: 'Juninho', client: 'Carlos', date: '01/10/2024', value: 'R$50', status: 'CONCLUIDO' },
     ]);
 
     const [filteredData, setFilteredData] = useState(data);
+
+    // Estado de paginação
+    const [currentPage, setCurrentPage] = useState(1);
+    const [itemsPerPage] = useState(5); // Definindo 5 itens por página, pode ser alterado
 
     const columns = React.useMemo(
         () => [
@@ -74,6 +78,9 @@ const ClientScheduling = () => {
         prepareRow,
     } = useTable({ columns, data: filteredData });
 
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
+    const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+
     const handleFilter = () => {
         let filtered = data;
 
@@ -113,6 +120,7 @@ const ClientScheduling = () => {
         }       
 
         setFilteredData(filtered);
+        setCurrentPage(1); // Reseta a página para a primeira após aplicar o filtro
     };
 
     const handleSelect = (id) => {
@@ -312,7 +320,7 @@ const ClientScheduling = () => {
                         ))}
                     </thead>
                     <tbody {...getTableBodyProps()}>
-                        {rows.map(row => {
+                        {rows.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage).map(row => {
                             prepareRow(row);
                             return (
                                 <tr {...row.getRowProps()}>
@@ -326,11 +334,13 @@ const ClientScheduling = () => {
                 </Table>
 
                 <FooterContainer>
-                    <div className="rows-per-page">
-                        Linhas por página: <span>8</span>
-                    </div>
-                    <div className="pagination-info">
-                        Página: 1 de 1
+                    <span>Página {currentPage} de {totalPages}</span>
+                    <div>
+                        {Array.from({ length: totalPages }, (_, index) => (
+                            <button key={index + 1} onClick={() => paginate(index + 1)}>
+                                {index + 1}
+                            </button>
+                        ))}
                     </div>
                 </FooterContainer>
             </TableContainer>

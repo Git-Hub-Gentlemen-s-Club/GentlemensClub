@@ -205,6 +205,7 @@ export const TitleContainer = styled.div`
   h3 {
     color: #B58934;
     margin-bottom: 10px;
+    font-family: 'Rye', cursive;
   }
 
   p {
@@ -315,7 +316,7 @@ export const TitleSubtitleContainer = styled.div`
     h1 {
         color: #B58934;
         font-size: 26px;
-        /* font-family: 'Rye', cursive; */
+        font-family: 'Rye', cursive;
     }
 
     p {
@@ -540,16 +541,38 @@ export const FooterContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  background-color: #B58934;
+  background-color: #B58934; // Cor de fundo do container
   border-radius: 0 0 10px 10px; // Arredonda as bordas inferiores do container
 
-  .rows-per-page {
-    color: #000;
+  span {
     font-weight: bold;
+    color: #000; // Cor do texto para maior contraste
+    font-size: 1.1rem; // Aumenta o tamanho da fonte
   }
 
-  .pagination-info {
-    color: #000;
-    font-weight: bold;
+  div {
+    display: flex;
+    gap: 5px; // Espaçamento entre os botões
+  }
+
+  button {
+    background-color: #fff; // Cor de fundo do botão
+    color: #000; // Cor do texto do botão
+    border-radius: 5px; // Arredonda as bordas do botão
+    padding: 5px 10px; // Padding interno do botão
+    cursor: pointer; // Muda o cursor para indicar que é clicável
+    transition: background-color 0.3s, color 0.3s; // Efeito de transição suave
+    border-color: #000;
+
+    &:hover {
+      background-color: #000; // Cor de fundo do botão ao passar o mouse
+      color: #fff; // Cor do texto do botão ao passar o mouse
+      border-color: #fff;
+    }
+
+    &:focus {
+      outline: none; // Remove a borda de foco padrão
+      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5); // Adiciona um contorno sutil ao botão
+    }
   }
 `;
