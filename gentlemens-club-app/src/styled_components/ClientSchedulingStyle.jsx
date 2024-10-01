@@ -82,13 +82,13 @@ export const LogoContainer = styled.div`
 `;
 
 export const FilterContainer = styled.div`
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
   flex: 1;
   background-color: #232225;
   padding: 55px;
   border-radius: 12px;
-  display: flex;
 
   h4 {
     color: #B2AFB6;
@@ -164,10 +164,10 @@ export const FilterContainer = styled.div`
 
   /* Media Queries - notebook*/
   @media (min-width: 1280px) and (max-width: 1919px) {
-    padding: 60px;
+    padding: 35px;
 
     h4 {
-      font-size: 16px;
+      font-size: 14px;
     }
   }
 
@@ -200,7 +200,7 @@ export const FilterContainer = styled.div`
 
 
 export const TitleContainer = styled.div`
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 
   h3 {
     color: #B58934;
@@ -214,11 +214,15 @@ export const TitleContainer = styled.div`
     margin-bottom: 20px;
   }
 
+  /* Media Queries - Celular*/
   @media (max-width: 479px) {
     margin-top: 15px;
   }
 
+  /* Media Queries - Notebook*/
   @media (min-width: 1280px) {
+    margin-top: 20px;
+
     h3 {
       font-size: 20px;
     }
@@ -258,25 +262,20 @@ export const FilterButtonContainer = styled.button`
     background-color: #e8a622;
   }
 
-  @media (max-width: 479px) {
-    font-size: 14px;
-    padding: 15px;
-  }
+    /* Media Queries - celular*/
+    @media (max-width: 479px) {
+      padding: 15px;
+    }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
-    font-size: 16px;
-    padding: 16px;
-  }
+    /* Media Queries - notebook*/
+    @media (min-width: 1280px) and (max-width: 1919px) {
+      padding: 15px;
+    }
 
-  @media (min-width: 1024px) and (max-width: 1279px) {
-    font-size: 17px;
-    padding: 18px;
-  }
+    /* Media Queries - desktop*/
+    /* @media (min-width: 1920px) {
 
-  @media (min-width: 1280px) {
-    font-size: 18px;
-    padding: 20px;
-  }
+    } */
 `;
 
 
@@ -333,33 +332,50 @@ export const TableContainer = styled.div`
   padding: 20px;
   border-radius: 12px;
   height: 100%;
+  overflow-x: auto;
 
+  /* Media Query - Celular  */
   @media (max-width: 479px) {
     margin-left: 0;
     margin-top: 20px;
     padding: 15px;
-    max-height: 300px;
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
-    margin-left: 15px;
-    padding: 18px;
-  }
-
-  @media (min-width: 1024px) and (max-width: 1279px) {
+  /* Media Query - Notebook  */
+  @media (min-width: 1280px) and (max-width: 1919px) {
     margin-left: 20px;
     padding: 20px;
   }
 
-  @media (min-width: 1280px) {
-    margin-left: 25px;
-    padding: 25px;
+  /* Personalização da barra de rolagem */
+  &::-webkit-scrollbar {
+    width: 8px; /* Largura da barra de rolagem vertical */
+    height: 8px; /* Altura da barra de rolagem horizontal */
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #B58934; /* Cor do "thumb" (parte que você arrasta) */
+    border-radius: 10px; /* Bordas arredondadas para o "thumb" */
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: #A76E00; /* Cor do "thumb" ao passar o mouse */
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #232225; /* Cor do fundo da barra de rolagem */
+    border-radius: 10px; /* Bordas arredondadas para o fundo */
   }
 `;
 
 export const Table = styled.table`
   width: 100%;
   border-collapse: collapse;
+
+    /* Media Query - Celular  */
+    @media (max-width: 479px) {
+      max-width: auto;
+  }
 `;
 
 export const Th = styled.th`
@@ -370,6 +386,7 @@ export const Th = styled.th`
   @media (max-width: 479px) {
     padding: 8px;
     font-size: 12px;
+    max-width: auto;
   }
 
   @media (min-width: 768px) and (max-width: 1023px) {
@@ -563,6 +580,7 @@ export const FooterContainer = styled.div`
     cursor: pointer; // Muda o cursor para indicar que é clicável
     transition: background-color 0.3s, color 0.3s; // Efeito de transição suave
     border-color: #000;
+    font-weight: bolder;
 
     &:hover {
       background-color: #000; // Cor de fundo do botão ao passar o mouse
@@ -573,6 +591,19 @@ export const FooterContainer = styled.div`
     &:focus {
       outline: none; // Remove a borda de foco padrão
       box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5); // Adiciona um contorno sutil ao botão
+    }
+
+    &:disabled {
+      background-color: #B6B6B6; // Cor de fundo do botão desativado
+      color: #666; // Cor do texto do botão desativado
+      cursor: not-allowed; // Cursor indicando que o botão não é clicável
+      border-color: #666;
+    }
+
+    &.active {
+      background-color: #A76E00; // Cor de fundo do botão ativo
+      color: #000; // Cor do texto do botão ativo
+      border-color: #000;
     }
   }
 `;

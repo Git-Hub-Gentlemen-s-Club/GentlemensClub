@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { useTable } from 'react-table';
-import { FaCalendarAlt, FaSearch, FaTrashAlt, FaTimes } from 'react-icons/fa'; 
+import { FaCalendarAlt, FaSearch, FaTrashAlt, FaTimes } from 'react-icons/fa';
 import { Container, LogoContainer, FilterContainer, FilterButtonContainer, TitleContainer, NavBarContainer, TitleSubtitleContainer, TableContainer, Table, Th, Td, SearchContainer, InputContainer, ButtonContainer, FooterContainer, StatusContainer, CheckboxContainer } from '../styled_components/ClientSchedulingStyle';
 import logo from '../assets/ClientScheduling/LogoTelaAgendamento.png';
-import { FaCut, FaUser, FaBuilding, FaBriefcase, FaFilter } from 'react-icons/fa'; 
+import { FaCut, FaUser, FaBuilding, FaBriefcase, FaFilter } from 'react-icons/fa';
 import DatePicker from 'react-datepicker';
 import { ptBR } from 'date-fns/locale';
 import { parse, isAfter, isBefore } from 'date-fns';
-import 'react-datepicker/dist/react-datepicker.css'; 
+import 'react-datepicker/dist/react-datepicker.css';
 
 const ClientScheduling = () => {
     const [filter, setFilter] = useState({
@@ -30,13 +30,34 @@ const ClientScheduling = () => {
         { id: 6, barberShop: 'Barbearia tal', service: 'Corte de Cabelo', professional: 'Juninho', client: 'Carlos', date: '30/09/2024', value: 'R$50', status: 'CONCLUIDO' },
         { id: 7, barberShop: 'Outra Barbearia', service: 'Corte de Cabelo', professional: 'Juninho', client: 'Carlos', date: '30/09/2024', value: 'R$50', status: 'CONCLUIDO' },
         { id: 8, barberShop: 'já cansei barbearia', service: 'Corte de Cabelo', professional: 'Juninho', client: 'Carlos', date: '01/10/2024', value: 'R$50', status: 'CONCLUIDO' },
+        { id: 9, barberShop: 'Consolação Barbearia', service: 'Corte de Cabelo', professional: 'Juninho', client: 'Carlos', date: '30/09/2024', value: 'R$50', status: 'CONCLUIDO' },
+        { id: 10, barberShop: 'Barbearia sei lá', service: 'Corte de Cabelo', professional: 'Juninho', client: 'Carlos', date: '30/09/2024', value: 'R$50', status: 'CONCLUIDO' },
+        { id: 11, barberShop: 'Barbearia tal', service: 'Corte de Cabelo', professional: 'Juninho', client: 'Carlos', date: '30/09/2024', value: 'R$50', status: 'CONCLUIDO' },
+        { id: 12, barberShop: 'Outra Barbearia', service: 'Corte de Cabelo', professional: 'Juninho', client: 'Carlos', date: '30/09/2024', value: 'R$50', status: 'CONCLUIDO' },
+        { id: 13, barberShop: 'já cansei barbearia', service: 'Corte de Cabelo', professional: 'Juninho', client: 'Carlos', date: '01/10/2024', value: 'R$50', status: 'CONCLUIDO' },
     ]);
 
     const [filteredData, setFilteredData] = useState(data);
 
     // Estado de paginação
     const [currentPage, setCurrentPage] = useState(1);
-    const [itemsPerPage] = useState(5); // Definindo 5 itens por página, pode ser alterado
+    const [itemsPerPage] = useState(8); // Definindo 5 itens por página, pode ser alterado
+    const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+    const getVisiblePages = (currentPage, totalPages) => {
+        const visiblePages = 5;
+        let startPage = Math.max(1, currentPage - Math.floor(visiblePages / 2));
+        let endPage = startPage + visiblePages - 1;
+
+        if (endPage > totalPages) {
+            endPage = totalPages;
+            startPage = Math.max(1, endPage - visiblePages + 1);
+        }
+
+        return Array.from({ length: endPage - startPage + 1 }, (_, index) => startPage + index);
+    };
 
     const columns = React.useMemo(
         () => [
@@ -44,7 +65,7 @@ const ClientScheduling = () => {
                 Header: 'Selecionar',
                 accessor: 'select',
                 Cell: ({ row }) => (
-                    
+
                     <CheckboxContainer>
                         <input
                             type="checkbox"
@@ -60,15 +81,17 @@ const ClientScheduling = () => {
             { Header: 'Cliente', accessor: 'client' },
             { Header: 'Data', accessor: 'date' },
             { Header: 'Valor', accessor: 'value' },
-            { Header: 'Status', accessor: 'status', Cell: ({ value }) => (
-                <StatusContainer className={value.toLowerCase()}>
-                    {value}
-                </StatusContainer>
-            )}
+            {
+                Header: 'Status', accessor: 'status', Cell: ({ value }) => (
+                    <StatusContainer className={value.toLowerCase()}>
+                        {value}
+                    </StatusContainer>
+                )
+            }
         ],
         [selectedIds]
     );
-    
+
 
     const {
         getTableProps,
@@ -78,30 +101,27 @@ const ClientScheduling = () => {
         prepareRow,
     } = useTable({ columns, data: filteredData });
 
-    const paginate = (pageNumber) => setCurrentPage(pageNumber);
-    const totalPages = Math.ceil(filteredData.length / itemsPerPage);
-
     const handleFilter = () => {
         let filtered = data;
 
         // Filtrando os dados com base nos filtros
         if (filter.barberShop) {
-            filtered = filtered.filter(item => 
+            filtered = filtered.filter(item =>
                 item.barberShop.toLowerCase().includes(filter.barberShop.toLowerCase())
             );
         }
         if (filter.service) {
-            filtered = filtered.filter(item => 
+            filtered = filtered.filter(item =>
                 item.service.toLowerCase().includes(filter.service.toLowerCase())
             );
         }
         if (filter.professional) {
-            filtered = filtered.filter(item => 
+            filtered = filtered.filter(item =>
                 item.professional.toLowerCase().includes(filter.professional.toLowerCase())
             );
         }
         if (filter.client) {
-            filtered = filtered.filter(item => 
+            filtered = filtered.filter(item =>
                 item.client.toLowerCase().includes(filter.client.toLowerCase())
             );
         }
@@ -111,22 +131,22 @@ const ClientScheduling = () => {
                 return isAfter(itemDate, filter.startDate) || itemDate.getTime() === filter.startDate.getTime();
             });
         }
-        
+
         if (filter.endDate) {
             filtered = filtered.filter(item => {
                 const itemDate = parse(item.date, 'dd/MM/yyyy', new Date());
                 return isBefore(itemDate, filter.endDate) || itemDate.getTime() === filter.endDate.getTime();
             });
-        }       
+        }
 
         setFilteredData(filtered);
         setCurrentPage(1); // Reseta a página para a primeira após aplicar o filtro
     };
 
     const handleSelect = (id) => {
-        setSelectedIds((prevSelected) => 
-            prevSelected.includes(id) 
-                ? prevSelected.filter(selectedId => selectedId !== id) 
+        setSelectedIds((prevSelected) =>
+            prevSelected.includes(id)
+                ? prevSelected.filter(selectedId => selectedId !== id)
                 : [...prevSelected, id]
         );
     };
@@ -138,18 +158,18 @@ const ClientScheduling = () => {
         const updatedData = data.filter(item => {
             return !selectedIds.includes(item.id) || (item.status !== 'CONCLUIDO' && item.status !== 'CANCELADO');
         });
-    
+
         setData(updatedData);
-    
+
         // Atualizar também o estado de filteredData para garantir que a tabela filtrada reflita a remoção
         const updatedFilteredData = filteredData.filter(item => {
             return !selectedIds.includes(item.id) || (item.status !== 'CONCLUIDO' && item.status !== 'CANCELADO');
         });
-    
+
         setFilteredData(updatedFilteredData);
         setSelectedIds([]);
     };
-    
+
     const handleCancel = () => {
         const updatedData = data.map(item => {
             if (selectedIds.includes(item.id) && item.status === 'AGENDADO') {
@@ -157,9 +177,9 @@ const ClientScheduling = () => {
             }
             return item;
         });
-    
+
         setData(updatedData);
-    
+
         // Atualizar também o estado de filteredData
         const updatedFilteredData = filteredData.map(item => {
             if (selectedIds.includes(item.id) && item.status === 'AGENDADO') {
@@ -167,10 +187,10 @@ const ClientScheduling = () => {
             }
             return item;
         });
-    
+
         setFilteredData(updatedFilteredData);
         setSelectedIds([]);
-    };   
+    };
 
     return (
         <Container>
@@ -336,13 +356,29 @@ const ClientScheduling = () => {
                 <FooterContainer>
                     <span>Página {currentPage} de {totalPages}</span>
                     <div>
-                        {Array.from({ length: totalPages }, (_, index) => (
-                            <button key={index + 1} onClick={() => paginate(index + 1)}>
-                                {index + 1}
-                            </button>
+                        <button 
+                        onClick={() => paginate(Math.max(1, currentPage - 1))} 
+                        disabled={currentPage === 1}
+                        >
+                        &lt;
+                        </button>
+                        {getVisiblePages(currentPage, totalPages).map(page => (
+                        <button 
+                            key={page} 
+                            onClick={() => paginate(page)} 
+                            className={page === currentPage ? 'active' : ''}
+                        >
+                            {page}
+                        </button>
                         ))}
+                        <button 
+                        onClick={() => paginate(Math.min(totalPages, currentPage + 1))} 
+                        disabled={currentPage === totalPages}
+                        >
+                        &gt;
+                        </button>
                     </div>
-                </FooterContainer>
+                    </FooterContainer>
             </TableContainer>
         </Container>
     );
