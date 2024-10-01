@@ -33,9 +33,13 @@ export const HeaderContainer = styled.header`
 export const ImageContainer = styled.div`
     display: flex;
     align-items: center;
+    justify-content: center;
+    flex-direction: column;
     @media only screen and (max-width: 1166px) {
         display: none;
     }
+    font-family: Rye, sans-serif;
+    color: #b58934;
 `;
 
 

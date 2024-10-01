@@ -34,3 +34,18 @@ html {
     left: 30px;
   }
 }
+
+/* .react-calendar {
+  background-color: #FFFFFF;
+  button {
+    border: none;
+    padding: 1rem;
+    background-color: #FFFFFF;
+    &:hover {
+      background-color: #aaaaaa;
+    }
+    &:focus {
+      background-color: #cccccc;
+    }
+  }
+} */

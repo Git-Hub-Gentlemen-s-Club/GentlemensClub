@@ -16,4 +16,7 @@ export const WhenFilter = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 1rem;
 `;

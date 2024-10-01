@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 
-import Logo from "../../assets/LogoGentlemensClub.png"
-import BarbaBarbearia from "../../assets/header_icons/Barba_Barbearia.png"
-import PlacaBarbearia from "../../assets/header_icons/Placa_Barbearia.png"
-import BarbershopLogo from '../../assets/barbeariaJH.jpg'
+import Logo from "../../assets/Logo_Gentlemens_Club.png"
 import img1 from '../../assets/barbearia/img-1.png'
 import img2 from '../../assets/barbearia/img-2.png'
 import img3 from '../../assets/barbearia/img-3.png'

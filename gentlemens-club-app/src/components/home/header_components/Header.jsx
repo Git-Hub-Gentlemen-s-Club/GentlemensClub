@@ -6,20 +6,16 @@ import { HeaderContainer, /* HeaderWrapper, */ ImageContainer } from "../../../s
 //Importa o componente de nav bar
 import NavBar from "./NavBar";
 
-import logo from '../../../assets/header_icons/Barba_Barbearia.png';
-import placa from '../../../assets/header_icons/Placa_Barbearia.png'
+import Logo from '../../../assets/Logo_Gentlemens_Club.png';
 
 function Header() {
     return (
         <>
             <HeaderContainer>
                 {/* <HeaderWrapper> */}
-                <ImageContainer style={{ justifyContent: "flex-end", marginRight: "1rem" }}>
-                    <img style={{ position: "absolute", top: 0, left: 0 }} src={placa} />
-                    <div style={{ display: "flex", alignItems: "center", flexDirection: "column" }}>
-                        <p style={{ fontFamily: "Rye", color: "#B58934" }}>Gentlemens Club</p>
-                        <img src={logo} alt="Logo do Gentlemens Club" />
-                    </div>
+                <ImageContainer>
+                    <img src={Logo} alt="Logo Gentlemen's Club" />
+                    Gentlemen's Club
                 </ImageContainer>
                 <NavBar />
                 {/* </HeaderWrapper>     */}
