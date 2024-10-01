@@ -8,9 +8,10 @@ export const Header = styled.header`
     display: flex;
     flex-direction: row;
     color: #B58934;
+    font-family: Rye, sans-serif;
     width: 100%;
     gap: 2rem;
-    padding: 1rem 0 2rem 0;
+    padding-top: 1rem;
     /* padding-left: 5%; */
     `
 export const LogoDiv = styled.div`
@@ -19,6 +20,15 @@ export const LogoDiv = styled.div`
     align-items: center;
     width: 15%;
     `
+export const LogoBarbaDiv = styled.div`
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 1.5rem;
+    align-items: center;
+    width: 15%;
+`;
+
 export const HeaderDiv = styled.div`
     display: flex;
     flex-direction: column;
@@ -50,13 +60,14 @@ export const ImgEnderecoDiv = styled.div`
     width: 45%;
 
     h2{
-        font-size: 1.1rem;
+        font-size: 1.25rem;
         font-weight: 400;
         letter-spacing: 1px;
         font-family:'Inter', sans-serif; 
     }
     p{
-        font-size: 0.6rem;
+        font-size: 0.75rem;
+        font-family: 'Inter', sans-serif;
     }
 `
 export const DivIcons = styled.div`
@@ -67,7 +78,7 @@ export const DivIcons = styled.div`
 
 export const LogoImg = styled.img`
     width: auto;
-    height: 6rem;
+    
     `
 export const LogoBarbershop = styled.img`
     width: auto;

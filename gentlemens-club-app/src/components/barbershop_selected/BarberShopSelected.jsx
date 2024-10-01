@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 
 import Logo from "../../assets/LogoGentlemensClub.png"
+import BarbaBarbearia from "../../assets/header_icons/Barba_Barbearia.png"
+import PlacaBarbearia from "../../assets/header_icons/Placa_Barbearia.png"
 import BarbershopLogo from '../../assets/barbeariaJH.jpg'
 import img1 from '../../assets/barbearia/img-1.png'
 import img2 from '../../assets/barbearia/img-2.png'
@@ -20,7 +22,7 @@ import { IoIosInformationCircleOutline, IoIosSearch, IoIosPhonePortrait } from "
 import { IoBeer } from "react-icons/io5";
 import { BiLike, BiDislike } from "react-icons/bi";
 
-import { BarberShop, Header, LogoDiv, HeaderDiv, ImgDiv, ImgEnderecoDiv, DivIcons, LogoImg, LogoBarbershop, LinkDiv, Link, Body, Section, BarberShopImgDiv, LogoBarbershopPrincipal, Avaliation, BarberShopEnderecoDiv, NameDiv, DivIconsII, DestaqueDiv, BuscaDiv, ServicosDiv, Aside, AsideGiftCard, AsideIframe, MembrosEquipe, TeamMember, TeamImage, TeamName, ContatoAside, OpeningHoursContainer, Day, DayName, Hours, CardMap, Accordion, Panel, DivKeyPanel, DivButton, DivPanel, RegrasSaude, NossoTrabalho, ReviewContainer, ServiceTitle, Barber, Rating, Star, Comment, User, Date, Like, Report, Commodities, Reviews, RateDiv, Hrdiv, RateDivRate, ReviewsText, ReviewContainerRating, ReviewContainerUser, ReviewContainerLike } from "../../styled_components/barbershop_selected/BarberShopSelectedStyle";
+import { BarberShop, Header, LogoDiv, HeaderDiv, ImgDiv, ImgEnderecoDiv, DivIcons, LogoImg, LogoBarbershop, LinkDiv, Link, Body, Section, BarberShopImgDiv, LogoBarbershopPrincipal, Avaliation, BarberShopEnderecoDiv, NameDiv, DivIconsII, DestaqueDiv, BuscaDiv, ServicosDiv, Aside, AsideGiftCard, AsideIframe, MembrosEquipe, TeamMember, TeamImage, TeamName, ContatoAside, OpeningHoursContainer, Day, DayName, Hours, CardMap, Accordion, Panel, DivKeyPanel, DivButton, DivPanel, RegrasSaude, NossoTrabalho, ReviewContainer, ServiceTitle, Barber, Rating, Star, Comment, User, Date, Like, Report, Commodities, Reviews, RateDiv, Hrdiv, RateDivRate, ReviewsText, ReviewContainerRating, ReviewContainerUser, ReviewContainerLike, LogoBarbaDiv } from "../../styled_components/barbershop_selected/BarberShopSelectedStyle";
 import Pagination from '../home/body_components/Pagination';
 
 
@@ -159,7 +161,11 @@ const BarberShopSelected = () => {
         <BarberShop>
             <Header>
                 <LogoDiv>
-                    <LogoImg src={Logo} alt="Logo Gentlemen's Club" />
+                    <LogoImg src={PlacaBarbearia}></LogoImg>
+                    <LogoBarbaDiv>
+                        Gentlemens Club
+                        <LogoImg src={BarbaBarbearia} alt="Logo Gentlemen's Club" />
+                    </LogoBarbaDiv>
                 </LogoDiv>
                 <HeaderDiv>
                     <ImgDiv>

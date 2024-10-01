@@ -6,10 +6,17 @@ import {Link, LoginSignUp, Input, InputWrapper, Select, LoginWrapper, DarkModeIn
 
 import { useNavigate } from "react-router-dom";
 
+import WhenFilterModal from "../../WhenFilterModal";
+
+import { useState } from "react";
+
 const gray = "#dddddd";
 
 function OffCanvas({ open }) {
     const navigate = useNavigate();
+
+    const [openWhenFilter, setOpenWhenFilter] = useState(false);
+
     return (
         <NavContainer open={open}>
             <NavInputs>
@@ -26,7 +33,7 @@ function OffCanvas({ open }) {
 
                 <InputWrapper>
                     <FaStopwatch style={{ color: gray }} className="icons" />
-                    <Input type="text" placeholder="Quando?" />
+                    <Input type="text" placeholder="Quando?" onClick={() => {setOpenWhenFilter(true)}}/>
                 </InputWrapper>
 
                 <LoginWrapper>
@@ -80,6 +87,7 @@ function OffCanvas({ open }) {
                     <Link href="">Mais...</Link>
                 </li>
             </NavList>
+            <WhenFilterModal isOpen={openWhenFilter} setOpenModal={() => setOpenWhenFilter(!openWhenFilter)} />
         </NavContainer>
     );
 }
