@@ -16,6 +16,7 @@ import ForgotPassword from "./components/ForgotPassword";
 import './App.css';
 import BarberShopSelected from "./components/BarberShopSelected";
 import ClientScheduling from "./components/ClientScheduling";
+import PartnerScheduling from "./components/PartnerScheduling"
 import { Route, Routes } from "react-router-dom"; // Removendo comentários desnecessários
 
 function App() {
@@ -70,7 +71,8 @@ function App() {
                 <Route path="/Login" element={<LoginScreen/>}/>
                 <Route path="/ForgotPassword" element={<ForgotPassword/>}/>
             </Routes> */}
-            <ClientScheduling/>
+            {/* <ClientScheduling/> */}
+            <PartnerScheduling/>
         </>
     );
 }
