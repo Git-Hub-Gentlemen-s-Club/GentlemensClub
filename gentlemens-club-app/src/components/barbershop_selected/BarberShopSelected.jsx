@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Logo from "../../assets/Logo_Gentlemens_Club.png"
 import BarberShopLogo from "../../assets/barbeariaJH.jpg"
@@ -22,9 +22,11 @@ import { BiLike, BiDislike } from "react-icons/bi";
 
 import { BarberShop, HeaderDiv, ImgDiv, ImgEnderecoDiv, DivIcons, LogoImg, LogoBarbershop, Body, Section, BarberShopImgDiv, LogoBarbershopPrincipal, Avaliation, BarberShopEnderecoDiv, NameDiv, DivIconsII, DestaqueDiv, BuscaDiv, ServicosDiv, Aside, AsideGiftCard, AsideIframe, MembrosEquipe, TeamMember, TeamImage, TeamName, ContatoAside, OpeningHoursContainer, Day, DayName, Hours, CardMap, Accordion, Panel, DivKeyPanel, DivButton, DivPanel, RegrasSaude, NossoTrabalho, ReviewContainer, ServiceTitle, Barber, Rating, Star, Comment, User, Date, Like, Report, Commodities, Reviews, RateDiv, Hrdiv, RateDivRate, ReviewsText, ReviewContainerRating, ReviewContainerUser, ReviewContainerLike } from "../../styled_components/barbershop_selected/BarberShopSelectedStyle";
 import Pagination from '../home/body_components/Pagination';
-import { HeaderContainer, ImageContainer, Select, Options, DarkModeInput } from '../../styled_components/home/header_style/HeaderStyle';
+import { HeaderContainer, ImageContainer, Select, Options} from '../../styled_components/home/header_style/HeaderStyle';
 import NavListComponent from '../NavList';
 
+import DarkThemeBtn from '../home/header_components/DarkThemeBtn';
+import { ThemeProvider } from '../../context/Theme';
 
 const response = {
     name: "Barbearia JH",
@@ -157,7 +159,22 @@ const BarberShopSelected = () => {
         setActiveIndex(activeIndex === index ? null : index);
     };
 
+    const [theme, setTheme] = useState("light");
+
+    const darkTheme = () => {
+        setTheme("dark");
+    }
+    
+    const lightTheme = () => {
+        setTheme("light");
+    }
+
+    useEffect(() => {
+        console.log("Mudando o tema", theme)
+    }, [theme]);
+
     return (
+        <ThemeProvider value={{theme, darkTheme, lightTheme}}>
         <BarberShop>
             <HeaderContainer>
                 <ImageContainer>
@@ -176,8 +193,6 @@ const BarberShopSelected = () => {
                             <FontAwesomeIcon icon={faHeart} style={{ width: '1.3rem', height: '1.3rem', color: '#B58934' }} />
                         </DivIcons>
                         <button>Reservar agora</button>
-                    </ImgDiv>
-
                     <Select name="" id="">
                         <Options value="pt-br">
                             🇧🇷
@@ -189,7 +204,10 @@ const BarberShopSelected = () => {
                         </Options>
                     </Select>
 
-                    <DarkModeInput type="checkbox" name="dark-mode" id="dark-mode" />
+                    <DarkThemeBtn />
+                    </ImgDiv>
+
+                    
                     <NavListComponent />
                 </HeaderDiv>
             </HeaderContainer>
@@ -467,6 +485,7 @@ const BarberShopSelected = () => {
                 </Aside>
             </Body>
         </BarberShop >
+        </ThemeProvider>
     )
 }
 

@@ -12,7 +12,7 @@ export const Header = styled.header`
     margin: 0 auto;
     padding: 1rem;
     display: grid;
-    grid-template-columns: 1fr 5fr;
+    grid-template-columns: 1fr ;
     background-color: #161718;
     /* @media only screen and (max-width: 1166px) {
         height: 4rem;
@@ -38,7 +38,7 @@ export const HeaderDiv = styled.div`
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    width: 85%;
+    width: 85vw;
     `
 export const ImgDiv = styled.div`
     display: flex;
