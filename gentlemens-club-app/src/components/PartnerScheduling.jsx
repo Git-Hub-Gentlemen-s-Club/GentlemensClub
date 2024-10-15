@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaCalendarAlt } from 'react-icons/fa'; // Ícone de calendário
 import { Container, LogoContainer, AppointmentContainer, AppointmentButtonContainer, TitleContainer, TableContainer, CustomInput, TimeGrid, AppointmentList } from '../styled_components/PartnerSchedulingStyle'; // Importando estilos
 import logo from '../assets/ClientScheduling/LogoTelaAgendamento.png';
@@ -16,8 +16,32 @@ const PartnerScheduling = () => {
         appointmentDate: null,
     });
 
+    const [accordionItem, setAccordionItem] = useState({}); // Inicializa como objeto vazio
 
-
+    const AccordionItems = React.useMemo(
+        () => [
+            [ // Horários da manhã
+                {
+                    time: '11:00',
+                    client: 'Leonardo Huck',
+                    professional: 'Gustavo Paiva',
+                    service: 'Corte + Barba',
+                    yield: 'R$ 120.00'
+                },
+                {
+                    time: '12:00',
+                    client: 'Helenaldo Silva',
+                    professional: 'Pedro Ferreira',
+                    service: 'Corte',
+                    yield: 'R$ 70.00'
+                }
+            ],
+            [ // Horários da tarde
+            ],
+            [ // Horários da noite
+            ]
+        ], []
+    );
 
     const daylySchedule = React.useMemo(
         () => [
@@ -26,6 +50,15 @@ const PartnerScheduling = () => {
             ["19:00", "20:00", "21:00"]
         ], []
     );
+
+    const OpenItem = (index) => {
+        // Atualiza o estado do acordeão
+        setAccordionItem(prevState => ({
+            ...prevState,
+            [index]: !prevState[index] // Alterna o valor do índice
+        }));
+    };
+
     return (
         <Container>
             <LogoContainer>
@@ -33,7 +66,7 @@ const PartnerScheduling = () => {
             </LogoContainer>
             <AppointmentContainer>
                 <TitleContainer>
-                    <h3 onClick={() => { console.log(daylySchedule[0]) }}>Cancele um atendimento</h3>
+                    <h3 onClick={() => { console.log(accordionItem) }}>Cancele um atendimento</h3>
                     <p>Selecione data, horário e para exibir as informações e liberar a opção de cancelar agendamento.</p>
                 </TitleContainer>
 
@@ -43,8 +76,8 @@ const PartnerScheduling = () => {
                         <div className="date-picker-container">
                             <FaCalendarAlt className="date-icon" />
                             <DatePicker
-                                selected={appointment.endDate}
-                                onChange={(date) => setAppointment({ ...appointment, endDate: date })}
+                                selected={appointment.appointmentDate}
+                                onChange={(date) => setAppointment({ ...appointment, appointmentDate: date })}
                                 placeholderText="Data Final"
                                 className="date-input"
                             />
@@ -54,38 +87,20 @@ const PartnerScheduling = () => {
 
                 <div>
                     <h4>Horários</h4>
-                    <p>Manhã</p>
-                    <TimeGrid>
-                        {daylySchedule[0].map(time => (
-                            <button
-                                key={time}
-                                id={time}
-                                // className={'off'}
-                                onClick={() => { }}
-                            >{time}</button>
-                        ))}
-                    </TimeGrid>
-                    <p>Tarde</p>
-                    <TimeGrid>
-                        {daylySchedule[1].map(time => (
-                            <button
-                                key={time}
-                                id={time}
-                                // className={'off'}
-                                onClick={() => { }}
-                            >{time}</button>
-                        ))}
-                    </TimeGrid>
-                    <p>Noite</p>
-                    <TimeGrid>
-                        {daylySchedule[2].map(time => (
-                            <button
-                                key={time}
-                                id={time}                            // className={'off'}
-                                onClick={() => { }}
-                            >{time}</button>
-                        ))}
-                    </TimeGrid>
+                    {daylySchedule.map((schedule, idx) => (
+                        <div key={idx}>
+                            <p>{idx === 0 ? 'Manhã' : idx === 1 ? 'Tarde' : 'Noite'}</p>
+                            <TimeGrid>
+                                {schedule.map(time => (
+                                    <button
+                                        key={time}
+                                        id={time}
+                                        onClick={() => { }}
+                                    >{time}</button>
+                                ))}
+                            </TimeGrid>
+                        </div>
+                    ))}
                 </div>
 
                 <div>
@@ -95,8 +110,8 @@ const PartnerScheduling = () => {
                         <input
                             type="text"
                             placeholder="Nome do Cliente"
-                            value={appointment.professional}
-                            onChange={(e) => setAppointment({ ...appointment, professional: e.target.value })}
+                            value={appointment.client}
+                            onChange={(e) => setAppointment({ ...appointment, client: e.target.value })}
                         />
                     </div>
                 </div>
@@ -108,7 +123,7 @@ const PartnerScheduling = () => {
                         <input
                             type="text"
                             placeholder="Tipo de serviço"
-                            value={appointment.Partner}
+                            value={appointment.service}
                             onChange={(e) => setAppointment({ ...appointment, service: e.target.value })}
                         />
                     </div>
@@ -121,7 +136,7 @@ const PartnerScheduling = () => {
                         <input
                             type="text"
                             placeholder="Valor do serviço"
-                            value={appointment.Partner}
+                            value={appointment.price}
                             onChange={(e) => setAppointment({ ...appointment, price: e.target.value })}
                         />
                     </div>
@@ -142,14 +157,15 @@ const PartnerScheduling = () => {
                         <div className="date-picker-container">
                             <FaCalendarAlt className="date-icon" />
                             <DatePicker
-                                selected={appointment.endDate}
-                                onChange={(date) => setAppointment({ ...appointment, endDate: date })}
+                                selected={appointment.appointmentDate}
+                                onChange={(date) => setAppointment({ ...appointment, appointmentDate: date })}
                                 placeholderText="Data Final"
                                 className="date-input"
                             />
                         </div>
                     </CustomInput>
                 </div>
+
                 <AppointmentList>
                     <header>
                         <div className='HeaderList'>
@@ -161,43 +177,107 @@ const PartnerScheduling = () => {
                         </div>
                     </header>
                     <ul className="accordion">
-                        <li tabIndex="0"><div className='AppointmentTitle'><div><span>Horário</span> Cliente</div><img src= "src\assets\PartnerScheuling\DownArrow.png" alt="Seta para baixo" /></div>
-                            <ul>
-                                <li>Item 1.1</li>
-                            </ul>
-                        </li>
-                        <li tabIndex="1"><div className='AppointmentTitle'><div><span>Horário</span> Cliente</div><img src= "src\assets\PartnerScheuling\DownArrow.png" alt="Seta para baixo" /></div>
-                            <ul>
-                                <li>Item 2.1</li>
-                            </ul>
-                        </li>
+                        {AccordionItems[0].map((item, index) => (
+                            <li key={index}>
+                                <div className={`AppointmentTitle`} onClick={() => OpenItem(index)}>
+                                    <div>
+                                        <span>{item.time}</span>{item.client}
+                                    </div>
+                                    <img src="src/assets/PartnerScheuling/DownArrow.png" alt="Seta para baixo" />
+                                </div>
+                                <ul style={{ display: accordionItem[index] ? 'block' : 'none' }}>
+                                    <li id={index} className='AppointmentIndex'>
+                                        <header><h3>Detalhes:</h3></header>
+                                        <div>
+                                            <h3>Profissional: </h3><p>{item.professional}</p>
+                                        </div>
+                                        <div>
+                                            <h3>Serviço: </h3><p>{item.service}</p>
+                                        </div>
+                                        <div>
+                                            <h3>Lucro c/ desconto: </h3><p>{item.yield}</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        ))}
                     </ul>
                 </AppointmentList>
                 <AppointmentList>
                     <header>
                         <div className='HeaderList'>
-                            <PiCloudSunBold className="AppointmentIcon" />
-                            <p>Tarde</p>
+                            <PiSunHorizonBold className="AppointmentIcon" />
+                            <p>Manhã</p>
                         </div>
                         <div className='HeaderList'>
-                            {daylySchedule[1][0]} - {daylySchedule[1][daylySchedule[1].length - 1]}
+                            {daylySchedule[1][0]} - {daylySchedule[1][daylySchedule[0].length - 1]}
                         </div>
                     </header>
-
+                    <ul className="accordion">
+                        {AccordionItems[1].map((item, index) => (
+                            <li key={index}>
+                                <div className={`AppointmentTitle`} onClick={() => OpenItem(index)}>
+                                    <div>
+                                        <span>{item.time}</span>{item.client}
+                                    </div>
+                                    <img src="src/assets/PartnerScheuling/DownArrow.png" alt="Seta para baixo" />
+                                </div>
+                                <ul style={{ display: accordionItem[index] ? 'block' : 'none' }}>
+                                    <li id={index} className='AppointmentIndex'>
+                                        <header><h3>Detalhes:</h3></header>
+                                        <div>
+                                            <h3>Profissional: </h3><p>{item.professional}</p>
+                                        </div>
+                                        <div>
+                                            <h3>Serviço: </h3><p>{item.service}</p>
+                                        </div>
+                                        <div>
+                                            <h3>Lucro c/ desconto: </h3><p>{item.yield}</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        ))}
+                    </ul>
                 </AppointmentList>
                 <AppointmentList>
                     <header>
                         <div className='HeaderList'>
-                            <PiMoonStarsBold className="AppointmentIcon" />
-                            <p>Noite</p>
+                            <PiSunHorizonBold className="AppointmentIcon" />
+                            <p>Manhã</p>
                         </div>
                         <div className='HeaderList'>
-                            {daylySchedule[2][0]} - {daylySchedule[2][daylySchedule[2].length - 1]}
+                            {daylySchedule[2][0]} - {daylySchedule[2][daylySchedule[0].length - 1]}
                         </div>
                     </header>
-
+                    <ul className="accordion">
+                        {AccordionItems[2].map((item, index) => (
+                            <li key={index}>
+                                <div className={`AppointmentTitle`} onClick={() => OpenItem(index)}>
+                                    <div>
+                                        <span>{item.time}</span>{item.client}
+                                    </div>
+                                    <img src="src/assets/PartnerScheuling/DownArrow.png" alt="Seta para baixo" />
+                                </div>
+                                <ul style={{ display: accordionItem[index] ? 'block' : 'none' }}>
+                                    <li id={index} className='AppointmentIndex'>
+                                        <header><h3>Detalhes:</h3></header>
+                                        <div>
+                                            <h3>Profissional: </h3><p>{item.professional}</p>
+                                        </div>
+                                        <div>
+                                            <h3>Serviço: </h3><p>{item.service}</p>
+                                        </div>
+                                        <div>
+                                            <h3>Lucro c/ desconto: </h3><p>{item.yield}</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        ))}
+                    </ul>
                 </AppointmentList>
-
+                {/* Adicione seções para Tarde e Noite aqui, de forma semelhante à seção da Manhã */}
             </TableContainer>
         </Container>
     );

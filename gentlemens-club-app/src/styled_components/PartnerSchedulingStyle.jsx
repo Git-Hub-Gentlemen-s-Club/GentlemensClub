@@ -123,7 +123,7 @@ export const AppointmentContainer = styled.div`
       height:20px;
       top: 50%;
       transform: translateY(-50%);
-      color: #B58934; /* A cor desejada do ícone */
+      color: #B58934; 
       pointer-events: none; /* Garante que o ícone não atrapalhe a interação do input */
     }
 
@@ -286,7 +286,7 @@ export const TableContainer = styled.div`
   /* background-color: #232225; */ // "Sua Agenda" fica fora do container
   padding: 20px;
   border-radius: 12px;
-  max-height: 400px;
+  height:100vh;
   overflow-y: auto;
   color:#98959D;
   
@@ -306,25 +306,21 @@ export const TableContainer = styled.div`
     margin-left: 0;
     margin-top: 20px;
     padding: 15px;
-    max-height: 300px;
   }
 
   @media (min-width: 768px) and (max-width: 1023px) {
     margin-left: 15px;
     padding: 18px;
-    max-height: 350px;
   }
 
   @media (min-width: 1024px) and (max-width: 1279px) {
     margin-left: 20px;
     padding: 20px;
-    max-height: 400px;
   }
 
   @media (min-width: 1280px) {
     margin-left: 25px;
     padding: 25px;
-    max-height: 500px;
   }
 `;
 
@@ -494,6 +490,9 @@ export const AppointmentList = styled.div`
   border-radius: 0 0 16px 16px;
   margin-bottom:2rem;
   padding-bottom:16px;
+  button {
+    
+  }
 }
 .accordion li {
   span {
@@ -506,15 +505,58 @@ export const AppointmentList = styled.div`
   }
 .accordion li:focus ul{
     display:block;
+    img {
+      transform: rotate(50%);
+      scale:2;
+    }
 }
 .AppointmentTitle {
   display:flex;
   justify-content:space-between;
   padding: 16px;
   padding-bottom:0;
+  z-index:3;
+  div {
+    width:fit-content;
+    white-space:nowrap;
+    pointer-events:none;
+  }
+  /* scale:2; */
+  span {
+    padding-right: 15%
+  }
   img {
     width:24px;
     height:12px;
+    transition:0.3s;
+    pointer-events:none;
   }
 }
+.AppointmentIndex {
+  display: flex;
+  flex-direction: column;
+  header {
+    all: unset;
+    display: flex;
+    justify-content: center;
+  }
+  h3 {
+    font-family: 'Rye', sans-serif;
+    font-size: 1em;
+    margin: 0;
+    color:#B58934;
+    padding-right: 8px;
+  }
+  p {
+    color:#fff
+  }
+  div {
+    display:flex;
+    margin: 0 1rem;
+  }
+  @media (max-width: 480px) {
+    padding-top:1rem;
+  }
+}
+
 `
