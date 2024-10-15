@@ -25,6 +25,7 @@ public class SocialBarber {
     private String tiktok;
     private String youtube;
     private String website;
+    private Long branchId;
 
     @OneToOne
     @JoinColumn(name = "id_filial", referencedColumnName = "id", unique = true)
