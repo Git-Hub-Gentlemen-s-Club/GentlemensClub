@@ -12,9 +12,11 @@ import WhenFilterModal from "../../WhenFilterModal";
 
 import { ThemeProvider } from "../../../context/Theme";
 
-import {LoginSignUp, Input, InputWrapper, Select, LoginWrapper, DarkModeInput, Options} from "../../../styled_components/home/header_style/HeaderStyle";
+import {LoginSignUp, Input, InputWrapper, Select, LoginWrapper, Options} from "../../../styled_components/home/header_style/HeaderStyle";
 
 import DarkThemeBtn from "./DarkThemeBtn";
+
+import DropdownUserMenu from "./DropdownUserMenu";
 
 const gray = "#dddddd";
 
@@ -22,7 +24,9 @@ function NavBar() {
     const navigate = useNavigate();
 
     const [theme, setTheme] = useState("light");
-
+    
+    const [toggled, setToggled] = useState(false);
+    
     const darkTheme = () => {
         setTheme("dark");
     }
@@ -30,6 +34,10 @@ function NavBar() {
     const lightTheme = () => {
         setTheme("light");
     }
+
+    const handleClick = () => {
+        setToggled(!toggled);
+    } 
 
     useEffect(() => {
         console.log("Mudando o tema")
@@ -66,6 +74,8 @@ function NavBar() {
                         Inscrever-se
                         </LoginSignUp>
                     </LoginWrapper>
+                    
+                    {/*<DropdownUserMenu /> só para testar*/}
 
                     <Select name="" id="">
                         <Options value="pt-br">
@@ -78,9 +88,9 @@ function NavBar() {
                         </Options>
                     </Select>
 
-                    {/* <DarkModeInput type="checkbox" name="dark-mode" id="dark-mode" /> */}
+                    {/* ainda não está pronto */}
+                    <DarkThemeBtn toggled={toggled} handleClick={handleClick} />
 
-                    <DarkThemeBtn />
 
                 </NavInputs>
 

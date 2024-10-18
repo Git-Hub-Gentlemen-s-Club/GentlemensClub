@@ -12,13 +12,11 @@ function Header() {
     return (
         <>
             <HeaderContainer>
-                {/* <HeaderWrapper> */}
                 <ImageContainer>
                     <img src={Logo} alt="Logo Gentlemen's Club" />
                     Gentlemen's Club
                 </ImageContainer>
                 <NavBar />
-                {/* </HeaderWrapper>     */}
             </HeaderContainer>
         </>
 

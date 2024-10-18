@@ -1,6 +1,6 @@
 import 'react-calendar/dist/Calendar.css';
 
-import { ModalBackground, WhenFilter } from "../styled_components/when_filter/WhenFilterStyle";
+import { ModalBackground, WhenFilter, Schedule, Clean, CloseButton, ButtonsWrapper } from "../styled_components/when_filter/WhenFilterStyle";
 
 import { IoMdClose } from "react-icons/io";
 
@@ -11,14 +11,23 @@ import { useState } from 'react';
 function WhenFilterModal({ isOpen, setOpenModal}) {
     const [date, setDate] = useState(new Date());
     
+    const [clicked, setClicked] = useState(false);
+
     if (isOpen) {
         return (
             <ModalBackground>
                 <WhenFilter>
                     <h3 style={{color: 'black'}}>Horário preferido</h3>
-                    <button onClick={setOpenModal}><IoMdClose /></button>
+
+                    <CloseButton onClick={setOpenModal}><IoMdClose /></CloseButton>
+
                     <Calendar onChange={date => setDate(date)} value={date} />
-                    <button>Agendar</button>
+
+                    <ButtonsWrapper>
+                        <Clean >Limpar</Clean>
+                        <Schedule onClick={() => setClicked(!clicked)}>Agendar</Schedule>
+                    </ButtonsWrapper>
+
                 </WhenFilter>
             </ModalBackground>
         );
