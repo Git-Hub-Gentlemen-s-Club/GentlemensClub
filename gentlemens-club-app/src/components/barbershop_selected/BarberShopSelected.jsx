@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
 
 import Logo from "../../assets/Logo_Gentlemens_Club.png"
-import BarberShopLogo from "../../assets/barbeariaJH.jpg"
 import img1 from '../../assets/barbearia/img-1.png'
 import img2 from '../../assets/barbearia/img-2.png'
 import img3 from '../../assets/barbearia/img-3.png'
 import img4 from '../../assets/barbearia/img-4.png'
 import img5 from '../../assets/barbearia/img-5.png'
 import img6 from '../../assets/barbearia/img-6.png'
-import equipe1 from '../../assets/barbearia/equipe1.png'
-import equipe2 from '../../assets/barbearia/equipe2.png'
-import equipe3 from '../../assets/barbearia/equipe3.png'
+import equipe1 from '../../assets/barbearia/equipe1.png';
+import equipe2 from '../../assets/barbearia/equipe2.png';
+import equipe3 from '../../assets/barbearia/equipe3.png';
 
 import { faHeart, faShareFromSquare } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -20,12 +19,15 @@ import { IoIosInformationCircleOutline, IoIosSearch, IoIosPhonePortrait } from "
 import { IoBeer } from "react-icons/io5";
 import { BiLike, BiDislike } from "react-icons/bi";
 
-import { BarberShop, HeaderDiv, ImgDiv, ImgEnderecoDiv, DivIcons, LogoImg, LogoBarbershop, Body, Section, BarberShopImgDiv, LogoBarbershopPrincipal, Avaliation, BarberShopEnderecoDiv, NameDiv, DivIconsII, DestaqueDiv, BuscaDiv, ServicosDiv, Aside, AsideGiftCard, AsideIframe, MembrosEquipe, TeamMember, TeamImage, TeamName, ContatoAside, OpeningHoursContainer, Day, DayName, Hours, CardMap, Accordion, Panel, DivKeyPanel, DivButton, DivPanel, RegrasSaude, NossoTrabalho, ReviewContainer, ServiceTitle, Barber, Rating, Star, Comment, User, Date, Like, Report, Commodities, Reviews, RateDiv, Hrdiv, RateDivRate, ReviewsText, ReviewContainerRating, ReviewContainerUser, ReviewContainerLike } from "../../styled_components/barbershop_selected/BarberShopSelectedStyle";
+import { BarberShop, LogoBarbershop, Body, Section, BarberShopImgDiv, LogoBarbershopPrincipal, Avaliation, BarberShopEnderecoDiv, NameDiv, DivIconsII, DestaqueDiv, BuscaDiv, ServicosDiv, Aside, AsideGiftCard, AsideIframe, MembrosEquipe, TeamMember, TeamImage, TeamName, ContatoAside, OpeningHoursContainer, Day, DayName, Hours, CardMap, Accordion, Panel, DivKeyPanel, DivButton, DivPanel, RegrasSaude, NossoTrabalho, ReviewContainer, ServiceTitle, Barber, Rating, Star, Comment, User, Date, Like, Report, Commodities, Reviews, RateDiv, Hrdiv, RateDivRate, ReviewsText, ReviewContainerRating, ReviewContainerUser, ReviewContainerLike } from "../../styled_components/barbershop_selected/BarberShopSelectedStyle";
 import Pagination from '../home/body_components/Pagination';
-import { HeaderContainer, ImageContainer, Select, Options} from '../../styled_components/home/header_style/HeaderStyle';
-import NavListComponent from '../NavList';
 
-import DarkThemeBtn from '../home/header_components/DarkThemeBtn';
+import BarbeariaJH from '../../assets/barbeariaJH.jpg';
+
+import Header from '../home/header_components/Header';
+
+import HeaderBarberShopSelected from './HeaderBarberShopSelected';
+
 import { ThemeProvider } from '../../context/Theme';
 
 const response = {
@@ -144,8 +146,8 @@ const response = {
         video_game: true,
         bar: true,
     }
-}
-
+};
+ 
 const renderStars = (rate) => {
     return Array.from({ length: 5 }, (_, index) => (
         <Star key={index} filled={index < rate}>★</Star>
@@ -153,6 +155,7 @@ const renderStars = (rate) => {
 };
 
 const BarberShopSelected = () => {
+
     const [activeIndex, setActiveIndex] = useState(null);
 
     const toggleAccordion = (index) => {
@@ -176,45 +179,14 @@ const BarberShopSelected = () => {
     return (
         <ThemeProvider value={{theme, darkTheme, lightTheme}}>
         <BarberShop>
-            <HeaderContainer>
-                <ImageContainer>
-                    <LogoImg src={Logo} />
-                    Gentlemen's Club
-                </ImageContainer>
-                <HeaderDiv>
-                    <ImgDiv>
-                        <LogoBarbershop src={BarberShopLogo} alt="Logo Gentlemen's Club" />
-                        <ImgEnderecoDiv>
-                            <h2>{response.name}</h2>
-                            <p>{response.address}</p>
-                        </ImgEnderecoDiv>
-                        <DivIcons>
-                            <FontAwesomeIcon icon={faShareFromSquare} style={{ width: '1.3rem', height: '1.3rem', color: '#B58934' }} />
-                            <FontAwesomeIcon icon={faHeart} style={{ width: '1.3rem', height: '1.3rem', color: '#B58934' }} />
-                        </DivIcons>
-                        <button>Reservar agora</button>
-                    <Select name="" id="">
-                        <Options value="pt-br">
-                            🇧🇷
-                            BR
-                        </Options>
-                        <Options value="en-us">
-                            🇺🇸
-                            EN
-                        </Options>
-                    </Select>
-
-                    <DarkThemeBtn />
-                    </ImgDiv>
-
-                    
-                    <NavListComponent />
-                </HeaderDiv>
-            </HeaderContainer>
+            <Header>
+                <HeaderBarberShopSelected />
+            </Header>
+            
             <Body>
                 <Section>
                     <BarberShopImgDiv>
-                        <LogoBarbershopPrincipal src={BarberShopLogo} alt="Logo Gentlemen's Club" />
+                        <LogoBarbershopPrincipal src={BarbeariaJH} alt="Logo Gentlemen's Club" />
                         <Avaliation>
                             <h2>{response.reviews.rate.toFixed(1)}</h2>
                             <p>{response.reviews.total} avaliações</p>
@@ -430,7 +402,7 @@ const BarberShopSelected = () => {
                     <AsideIframe>
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.9800718021656!2d-46.85126772466523!3d-23.712405678696406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cfad16a4fa7f99%3A0x1ad1b32a1c7a6a5d!2sAv.%20Quinze%20de%20Novembro%2C%20408%20-%20Centro%2C%20Itapecerica%20da%20Serra%20-%20SP%2C%2006850-100!5e0!3m2!1spt-BR!2sbr!4v1725887313324!5m2!1spt-BR!2sbr" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
                         <CardMap>
-                            <LogoBarbershop src={BarberShopLogo} alt="Logo Gentlemen's Club" />
+                            <LogoBarbershop src={BarbeariaJH} alt="Logo Gentlemen's Club" />
                             <span>
                                 <h5>Barbearia JH</h5>
                                 <p>Rua Major Telles, 167, 1 Andar - Sala 3,

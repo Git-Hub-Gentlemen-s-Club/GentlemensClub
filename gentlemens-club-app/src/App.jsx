@@ -16,6 +16,7 @@ import ForgotPassword from "./components/ForgotPassword";
 import './App.css';
 import BarberShopSelected from "./components/barbershop_selected/BarberShopSelected";
 import { Route, Routes } from "react-router-dom"; // Removendo comentários desnecessários
+import NavBar from "./components/home/header_components/NavBar";
 
 function App() {
     const city = "Itapecerica da Serra";
@@ -44,7 +45,9 @@ function App() {
             <Routes>
                 <Route path="/BarbeariaSelecionada" element={<BarberShopSelected/>}/>
                 <Route path="/" element={<>
-                <Header />
+                <Header> 
+                    <NavBar />
+                </Header>
                 <div className="container">
                     <LocationHeader city={city} />
                     <div className="carousel-wrapper">

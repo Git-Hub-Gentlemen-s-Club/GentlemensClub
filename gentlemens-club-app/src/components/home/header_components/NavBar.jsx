@@ -18,6 +18,8 @@ import DarkThemeBtn from "./DarkThemeBtn";
 
 import DropdownUserMenu from "./DropdownUserMenu";
 
+import SelectLang from "./SelectLang";
+
 const gray = "#dddddd";
 
 function NavBar() {
@@ -77,16 +79,7 @@ function NavBar() {
                     
                     {/*<DropdownUserMenu /> só para testar*/}
 
-                    <Select name="" id="">
-                        <Options value="pt-br">
-                            🇧🇷
-                            BR
-                        </Options>
-                        <Options value="en-us">
-                            🇺🇸
-                            EN
-                        </Options>
-                    </Select>
+                    <SelectLang/>
 
                     {/* ainda não está pronto */}
                     <DarkThemeBtn toggled={toggled} handleClick={handleClick} />

@@ -8,15 +8,19 @@ import NavBar from "./NavBar";
 
 import Logo from '../../../assets/Logo_Gentlemens_Club.png';
 
-function Header() {
+import { useNavigate } from "react-router-dom";
+
+function Header({children}) {
+    const navigate = useNavigate();
+    
     return (
         <>
             <HeaderContainer>
-                <ImageContainer>
+                <ImageContainer onClick={() => navigate('/')}>
                     <img src={Logo} alt="Logo Gentlemen's Club" />
                     Gentlemen's Club
                 </ImageContainer>
-                <NavBar />
+                {children}
             </HeaderContainer>
         </>
 
