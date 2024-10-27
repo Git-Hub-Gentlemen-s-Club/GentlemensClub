@@ -18,8 +18,7 @@ export const Circle = styled.div`
   height: 20px;
   border-radius: 50%;
   background-color: ${({ toggled }) => (toggled ? '#B58934' : '#5F7181')};
-  margin: 0 3px;
-  transform: ${({ toggled }) => (toggled ? "translateX(20px)" : "translateX(0px)")};
+  transform: ${({ toggled }) => (toggled ? "translateX(23px)" : "translateX(0px)")};
   transition: all 0.2s ease-in-out;
   position: absolute;
 `;

@@ -1,6 +1,6 @@
 import 'react-calendar/dist/Calendar.css';
 
-import { ModalBackground, WhenFilter, Schedule, Clean, CloseButton, ButtonsWrapper } from "../styled_components/when_filter/WhenFilterStyle";
+import { ModalBackground, WhenFilter, Schedule, Clean, CloseButton, ButtonsWrapper, PreferredTime } from "../styled_components/when_filter/WhenFilterStyle";
 
 import { IoMdClose } from "react-icons/io";
 
@@ -17,7 +17,7 @@ function WhenFilterModal({ isOpen, setOpenModal}) {
         return (
             <ModalBackground>
                 <WhenFilter>
-                    <h3 style={{color: 'black'}}>Horário preferido</h3>
+                    <PreferredTime>Horário preferido</PreferredTime>
 
                     <CloseButton onClick={setOpenModal}><IoMdClose /></CloseButton>
 

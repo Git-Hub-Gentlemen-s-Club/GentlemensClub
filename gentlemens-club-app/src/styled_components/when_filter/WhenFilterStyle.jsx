@@ -1,9 +1,5 @@
 import styled from "styled-components";
 
-const clicked = (clicked) => {
-    return clicked;
-}
-
 export const ModalBackground = styled.div`
     position: fixed;
     top: 0;
@@ -44,9 +40,11 @@ export const CloseButton = styled.button`
     border: none;
     background-color: #B58934;
     color: white;
-    padding: 1px;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
 `;
 
 export const Clean = styled.button`
@@ -58,11 +56,16 @@ export const Clean = styled.button`
     padding: 1rem;
     border-radius: 5px; 
     cursor: pointer;
-    display: ${() => clicked ? 'block' : 'none'};
 `;
 
 export const ButtonsWrapper = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 5px;
+`;
+
+export const PreferredTime = styled.h3`
+    font-size: 20px;
+    font-family: 'Open Sans', sans-serif;
+    color: black;
 `;
