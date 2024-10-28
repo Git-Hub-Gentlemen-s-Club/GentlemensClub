@@ -17,7 +17,7 @@ export const NavList = styled.ul`
 
 export const NavInputs = styled.div`
     display: grid;
-    grid-template-columns: 3fr 3fr 3fr 2.3fr 0.5fr 0.5fr;
+    grid-template-columns: 3fr 3fr 3fr 2fr 1.5fr 0.5fr;
     grid-gap: 1em;
 `;
 

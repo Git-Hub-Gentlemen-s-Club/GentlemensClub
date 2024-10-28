@@ -47,6 +47,7 @@ export const LoginSignUp = styled.a`
 export const LoginWrapper = styled.div`
     display: flex;
     align-items: center;
+    justify-content: center;
     width: 100%;
     border-radius: 5px;
     padding: 3px;

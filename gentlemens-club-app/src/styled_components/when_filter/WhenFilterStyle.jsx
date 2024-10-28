@@ -98,7 +98,7 @@ export const WhenFilter = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #ffffff;
-    border-radius: 5px;
+    border-radius: 3px;
     padding: 1.5rem;
     padding-bottom: 0;
     display: flex;
