@@ -37,7 +37,7 @@ html {
 
 /* Estilização do calendário do filtro "Quando?" */
 
-.react-calendar {
+/* .react-calendar {
   border: none;
   font-family: 'Open Sans', sans-serif;
 } 
@@ -54,4 +54,4 @@ html {
 .react-calendar__tile {
   border-radius: 5px;
   margin: 5px;
-}
+} */

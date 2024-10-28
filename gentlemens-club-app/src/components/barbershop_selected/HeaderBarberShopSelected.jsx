@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 
-import { HeaderDiv,ImgDiv, LogoBarbershop, ImgEnderecoDiv, DivIcons } from "../../styled_components/barbershop_selected/BarberShopSelectedStyle";
-
-import { HeaderContainer } from "../../styled_components/home/header_style/HeaderStyle";
+import { HeaderDiv,ImgDiv, LogoBarbershop, ImgEnderecoDiv, DivIcons, LogoAddressWrapper } from "../../styled_components/barbershop_selected/BarberShopSelectedStyle";
 
 import SelectLang from "../home/header_components/SelectLang";
 
@@ -144,34 +142,38 @@ export default function HeaderBarberShopSelected() {
     } 
 
     return (
-        <HeaderContainer>
             <HeaderDiv>
 
                 <ImgDiv>
 
+                <LogoAddressWrapper>
                     <LogoBarbershop src={BarberShopLogo} alt="Logo Gentlemen's Club" />
-                
                     <ImgEnderecoDiv>
                         <h2>{response.name}</h2>
                         <p>{response.address}</p>
                     </ImgEnderecoDiv>
+                </LogoAddressWrapper>
+                
                 
                     <DivIcons>
                         <FontAwesomeIcon icon={faShareFromSquare} style={{ width: '1.3rem', height: '1.3rem', color: '#B58934' }} />
                         <FontAwesomeIcon icon={faHeart} style={{ width: '1.3rem', height: '1.3rem', color: '#B58934' }} />
                     </DivIcons>
                 
-                    <button>Reservar agora</button>
+
+                    <div>
+                        <button>Reservar agora</button>
+                    </div>
                 
+
                     <SelectLang />
         
                     <DarkThemeBtn toggled={toggled} handleClick={handleClick} />
 
-                    </ImgDiv>
+                </ImgDiv>
         
-                    <NavListComponent />
+                <NavListComponent />
         
             </HeaderDiv>
-        </HeaderContainer>
     );
 }

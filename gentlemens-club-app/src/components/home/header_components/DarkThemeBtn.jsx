@@ -19,7 +19,7 @@ export default function DarkThemeBtn({toggled, handleClick}) {
     }
         
     return (
-        <>
+        <div style={{display: 'flex', alignItems: 'center'}}>
             <input type="checkbox" style={{display: "none"}} value={toggled} onClick={handleClick} onChange={onChange} checked={theme === 'dark'} />
             <Container onClick={handleClick}>
                 <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap:'10px'}}>
@@ -28,6 +28,6 @@ export default function DarkThemeBtn({toggled, handleClick}) {
                 </div>
                 <Circle toggled={toggled}/>
             </Container>
-        </>
+        </div>
     )
 }

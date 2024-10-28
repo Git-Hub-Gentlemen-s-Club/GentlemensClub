@@ -37,27 +37,31 @@ export const LogoBarbaDiv = styled.div`
 export const HeaderDiv = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 1rem;
     width: 85vw;
     `
 export const ImgDiv = styled.div`
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 2fr 0.5fr 0.5fr 0.5fr 0.5fr;
     gap: 1rem;
 
     button{
         background-color: #B58934;
-        width: 20%;
+        width: 100%;
         height: 2.5rem;
         border: none;
         border-radius: 5px;
         padding: 0;
         font-weight: 600;
-        margin-left: 5%;
+        /* margin-left: 5%; */
         cursor: pointer;
     }
-    `
+    `;
+
+export const LogoAddressWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+`;
 export const ImgEnderecoDiv = styled.div`
     display: flex;
     flex-direction: column;
@@ -79,6 +83,7 @@ export const DivIcons = styled.div`
     display: flex;
     align-items: center;
     gap: 1rem;
+    justify-content: center;
 `
 
 export const LogoImg = styled.img`

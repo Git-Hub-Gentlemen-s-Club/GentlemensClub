@@ -12,7 +12,7 @@ import WhenFilterModal from "../../WhenFilterModal";
 
 import { ThemeProvider } from "../../../context/Theme";
 
-import {LoginSignUp, Input, InputWrapper, Select, LoginWrapper, Options} from "../../../styled_components/home/header_style/HeaderStyle";
+import {LoginSignUp, Input, InputWrapper, Select, LoginWrapper, Options, HeaderContainer} from "../../../styled_components/home/header_style/HeaderStyle";
 
 import DarkThemeBtn from "./DarkThemeBtn";
 
@@ -76,14 +76,10 @@ function NavBar() {
                         Inscrever-se
                         </LoginSignUp>
                     </LoginWrapper>
-                    
-                    {/*<DropdownUserMenu /> só para testar*/}
 
                     <SelectLang/>
 
-                    {/* ainda não está pronto */}
                     <DarkThemeBtn toggled={toggled} handleClick={handleClick} />
-
 
                 </NavInputs>
 
