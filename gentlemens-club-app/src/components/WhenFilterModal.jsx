@@ -1,4 +1,4 @@
-import { ModalBackground, WhenFilter, Schedule, Clean, CloseButton, ButtonsWrapper, PreferredTime, CalendarContainer } from "../styled_components/when_filter/WhenFilterStyle";
+import { ModalBackground, WhenFilter, Button, CloseButton, ButtonsWrapper, PreferredTime, CalendarContainer, TimeButtonWrapper, TimeButton } from "../styled_components/when_filter/WhenFilterStyle";
 
 import { IoMdClose } from "react-icons/io";
 
@@ -6,14 +6,14 @@ import Calendar from 'react-calendar';
 
 import { useState } from 'react';
 
+import '../App.css';
+
 function WhenFilterModal({ isOpen, setOpenModal}) {
     const [date, setDate] = useState(new Date());
     
     const [buttonClean, setButtonClean] = useState(false);
 
-    const handleDayClick = () => {
-        setButtonClean(!buttonClean);
-    }
+    const [when, setWhen] = useState(false);
 
     if (isOpen) {
         return (
@@ -27,14 +27,36 @@ function WhenFilterModal({ isOpen, setOpenModal}) {
                     <CalendarContainer>
                         <Calendar 
                         onChange={date => setDate(date)} 
-                        value={date} onClickDay={handleDayClick} 
+                        value={date} 
+                        onClickDay={() => {setButtonClean(true); setWhen(true)}}
                         minDate={new Date()}
                         />
                     </CalendarContainer>
 
+                    {when && 
+                        <TimeButtonWrapper>
+                            <TimeButton when={when}>A qualquer momento</TimeButton>
+                            <TimeButton when={when}>Manhã</TimeButton>
+                            <TimeButton when={when}>Tarde</TimeButton>
+                            <TimeButton when={when}>Noite</TimeButton>
+                        </TimeButtonWrapper>                    
+                    }
+
                     <ButtonsWrapper button={buttonClean}>
-                        <Schedule>Agendar</Schedule>
-                        { buttonClean && <Clean /> }
+
+                        <Button onClick={() => {setOpenModal; window.location.reload()}}>
+                            Agendar
+                        </Button>
+
+                        {
+                        
+                        buttonClean &&
+                        <Button onClick={() => {setButtonClean(false); setWhen(false)}}>
+                            Limpar
+                        </Button>
+                        
+                        }
+
                     </ButtonsWrapper>
 
                 </WhenFilter>

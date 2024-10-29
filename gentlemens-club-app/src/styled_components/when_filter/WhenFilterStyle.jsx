@@ -11,6 +11,8 @@ export const ModalBackground = styled.div`
 `;
 
 export const CalendarContainer = styled.div`
+    margin-bottom: 3rem;
+    
     .react-calendar {
         font-family: 'Open Sans', sans-serif;
     }
@@ -78,6 +80,7 @@ export const CalendarContainer = styled.div`
 
   .react-calendar__tile--range {
     background-color: #B58934;
+    color: white;
   }
 
   .react-calendar__year-view__months, 
@@ -109,9 +112,8 @@ export const WhenFilter = styled.div`
     flex-direction: column;
 `;
 
-export const Schedule = styled.button`
+export const Button = styled.button`
     width: 100%;
-    margin-top: 3rem;
     margin-bottom: 1rem;
     border: none;
     background-color: #B58934;
@@ -124,6 +126,27 @@ export const Schedule = styled.button`
     }
     &:active {
       background-color: #B58934;
+    }
+
+`;
+export const TimeButton = styled.button`
+    width: 100%;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border-radius: 5px; 
+    cursor: pointer;
+    &:hover {
+      background-color: #cacaca;
+    }
+    &:active {
+      background-color: #B58934;
+    }
+    &:focus {
+      background-color: #B58934;
+      color: white;
     }
 `;
 
@@ -147,25 +170,21 @@ export const CloseButton = styled.button`
     }
 `;
 
-export const Clean = styled.button`
-    width: 100%;
-    margin: 1rem 1rem 1rem 0;
-    border: none;
-    background-color: #B58934;
-    color: white;
-    padding: 1rem;
-    border-radius: 5px; 
-    cursor: pointer;
-`;
-
 export const ButtonsWrapper = styled.div`
-    display: grid;
-    grid-template-columns: ${({ button }) => { button ? '1fr 1fr' : '1fr' }};
-    grid-gap: 5px;
+    display: flex;
+    flex-direction: ${({ button }) => { button ? 'row-reverse' : 'column-reverse' }};
+    gap: 5px;
 `;
 
 export const PreferredTime = styled.h3`
     font-size: 20px;
     font-family: 'Open Sans', sans-serif;
     color: black;
+`;
+
+export const TimeButtonWrapper = styled.div`
+  display: grid;
+  grid-template-columns: 1.5fr 0.25fr 0.25fr 0.25fr;
+  grid-gap: 1rem;
+  margin: 0 2rem 0 2rem;
 `;

@@ -34,24 +34,3 @@ html {
     left: 30px;
   }
 }
-
-/* Estilização do calendário do filtro "Quando?" */
-
-/* .react-calendar {
-  border: none;
-  font-family: 'Open Sans', sans-serif;
-} 
-
-.react-calendar__month-view__weekdays {
-  color: black;
-  font-weight: normal;
-}
-
-.react-calendar__month-view__weekdays abbr {
-  text-decoration: none;
-}
-
-.react-calendar__tile {
-  border-radius: 5px;
-  margin: 5px;
-} */
