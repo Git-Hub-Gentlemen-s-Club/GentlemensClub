@@ -185,6 +185,5 @@ export const PreferredTime = styled.h3`
 export const TimeButtonWrapper = styled.div`
   display: grid;
   grid-template-columns: 1.5fr 0.25fr 0.25fr 0.25fr;
-  grid-gap: 1rem;
-  margin: 0 2rem 0 2rem;
+  grid-gap: 5px;
 `;
