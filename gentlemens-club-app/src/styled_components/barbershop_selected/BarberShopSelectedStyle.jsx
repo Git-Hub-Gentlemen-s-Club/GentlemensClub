@@ -55,7 +55,7 @@ export const ImgDiv = styled.div`
         /* margin-left: 5%; */
         cursor: pointer;
     }
-    `;
+    `; 
 
 export const LogoAddressWrapper = styled.div`
     display: flex;
@@ -66,7 +66,6 @@ export const ImgEnderecoDiv = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 45%;
 
     h2{
         font-size: 1.25rem;

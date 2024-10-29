@@ -9,23 +9,34 @@ import { useState } from 'react';
 function WhenFilterModal({ isOpen, setOpenModal}) {
     const [date, setDate] = useState(new Date());
     
-    const [clicked, setClicked] = useState(false);
+    const [buttonClean, setButtonClean] = useState(false);
+
+    const handleDayClick = () => {
+        setButtonClean(!buttonClean);
+    }
 
     if (isOpen) {
         return (
             <ModalBackground>
                 <WhenFilter>
+
                     <PreferredTime>Horário preferido</PreferredTime>
 
                     <CloseButton onClick={setOpenModal}><IoMdClose /></CloseButton>
 
-
                     <CalendarContainer>
-                        <Calendar onChange={date => setDate(date)} value={date} />
+                        <Calendar 
+                        onChange={date => setDate(date)} 
+                        value={date} onClickDay={handleDayClick} 
+                        minDate={new Date()}
+                        />
                     </CalendarContainer>
 
-                    <Schedule onClick={() => setClicked(!clicked)}>Agendar</Schedule>
-                
+                    <ButtonsWrapper button={buttonClean}>
+                        <Schedule>Agendar</Schedule>
+                        { buttonClean && <Clean /> }
+                    </ButtonsWrapper>
+
                 </WhenFilter>
             </ModalBackground>
         );

@@ -72,6 +72,10 @@ export const CalendarContainer = styled.div`
     color: red;
   }
 
+  .react-calendar__month-view__days__day--weekend:disabled {
+    opacity: 0.5;
+  }
+
   .react-calendar__tile--range {
     background-color: #B58934;
   }
@@ -115,6 +119,12 @@ export const Schedule = styled.button`
     padding: 1rem;
     border-radius: 5px; 
     cursor: pointer;
+    &:hover {
+      background-color: #A17A2F;
+    }
+    &:active {
+      background-color: #B58934;
+    }
 `;
 
 export const CloseButton = styled.button`
@@ -129,6 +139,12 @@ export const CloseButton = styled.button`
     font-size: 1.5rem;
     display: flex;
     align-items: center;
+    &:hover {
+      background-color: #A17A2F;
+    }
+    &:active {
+      background-color: #B58934;
+    }
 `;
 
 export const Clean = styled.button`
@@ -140,12 +156,11 @@ export const Clean = styled.button`
     padding: 1rem;
     border-radius: 5px; 
     cursor: pointer;
-    display: none;
 `;
 
 export const ButtonsWrapper = styled.div`
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: ${({ button }) => { button ? '1fr 1fr' : '1fr' }};
     grid-gap: 5px;
 `;
 
