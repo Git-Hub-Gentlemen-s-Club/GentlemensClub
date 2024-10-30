@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo} from 'react';
 import { FaCalendarAlt, FaCut, FaDollarSign } from 'react-icons/fa';
 import { LuUserSquare2 } from 'react-icons/lu';
 import { PiSunHorizonBold, PiCloudSunBold, PiMoonStarsBold } from 'react-icons/pi';
@@ -39,12 +39,34 @@ const PartnerScheduling = () => {
         ["19:00", "20:00", "21:00"]
     ], []);
 
-    const toggleAccordion = (index) => {
+    const toggleAccordion = (key) => {
+        
         setAccordionItem(prevState => ({
             ...prevState,
-            [index]: !prevState[index]
+            [key]: !prevState[key]
         }));
+        const split = key.split('-')
+        for (let reserves of daylySchedule[split[0]]) {
+            if (reserves === split[1]){
+                if (!accordionItem[key]) {
+                    document.getElementById(split[1]).className = 'selected';
+                } else {
+                    document.getElementById(split[1]).className = 'reserved';
+                }
+            }
+        }
+        
     };
+
+
+    const setClass = (time, period) => {
+        for (let reserve in AccordionItems[period]) {
+            if (AccordionItems[period][reserve].time == time) {
+                return "reserved"
+            }
+        }
+        return "vacant"
+    }
 
     return (
         <Container>
@@ -74,12 +96,12 @@ const PartnerScheduling = () => {
 
                 <div>
                     <h4>Horários</h4>
-                    {daylySchedule.map((schedule, idx) => (
-                        <div key={idx}>
-                            <p>{idx === 0 ? 'Manhã' : idx === 1 ? 'Tarde' : 'Noite'}</p>
+                    {daylySchedule.map((schedule, period) => (
+                        <div key={period}>
+                            <p>{period === 0 ? 'Manhã' : period === 1 ? 'Tarde' : 'Noite'}</p>
                             <TimeGrid>
-                                {schedule.map(time => (
-                                    <button key={time}>{time}</button>
+                                {schedule.map((time) => (
+                                    <button key={time} id={time} className={setClass(time, period)} onClick={() => {toggleAccordion(`${period}-${time}`)}}>{time}</button>
                                 ))}
                             </TimeGrid>
                         </div>
@@ -135,9 +157,9 @@ const PartnerScheduling = () => {
                     <AppointmentList key={period}>
                         <header>
                             <div>
-                                {period === 0 ? <PiSunHorizonBold className="AppointmentIcon"/> :
-                                    period === 1 ? <PiCloudSunBold className="AppointmentIcon"/> :
-                                        <PiMoonStarsBold className="AppointmentIcon"/>}
+                                {period === 0 ? <PiSunHorizonBold className="AppointmentIcon" /> :
+                                    period === 1 ? <PiCloudSunBold className="AppointmentIcon" /> :
+                                        <PiMoonStarsBold className="AppointmentIcon" />}
                                 <p>{period === 0 ? 'Manhã' : period === 1 ? 'Tarde' : 'Noite'}</p>
                             </div>
                             <div className="HeaderList">
@@ -147,17 +169,17 @@ const PartnerScheduling = () => {
                         <ul className="accordion">
                             {items.map((item, index) => (
                                 <li key={`${period}-${index}`}>
-                                    <div className="AppointmentTitle" onClick={() => toggleAccordion(`${period}-${index}`)}>
+                                    <div className="AppointmentTitle" onClick={() => toggleAccordion(`${period}-${item.time}`)}>
                                         <div>
                                             <span>{item.time}</span> {item.client}
                                         </div>
                                         <img
                                             src="src/assets/PartnerScheuling/DownArrow.png"
                                             alt="Seta para baixo"
-                                            style={{ transform: accordionItem[`${period}-${index}`] ? 'rotate(180deg)' : 'rotate(0deg)' }}
+                                            style={{ transform: accordionItem[`${period}-${item.time}`] ? 'rotate(180deg)' : 'rotate(0deg)' }}
                                         />
                                     </div>
-                                    <ul style={{ display: accordionItem[`${period}-${index}`] ? 'block' : 'none' }}>
+                                    <ul style={{ display: accordionItem[`${period}-${item.time}`] ? 'block' : 'none' }}>
                                         <li className="AppointmentIndex">
                                             <header><h3>Detalhes:</h3></header>
                                             <div><h3>Profissional:</h3><p>{item.professional}</p></div>

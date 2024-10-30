@@ -455,6 +455,11 @@ export const TimeGrid = styled.div`
       border-color:#B58934;
       color:#B58934;
     }
+    &.vacant{
+      pointer-events:none;
+      user-select:none;
+      cursor: pointer;
+    }
   }
   @media (max-width: 479px) {
       justify-content:center;
