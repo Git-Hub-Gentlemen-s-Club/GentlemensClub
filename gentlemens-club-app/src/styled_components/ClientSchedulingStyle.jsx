@@ -63,11 +63,11 @@ export const LogoContainer = styled.div`
   }
 
   @media (min-width: 1024px) and (max-width: 1279px) {
-    width: 100px;
-    padding: 15px;
+    width: 60px;
+    padding: 10px;
 
     img {
-      width: 60px;
+      width: 40px;
     }
   }
 
@@ -87,13 +87,13 @@ export const FilterContainer = styled.div`
   justify-content: space-between;
   flex: 1;
   background-color: #232225;
-  padding: 55px;
+  padding: 40px;
   border-radius: 12px;
 
   h4 {
     color: #B2AFB6;
     margin-bottom: 10px;
-    font-size: 17px;
+    font-size: 12px;
     flex: 0;
   }
 
@@ -112,7 +112,7 @@ export const FilterContainer = styled.div`
   .input-container {
     display: flex;
     position: relative;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     flex-grow: 1;
     width: 100%; /* Garanta que o container ocupe 100% do espaço */
 
@@ -210,7 +210,7 @@ export const TitleContainer = styled.div`
 
   p {
     color: #98959D;
-    font-size: 13px;
+    font-size: 10px;
     margin-bottom: 20px;
   }
 
