@@ -42,7 +42,7 @@ function App() {
 
     return (
         <>
-            {/* <GlobalStyle />
+            <GlobalStyle />
             <Routes>
                 <Route path="/BarbeariaSelecionada" element={<BarberShopSelected/>}/>
                 <Route path="/" element={<>
@@ -70,9 +70,9 @@ function App() {
                 <Route path="/Subscribe" element={<Subscribe/>}/>
                 <Route path="/Login" element={<LoginScreen/>}/>
                 <Route path="/ForgotPassword" element={<ForgotPassword/>}/>
-            </Routes> */}
+            </Routes>
             {/* <ClientScheduling/>  */}
-            <PartnerScheduling/>
+            {/* <PartnerScheduling/> */}
         </>
     );
 }
