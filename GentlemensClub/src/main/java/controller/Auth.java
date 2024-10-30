@@ -1,5 +1,6 @@
 package controller;
 
+import dto.BarberShopDTO;
 import dto.PasswordChangeDTO;
 import dto.PasswordDTO;
 import dto.UserDTO;
@@ -10,10 +11,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import service.BarberShopService;
 import service.EmailService;
 import service.PasswordResetTokenService;
 import service.UserService;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -28,6 +32,9 @@ public class Auth {
 
     @Autowired
     PasswordResetTokenService passwordResetTokenService;
+
+    @Autowired
+    private BarberShopService barberShopService;
 
     //Controller CadastroUser
     @PostMapping(value = "/save")
@@ -109,6 +116,13 @@ public class Auth {
     public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
         boolean deleted = userService.deleteUser(id);
         return deleted ? ResponseEntity.noContent().build() : ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+    }
+
+    // Endpoint para listar todas as barbearias
+    @GetMapping
+    public ResponseEntity<List<BarberShopDTO>> getAllBarberShops() {
+        List<BarberShopDTO> barberShops = barberShopService.getAllBarberShops();
+        return ResponseEntity.ok(barberShops);
     }
 
 }
