@@ -515,7 +515,7 @@ export const AppointmentList = styled.div`
   justify-content:space-between;
   padding: 16px;
   padding-bottom:0;
-  z-index:3;
+  z-index:1;
   div {
     width:fit-content;
     white-space:nowrap;
@@ -528,13 +528,16 @@ export const AppointmentList = styled.div`
   img {
     width:24px;
     height:12px;
-    transition:0.3s;
-    pointer-events:none;
+    /* pointer-events:none; */
+    transition:0.5s;
+    user-select:none;
+    cursor:pointer;
   }
 }
 .AppointmentIndex {
   display: flex;
   flex-direction: column;
+  margin-top: 1rem;
   header {
     all: unset;
     display: flex;
