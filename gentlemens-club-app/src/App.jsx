@@ -17,6 +17,7 @@ import './App.css';
 import BarberShopSelected from "./components/BarberShopSelected";
 import ClientScheduling from "./components/ClientScheduling";
 import { Route, Routes } from "react-router-dom"; // Removendo comentários desnecessários
+import ClientProfile from "./components/ClientProfile";
 
 function App() {
     const city = "Itapecerica da Serra";
@@ -70,7 +71,8 @@ function App() {
                 <Route path="/Login" element={<LoginScreen/>}/>
                 <Route path="/ForgotPassword" element={<ForgotPassword/>}/>
             </Routes> */}
-            <ClientScheduling/>
+            {/* <ClientScheduling/> */}
+            <ClientProfile/>
         </>
     );
 }
