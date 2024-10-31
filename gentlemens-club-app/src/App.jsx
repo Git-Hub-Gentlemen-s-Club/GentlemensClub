@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import GlobalStyle from "./styled_components/GlobalStyle";
 import Header from "./components/home/header_components/Header";
@@ -15,6 +14,8 @@ import Subscribe from './components/Subscribe';
 import ForgotPassword from "./components/ForgotPassword";
 import './App.css';
 import BarberShopSelected from "./components/barbershop_selected/BarberShopSelected";
+import ClientScheduling from "./components/ClientScheduling";
+import PartnerScheduling from "./components/PartnerScheduling"
 import { Route, Routes } from "react-router-dom"; // Removendo comentários desnecessários
 import NavBar from "./components/home/header_components/NavBar";
 
@@ -72,7 +73,8 @@ function App() {
                 <Route path="/Login" element={<LoginScreen/>}/>
                 <Route path="/ForgotPassword" element={<ForgotPassword/>}/>
             </Routes>
-            
+            {/* <ClientScheduling/>  */}
+            {/* <PartnerScheduling/> */}
         </>
     );
 }
