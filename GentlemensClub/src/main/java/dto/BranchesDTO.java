@@ -5,15 +5,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-
-public class PasswordChangeDTO {
-
-    private String token;
-    private String newPassword;
-    private String confirmPassword;
-
+@Getter
+@Setter
+public class BranchesDTO {
+    private Long id;
+    private String name;
+    private Boolean status;
+    private Long barberShopId;
 }

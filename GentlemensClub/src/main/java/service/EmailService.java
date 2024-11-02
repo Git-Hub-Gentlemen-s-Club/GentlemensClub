@@ -38,4 +38,18 @@ public class EmailService {
 
     }
 
+    public void sendEmailResetPassword(String to, String subject, String content) {
+        try {
+            MimeMessage mimeMessage = javaEmailSender.createMimeMessage();
+            MimeMessageHelper help = new MimeMessageHelper(mimeMessage, true, "UTF-8");
+            help.setTo(to);
+            help.setFrom(sender);
+            help.setSubject(subject);
+            help.setText(content, true);
+            javaEmailSender.send(mimeMessage);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }
