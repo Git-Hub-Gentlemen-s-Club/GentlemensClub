@@ -52,7 +52,7 @@ function NavBar() {
 
                     <InputWrapper>
                         <FaSearch style={{ color: gray }} className="icons" />
-                        <Input type="text" placeholder="Pesquise serviços e barbearias" />
+                        <Input type="text" placeholder="Pesquise serviços e barbearias"/>
                     </InputWrapper>
 
                     <InputWrapper>
@@ -75,9 +75,7 @@ function NavBar() {
                         </LoginSignUp>
                     </LoginWrapper>
 
-                    <SelectLang/>
-
-                    <button onClick={navigate('/UserMenu')}>Menu Usuário</button>
+                    <SelectLang />
 
                     <DarkThemeBtn toggled={toggled} handleClick={handleClick} />
 
