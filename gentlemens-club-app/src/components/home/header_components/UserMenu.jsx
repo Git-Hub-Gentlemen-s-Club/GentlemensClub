@@ -2,15 +2,15 @@ import React from "react";
 
 export default function UserMenu() {
     return (
-        <div style={{color: 'white'}}>
-            <ul>
-                <li>Perfil</li>
-                <li>Agendamento</li>
-                <li>Carteira</li>
-                <li>Planos e preço</li>
-                <li>Fale conosco</li>
-                <li>Sair</li>
-            </ul>
-        </div>
+        <Menu>
+            <MenuOpts>
+                <MenuOpt>Perfil</MenuOpt>
+                <MenuOpt>Agendamento</MenuOpt>
+                <MenuOpt>Carteira</MenuOpt>
+                <MenuOpt>Planos e preço</MenuOpt>
+                <MenuOpt>Fale conosco</MenuOpt>
+                <MenuOpt>Sair</MenuOpt>
+            </MenuOpts>
+        </Menu>
     );
 }

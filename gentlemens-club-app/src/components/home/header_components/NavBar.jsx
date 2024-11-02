@@ -4,7 +4,7 @@ import { FaSearch, FaMapMarkerAlt, FaStopwatch, FaRegUserCircle } from "react-ic
 
 import { NavContainer, NavInputs, Nav } from "../../../styled_components/home/header_style/NavBarStyle";
 
-import NavListComponent from "../../NavList";
+import NavListComponent from "./NavList";
 
 import { useNavigate } from "react-router-dom";
 
@@ -51,7 +51,7 @@ function NavBar() {
                 <NavInputs>
 
                     <InputWrapper>
-                        <FaSearch style={{ color: gray }} className="icons" />
+                        <FaSearch onClick={navigate('/UserMenu')} style={{ color: gray }} className="icons" />
                         <Input type="text" placeholder="Pesquise serviços e barbearias"/>
                     </InputWrapper>
 

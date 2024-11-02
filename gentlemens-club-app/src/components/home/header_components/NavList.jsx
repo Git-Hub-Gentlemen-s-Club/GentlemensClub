@@ -1,13 +1,10 @@
-import { NavList} from "../styled_components/home/header_style/NavBarStyle";
-import { Link } from "../styled_components/home/header_style/HeaderStyle";
-import { useNavigate } from "react-router-dom";
+import { NavList} from "../../../styled_components/home/header_style/NavBarStyle";
+import { Link } from "../../../styled_components/home/header_style/HeaderStyle";
 function NavListComponent() {
-    const navigate = useNavigate();
-
     return (
         <NavList>
             <li>
-                <Link onClick={navigate('/UserMenu')}>Corte de cabelo</Link>
+                <Link href="">Corte de cabelo</Link>
             </li>
             <li>
                 <Link href="">Barbearias</Link>
