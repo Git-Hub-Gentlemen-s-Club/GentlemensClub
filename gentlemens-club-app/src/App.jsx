@@ -72,9 +72,9 @@ function App() {
                 <Route path="/Login" element={<LoginScreen/>}/>
                 <Route path="/ForgotPassword" element={<ForgotPassword/>}/>
             </Routes>
-            {/* {/* <ClientScheduling/> */}
-            <ClientProfile/>  */}
-            {/* <PartnerScheduling/> */}
+            <ClientScheduling/>
+            <ClientProfile/>
+            <PartnerScheduling/>
         </>
     );
 }
