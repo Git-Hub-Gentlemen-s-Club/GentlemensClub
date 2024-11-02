@@ -15,7 +15,7 @@ import {
     ImageSlide,
     StyledCarousel,
     Icon
-} from "../styled_components/loginScreen/LoginScreenStyle";
+} from "../styled_components/login_screen/LoginScreenStyle";
 const settings = {
     dots: true,
     infinite: true,

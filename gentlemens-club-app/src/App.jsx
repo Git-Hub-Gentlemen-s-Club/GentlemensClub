@@ -1,23 +1,23 @@
-
 import React, { useState } from "react";
 import GlobalStyle from "./styled_components/GlobalStyle";
-import Header from "./components/header_components/Header";
-import BarberCarousel from "./components/BarberCarousel";
-import LocationHeader from "./components/LocationHeader";
+import Header from "./components/home/header_components/Header";
+import BarberCarousel from "./components/home/body_components/BarberCarousel";
+import LocationHeader from "./components/home/body_components/LocationHeader";
 import Footer from "./components/Footer";
-import BarberInfoCard from "./components/BarberInfoCard";
-import FiltersButton from "./components/FiltersButton";
-import SortButton from "./components/SortButton";
-import Pagination from "./components/Pagination"; // Importando o componente Pagination
-import InformationCard from "./components/InformationCard"; // Importando o componente InformationCard
+import BarberInfoCard from "./components/home/body_components/BarberInfoCard";
+import FiltersButton from "./components/home/body_components/FiltersButton";
+import SortButton from "./components/home/body_components/SortButton";
+import Pagination from "./components/home/body_components/Pagination"; // Importando o componente Pagination
+import InformationCard from "./components/home/body_components/InformationCard"; // Importando o componente InformationCard
 import LoginScreen from "./components/LoginScreen"; // Tela de login
 import Subscribe from './components/Subscribe';
 import ForgotPassword from "./components/ForgotPassword";
 import './App.css';
-import BarberShopSelected from "./components/BarberShopSelected";
+import BarberShopSelected from "./components/barbershop_selected/BarberShopSelected";
 import ClientScheduling from "./components/ClientScheduling";
 import PartnerScheduling from "./components/PartnerScheduling"
 import { Route, Routes } from "react-router-dom"; // Removendo comentários desnecessários
+import NavBar from "./components/home/header_components/NavBar";
 import ClientProfile from "./components/ClientProfile";
 
 function App() {
@@ -33,6 +33,8 @@ function App() {
         services: [
             { name: "Corte de Cabelo", price: 50.00, duration: "40min" },
             { name: "Corte de Cabelo e Barbear", price: 80.00, duration: "1h" },
+        services: [
+            { name: "Corte de Cabelo", price: 50.00, duration: "40min" },
             { name: "Barbear", price: 40.00, duration: "30min" },
         ],
     };
@@ -47,10 +49,12 @@ function App() {
             <Routes>
                 <Route path="/BarbeariaSelecionada" element={<BarberShopSelected/>}/>
                 <Route path="/" element={<>
-                    <Header />
-            <div className="container">
-                <LocationHeader city={city} />
-                <div className="carousel-wrapper">
+                <Header> 
+                    <NavBar />
+                </Header>
+                <div className="container">
+                    <LocationHeader city={city} />
+                    <div className="carousel-wrapper">
                     <div className="buttons-container">
                         <FiltersButton />
                         <SortButton />
@@ -65,7 +69,7 @@ function App() {
                 <BarberInfoCard barberData={barberData} /> 
             </div>
             <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
-            <InformationCard city={city} /> 
+            <InformationCard city={city} />  
             <Footer />
                 </>}/>
                 <Route path="/Subscribe" element={<Subscribe/>}/>
