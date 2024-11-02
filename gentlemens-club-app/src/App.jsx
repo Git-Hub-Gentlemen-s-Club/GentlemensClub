@@ -16,9 +16,10 @@ import './App.css';
 import BarberShopSelected from "./components/barbershop_selected/BarberShopSelected";
 import UserMenu from "./components/home/header_components/UserMenu";
 import ClientScheduling from "./components/ClientScheduling";
-import PartnerScheduling from "./components/PartnerScheduling"
+import PartnerScheduling from "./components/PartnerScheduling";
 import { Route, Routes } from "react-router-dom"; // Removendo comentários desnecessários
 import NavBar from "./components/home/header_components/NavBar";
+import ClientProfile from "./components/ClientProfile";
 
 function App() {
     const city = "Itapecerica da Serra";
@@ -75,8 +76,9 @@ function App() {
                 <Route path="/ForgotPassword" element={<ForgotPassword/>}/>
                 <Route path="/UserMenu" element={<UserMenu/>} />
             </Routes>
-            {/* <ClientScheduling/>  */}
-            {/* <PartnerScheduling/> */}
+            <ClientScheduling/>
+            <ClientProfile/>
+            <PartnerScheduling/>
         </>
     );
 }
