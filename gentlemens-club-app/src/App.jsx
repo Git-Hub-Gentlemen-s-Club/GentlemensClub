@@ -18,6 +18,7 @@ import ClientScheduling from "./components/ClientScheduling";
 import PartnerScheduling from "./components/PartnerScheduling"
 import { Route, Routes } from "react-router-dom"; // Removendo comentários desnecessários
 import NavBar from "./components/home/header_components/NavBar";
+import ClientProfile from "./components/ClientProfile";
 
 function App() {
     const city = "Itapecerica da Serra";
@@ -32,6 +33,8 @@ function App() {
         services: [
             { name: "Corte de Cabelo", price: 50.00, duration: "40min" },
             { name: "Corte de Cabelo e Barbear", price: 80.00, duration: "1h" },
+        services: [
+            { name: "Corte de Cabelo", price: 50.00, duration: "40min" },
             { name: "Barbear", price: 40.00, duration: "30min" },
         ],
     };
@@ -73,8 +76,9 @@ function App() {
                 <Route path="/Login" element={<LoginScreen/>}/>
                 <Route path="/ForgotPassword" element={<ForgotPassword/>}/>
             </Routes>
-            {/* <ClientScheduling/>  */}
-            {/* <PartnerScheduling/> */}
+            <ClientScheduling/>
+            <ClientProfile/>
+            <PartnerScheduling/>
         </>
     );
 }
