@@ -18,6 +18,7 @@ import BarberShopSelected from "./components/BarberShopSelected";
 import ClientScheduling from "./components/ClientScheduling";
 import PartnerScheduling from "./components/PartnerScheduling"
 import { Route, Routes } from "react-router-dom"; // Removendo comentários desnecessários
+import ClientProfile from "./components/ClientProfile";
 
 function App() {
     const city = "Itapecerica da Serra";
@@ -71,8 +72,9 @@ function App() {
                 <Route path="/Login" element={<LoginScreen/>}/>
                 <Route path="/ForgotPassword" element={<ForgotPassword/>}/>
             </Routes>
-            {/* <ClientScheduling/>  */}
-            {/* <PartnerScheduling/> */}
+            <ClientScheduling/>
+            <ClientProfile/>
+            <PartnerScheduling/>
         </>
     );
 }
