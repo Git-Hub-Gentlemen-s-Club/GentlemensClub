@@ -28,8 +28,7 @@ public class Auth {
     @Autowired
     PasswordResetTokenService passwordResetTokenService;
 
-    @Autowired
-    private BarberShopService barberShopService;
+
 
     @Autowired
     UserVerifierService userVerifier;
@@ -139,12 +138,6 @@ public class Auth {
     @GetMapping(value = "/verificacao/{uuid}")
     public String verificacao(@PathVariable String uuid) {
         return  userVerifier.verifierAccount(uuid);
-    }
-
-    @GetMapping(value = "/barbearias/list")
-    public ResponseEntity<List<BarberBranch>> getAllBarberBranches() {
-        List<BarberBranch> barberShops = barberShopService.getAllBarberBranches();
-        return ResponseEntity.ok(barberShops);
     }
 
 }
