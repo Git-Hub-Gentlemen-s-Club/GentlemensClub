@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "BARBEARIA")
+@Entity(name = "barbearia")
 public class Barber {
 
     @Id

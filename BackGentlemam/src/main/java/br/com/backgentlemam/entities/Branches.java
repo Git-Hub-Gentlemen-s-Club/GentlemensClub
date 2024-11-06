@@ -6,11 +6,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "FILIAL")
+@Entity(name = "filial")
 public class Branches {
 
     @Id
@@ -29,8 +31,11 @@ public class Branches {
     private User user_barber;
 
     // Adicione esta linha
-    @ManyToOne
-    @JoinColumn(name = "id_barbershop", referencedColumnName = "id_barbershop", nullable = false) // Referência à BarberShop
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_barbershop") // Referência à BarberShop
     private BarberShop barberShop;
+
+    @OneToMany(mappedBy = "branch", cascade = CascadeType.ALL)
+    private List<EmployeeBarber> employees;
 
 }

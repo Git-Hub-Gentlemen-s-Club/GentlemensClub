@@ -28,7 +28,7 @@ public class BarberShop {
     private String logoUrl;
 
     // Relação com a entidade Address
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "id_address", referencedColumnName = "id_address")
     private AddresBarber address;
 

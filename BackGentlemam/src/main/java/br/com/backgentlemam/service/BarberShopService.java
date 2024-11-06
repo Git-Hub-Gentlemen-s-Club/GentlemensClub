@@ -3,7 +3,7 @@ package br.com.backgentlemam.service;
 import br.com.backgentlemam.dto.AddresBarberDTO;
 import br.com.backgentlemam.dto.BarberShopDTO;
 import br.com.backgentlemam.dto.SocialBarberDTO;
-import br.com.backgentlemam.entities.BarberBranch;
+import br.com.backgentlemam.entities.view.BarberBranch;
 import br.com.backgentlemam.entities.BarberShop;
 import br.com.backgentlemam.repository.BarberShopRepository;
 
@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class BarberShopService {

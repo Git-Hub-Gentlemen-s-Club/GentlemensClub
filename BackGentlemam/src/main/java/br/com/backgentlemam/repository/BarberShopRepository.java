@@ -1,7 +1,6 @@
 package br.com.backgentlemam.repository;
 
-import br.com.backgentlemam.entities.BarberBranch;
-import br.com.backgentlemam.entities.BarberShop;
+import br.com.backgentlemam.entities.view.BarberBranch;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

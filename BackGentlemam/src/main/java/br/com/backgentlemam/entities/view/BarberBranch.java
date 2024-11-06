@@ -1,4 +1,4 @@
-package br.com.backgentlemam.entities;
+package br.com.backgentlemam.entities.view;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
