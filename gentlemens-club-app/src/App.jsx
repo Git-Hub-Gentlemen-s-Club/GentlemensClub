@@ -15,10 +15,11 @@ import ForgotPassword from "./components/ForgotPassword";
 import './App.css';
 import BarberShopSelected from "./components/barbershop_selected/BarberShopSelected";
 import ClientScheduling from "./components/ClientScheduling";
-import PartnerScheduling from "./components/PartnerScheduling"
+import PartnerScheduling from "./components/PartnerScheduling";
 import { Route, Routes } from "react-router-dom"; // Removendo comentários desnecessários
 import NavBar from "./components/home/header_components/NavBar";
 import ClientProfile from "./components/ClientProfile";
+import NewPassword from "./components/NewPassword"
 
 function App() {
     const city = "Itapecerica da Serra";
@@ -32,11 +33,8 @@ function App() {
         image: "/path/to/image.jpg", // Substitua pelo caminho real da imagem
         services: [
             { name: "Corte de Cabelo", price: 50.00, duration: "40min" },
-            { name: "Corte de Cabelo e Barbear", price: 80.00, duration: "1h" },
-        services: [
-            { name: "Corte de Cabelo", price: 50.00, duration: "40min" },
-            { name: "Barbear", price: 40.00, duration: "30min" },
-        ],
+            { name: "Corte de Cabelo e Barbear", price: 80.00, duration: "1h" }
+        ]
     };
 
     const handlePageChange = (page) => {
@@ -46,7 +44,7 @@ function App() {
     return (
         <>
             <GlobalStyle />
-            <Routes>
+            {/* <Routes>
                 <Route path="/BarbeariaSelecionada" element={<BarberShopSelected/>}/>
                 <Route path="/" element={<>
                 <Header> 
@@ -75,10 +73,11 @@ function App() {
                 <Route path="/Subscribe" element={<Subscribe/>}/>
                 <Route path="/Login" element={<LoginScreen/>}/>
                 <Route path="/ForgotPassword" element={<ForgotPassword/>}/>
-            </Routes>
-            <ClientScheduling/>
-            <ClientProfile/>
-            <PartnerScheduling/>
+            </Routes> */}
+            {/* <ClientScheduling/> */}
+            {/* <ClientProfile/> */}
+            {/* <PartnerScheduling/> */}
+            <NewPassword />
         </>
     );
 }
