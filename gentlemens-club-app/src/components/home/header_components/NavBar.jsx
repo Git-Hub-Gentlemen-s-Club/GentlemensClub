@@ -18,6 +18,8 @@ import DarkThemeBtn from "./DarkThemeBtn";
 
 import SelectLang from "./SelectLang";
 
+import UserMenuButton from "./UserMenuButton";
+
 const gray = "#dddddd";
 
 function NavBar() {
@@ -76,6 +78,8 @@ function NavBar() {
                     </LoginWrapper>
 
                     <SelectLang />
+
+                    <UserMenuButton />
 
                     <DarkThemeBtn toggled={toggled} handleClick={handleClick} />
 
