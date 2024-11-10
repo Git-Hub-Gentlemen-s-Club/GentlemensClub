@@ -1,11 +1,8 @@
 import React from "react";
-
+import { Link } from "react-router-dom"
 import { FaUser, FaCalendarAlt, FaWallet, FaDollarSign } from "react-icons/fa";
-
 import { Menu, MenuOpts, MenuOpt } from '../../../styled_components/home/header_style/UserMenuStyle';
-
 import { FaRegMessage } from "react-icons/fa6";
-
 import { TbLogout } from "react-icons/tb";
 
 export default function UserMenu(open) {
@@ -14,12 +11,12 @@ export default function UserMenu(open) {
             <MenuOpts>
                 <MenuOpt>
                     <FaUser />
-                    Perfil
+                    <Link to="/ClientProfile">Perfil</Link> {/* Link para ClientProfile */}
                 </MenuOpt>
 
                 <MenuOpt>
                     <FaCalendarAlt />
-                    Agendamento
+                    <Link to="/ClientScheduling">Agendamento</Link> {/* Link para ClientScheduling */}
                 </MenuOpt>
 
                 <MenuOpt>

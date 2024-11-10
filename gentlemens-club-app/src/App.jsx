@@ -77,11 +77,10 @@ function App() {
                 <Route path="/Login" element={<LoginScreen/>}/>
                 <Route path="/ForgotPassword" element={<ForgotPassword/>}/>
                 <Route path="/UserMenu" element={<UserMenu/>} />
+                <Route path="/ClientProfile" element={<ClientProfile />} />
+                <Route path="/ClientScheduling" element={<ClientScheduling />} />
             </Routes>
-            {/* <ClientScheduling/> */}
-            {/* <ClientProfile/> */}
             {/* <PartnerScheduling/> */}
-            {/* <NewPassword /> */}
         </>
     );
 }
