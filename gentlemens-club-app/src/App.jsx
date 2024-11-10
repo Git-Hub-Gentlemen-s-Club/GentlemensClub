@@ -14,6 +14,7 @@ import Subscribe from './components/Subscribe';
 import ForgotPassword from "./components/ForgotPassword";
 import './App.css';
 import BarberShopSelected from "./components/barbershop_selected/BarberShopSelected";
+import UserMenu from "./components/home/header_components/UserMenu";
 import ClientScheduling from "./components/ClientScheduling";
 import PartnerScheduling from "./components/PartnerScheduling";
 import { Route, Routes } from "react-router-dom"; // Removendo comentários desnecessários
@@ -33,9 +34,11 @@ function App() {
         image: "/path/to/image.jpg", // Substitua pelo caminho real da imagem
         services: [
             { name: "Corte de Cabelo", price: 50.00, duration: "40min" },
-            { name: "Corte de Cabelo e Barbear", price: 80.00, duration: "1h" }
+            { name: "Corte de Cabelo e Barbear", price: 80.00, duration: "1h" },
+            { name: "Barbear", price: 40.00, duration: "30min" }
         ]
     };
+
 
     const handlePageChange = (page) => {
         setCurrentPage(page);
@@ -73,6 +76,7 @@ function App() {
                 <Route path="/Subscribe" element={<Subscribe/>}/>
                 <Route path="/Login" element={<LoginScreen/>}/>
                 <Route path="/ForgotPassword" element={<ForgotPassword/>}/>
+                <Route path="/UserMenu" element={<UserMenu/>} />
             </Routes>
             {/* <ClientScheduling/> */}
             {/* <ClientProfile/> */}

@@ -14,7 +14,7 @@ import equipe1 from '../../assets/barbearia/equipe1.png';
 import equipe2 from '../../assets/barbearia/equipe2.png';
 import equipe3 from '../../assets/barbearia/equipe3.png';
 
-import NavListComponent from "../NavList";
+import NavListComponent from "../home/header_components/NavList";
 
 const response = {
     name: "Barbearia JH",

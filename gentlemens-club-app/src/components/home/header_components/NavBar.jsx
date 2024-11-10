@@ -4,7 +4,7 @@ import { FaSearch, FaMapMarkerAlt, FaStopwatch, FaRegUserCircle } from "react-ic
 
 import { NavContainer, NavInputs, Nav } from "../../../styled_components/home/header_style/NavBarStyle";
 
-import NavListComponent from "../../NavList";
+import NavListComponent from "./NavList";
 
 import { useNavigate } from "react-router-dom";
 
@@ -12,13 +12,13 @@ import WhenFilterModal from "../../WhenFilterModal";
 
 import { ThemeProvider } from "../../../context/Theme";
 
-import {LoginSignUp, Input, InputWrapper, Select, LoginWrapper, Options, HeaderContainer} from "../../../styled_components/home/header_style/HeaderStyle";
+import {LoginSignUp, Input, InputWrapper, LoginWrapper} from "../../../styled_components/home/header_style/HeaderStyle";
 
 import DarkThemeBtn from "./DarkThemeBtn";
 
-import DropdownUserMenu from "./DropdownUserMenu";
-
 import SelectLang from "./SelectLang";
+
+import UserMenuButton from "./UserMenuButton";
 
 const gray = "#dddddd";
 
@@ -53,8 +53,8 @@ function NavBar() {
                 <NavInputs>
 
                     <InputWrapper>
-                        <FaSearch style={{ color: gray }} className="icons" />
-                        <Input type="text" placeholder="Pesquise serviços e barbearias" />
+                        <FaSearch onClick={navigate('/UserMenu')} style={{ color: gray }} className="icons" />
+                        <Input type="text" placeholder="Pesquise serviços e barbearias"/>
                     </InputWrapper>
 
                     <InputWrapper>
@@ -77,7 +77,9 @@ function NavBar() {
                         </LoginSignUp>
                     </LoginWrapper>
 
-                    <SelectLang/>
+                    <SelectLang />
+
+                    <UserMenuButton />
 
                     <DarkThemeBtn toggled={toggled} handleClick={handleClick} />
 
