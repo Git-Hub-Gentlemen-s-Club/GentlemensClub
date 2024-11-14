@@ -53,7 +53,7 @@ function NavBar() {
                 <NavInputs>
 
                     <InputWrapper>
-                        <FaSearch onClick={navigate('/UserMenu')} style={{ color: gray }} className="icons" />
+                        <FaSearch style={{ color: gray }} className="icons" />
                         <Input type="text" placeholder="Pesquise serviços e barbearias"/>
                     </InputWrapper>
 
