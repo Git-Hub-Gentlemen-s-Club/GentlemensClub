@@ -55,7 +55,7 @@ export const ImgDiv = styled.div`
         /* margin-left: 5%; */
         cursor: pointer;
     }
-    `; 
+    `;
 
 export const LogoAddressWrapper = styled.div`
     display: flex;
@@ -121,6 +121,9 @@ export const Body = styled.div`
     h2{
         font-weight: 400;
     }
+    @media (max-width: 768px) { 
+        flex-wrap: wrap;
+    }
 `
 export const Section = styled.section`
     width: 65%;
@@ -129,6 +132,7 @@ export const Section = styled.section`
     display: flex;
     justify-content: center;
     flex-direction: column;
+    @media (max-width: 768px) { width: 100%; margin-left: 0; margin-right: 0; }
 `
 export const BarberShopImgDiv = styled.div`
     position: relative;
@@ -136,11 +140,19 @@ export const BarberShopImgDiv = styled.div`
     justify-content: center;
     align-items: center;
     margin: 0 2rem 0 0rem;
+
+    @media (max-width: 768px) { 
+        margin-left: 0; 
+        margin-right: 0; }
+    
 `
 export const LogoBarbershopPrincipal = styled.img`
     width: 100%;
     height: 45rem;
     border-radius: 5px;
+    @media (max-width: 768px) { 
+        height: 20rem;
+     }
 `
 export const Avaliation = styled.div`
     position: absolute;
@@ -167,6 +179,11 @@ export const BarberShopEnderecoDiv = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
+
+    @media (max-width: 768px) { 
+        padding-left: 1rem;
+        padding-right: 1rem; 
+    }
 `
 export const NameDiv = styled.div`
     display: flex;
@@ -214,6 +231,18 @@ export const DestaqueDiv = styled.div`
         font-size: 0.6rem;
         font-weight: 600;
     }
+    @media (max-width: 768px) { 
+        gap: 1rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        span{
+            font-size: 0.6rem;
+            flex-wrap: wrap;
+        }
+        button{
+            padding: 5px 10px;
+        }
+    }
 `
 export const BuscaDiv = styled.div`
     display: flex;
@@ -232,6 +261,11 @@ export const BuscaDiv = styled.div`
         width: 20rem;
         border-radius: 8px;
         padding: 2px 10px;
+    }
+    @media (max-width: 768px) { 
+        gap: 3.5rem;
+        margin-right: 1rem;
+        padding-left: 1rem;
     }
 `
 
@@ -266,6 +300,13 @@ export const Aside = styled.aside`
         border: none;
         border-top: 1px solid #B58934;
     }
+    @media (max-width: 768px) { 
+        width: 100%; 
+        margin-left: 0; 
+        margin-right: 0; 
+        padding-left: 1rem;
+    }
+
 `
 
 export const AsideGiftCard = styled.div`
@@ -475,6 +516,7 @@ export const DivButton = styled.div`
         border-radius: 5px;
         font-size: 0.8rem;
     }
+    
 `
 export const DivPanel = styled.div`
     display: flex;
@@ -489,6 +531,9 @@ export const DivPanel = styled.div`
     p{
         font-size: 0.7rem;
         color: rgba(255,255,255, 0.6);
+    }
+    @media (max-width: 768px) { 
+        width: 50%;
     }
 `
 
@@ -513,6 +558,16 @@ export const RegrasSaude = styled.div`
         flex-direction: row;
         gap: 1rem;
         align-items: center;
+    }
+
+    @media (max-width: 768px) { 
+        padding-top: 1rem;
+        padding-bottom: 2rem;
+        justify-content: center;
+
+        h2{
+            padding-left: 1rem;
+        }
     }
 `
 
@@ -555,6 +610,11 @@ export const NossoTrabalho = styled.div`
             background-color: #A4782C;
         }
     }
+    @media (max-width: 768px) { 
+        h2{
+            padding-left: 1rem;
+        }
+    }
 `;
 
 export const ReviewContainer = styled.div`
@@ -566,9 +626,16 @@ export const ReviewContainer = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
+  @media (max-width: 768px) { 
+       padding-left: 1rem;
+       padding-right: 1rem;
+    }
 `;
 export const ReviewContainerRating = styled.div`
     width: 70%;
+    @media (max-width: 768px) { 
+       width: 60%;
+    }
 `
 export const ReviewContainerUser = styled.div`
     width: 30%;
@@ -580,6 +647,15 @@ export const ReviewContainerUser = styled.div`
 
     span{
         font-size: 2rem;
+    }
+
+    @media (max-width: 768px) { 
+       width: 40%;
+        align-items: top;
+       justify-content: center;
+       span{
+        font-size: 1rem
+       }
     }
 `
 export const ReviewContainerLike = styled.div`
@@ -618,6 +694,9 @@ export const Star = styled.span`
   color: ${props => (props.filled ? '#FF9400' : '#ccc')};
   margin-right: 4px;
   font-size: 2rem;
+  @media (max-width: 768px) { 
+       font-size: 1.3rem;
+    }
 `;
 
 export const Comment = styled.p`
@@ -631,6 +710,10 @@ export const User = styled.p`
 
 export const Date = styled.p`
   font-size: 0.8rem;
+  @media (max-width: 768px) { 
+    display: flex ;
+    flex-wrap: nowrap;
+    }
 `;
 
 export const Like = styled.button`
@@ -677,6 +760,9 @@ export const Commodities = styled.div`
         padding-top: 2rem;
         padding-bottom: 2rem;
     }
+    @media (max-width: 768px) { 
+       padding-left: 1rem;
+    }
 `
 
 export const Reviews = styled.div`
@@ -685,6 +771,10 @@ export const Reviews = styled.div`
     flex-direction: row;
     width: 100%;
     gap: 3rem;
+
+    @media (max-width: 768px) { 
+        flex-wrap: wrap;
+    }
 `
 
 export const ReviewsText = styled.div`
@@ -697,6 +787,11 @@ export const ReviewsText = styled.div`
     p{
         font-size: 0.8rem;
     }
+    @media (max-width: 768px) { 
+       width: 100%;
+       padding-left: 1rem;
+       padding-right: 1rem;
+    }
 `
 
 export const RateDiv = styled.div`
@@ -707,6 +802,11 @@ export const RateDiv = styled.div`
     text-align: center;
     align-items: center;
     width: 50%;
+    @media (max-width: 768px) { 
+        width: 100%;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
 `
 export const RateDivRate = styled.div`
     width: 40%;
