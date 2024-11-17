@@ -28,7 +28,7 @@ import Header from '../home/header_components/Header';
 
 import HeaderBarberShopSelected from './HeaderBarberShopSelected';
 
-import { ThemeProvider } from '../../context/Theme';
+import { ThemeProvider } from '../../context/ThemeContext';
 
 const response = {
     name: "Barbearia JH",

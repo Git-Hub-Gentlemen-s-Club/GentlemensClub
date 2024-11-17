@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import GlobalStyle from "./styled_components/GlobalStyle";
 import Header from "./components/home/header_components/Header";
 import BarberCarousel from "./components/home/body_components/BarberCarousel";
@@ -21,6 +21,7 @@ import { Route, Routes } from "react-router-dom"; // Removendo comentários desn
 import NavBar from "./components/home/header_components/NavBar";
 import ClientProfile from "./components/ClientProfile";
 import NewPassword from "./components/NewPassword"
+import { LoginContext, LoginProvider } from "./context/LoginContext";
 
 function App() {
     const city = "Itapecerica da Serra";
@@ -45,7 +46,7 @@ function App() {
     };
 
     return (
-        <>
+        <LoginProvider>
             <GlobalStyle />
             <Routes>
                 <Route path="/BarbeariaSelecionada" element={<BarberShopSelected/>}/>
@@ -76,12 +77,11 @@ function App() {
                 <Route path="/Subscribe" element={<Subscribe/>}/>
                 <Route path="/Login" element={<LoginScreen/>}/>
                 <Route path="/ForgotPassword" element={<ForgotPassword/>}/>
-                <Route path="/UserMenu" element={<UserMenu/>} />
                 <Route path="/ClientProfile" element={<ClientProfile />} />
                 <Route path="/ClientScheduling" element={<ClientScheduling />} />
             </Routes>
             {/* <PartnerScheduling/> */}
-        </>
+        </LoginProvider>
     );
 }
 

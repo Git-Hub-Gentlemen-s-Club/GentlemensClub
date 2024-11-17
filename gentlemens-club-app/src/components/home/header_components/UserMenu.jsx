@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom"
 import { FaUser, FaCalendarAlt, FaWallet, FaDollarSign } from "react-icons/fa";
 import { Menu, MenuOpts, MenuOpt } from '../../../styled_components/home/header_style/UserMenuStyle';
 import { FaRegMessage } from "react-icons/fa6";
 import { TbLogout } from "react-icons/tb";
+import { LoginContext } from "../../../context/LoginContext";
 
 export default function UserMenu(open) {
+
+    const {isLoggedIn, setIsLoggedIn} = useContext(LoginContext);
+
+    
+
     return (
         <Menu open={open}>
             <MenuOpts>
