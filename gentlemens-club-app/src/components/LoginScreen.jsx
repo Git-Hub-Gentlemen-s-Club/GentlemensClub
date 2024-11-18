@@ -1,6 +1,6 @@
 /* eslint-disable no-useless-escape */
 /* eslint-disable react/no-unescaped-entities */
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -15,7 +15,9 @@ import {
     ImageSlide,
     StyledCarousel,
     Icon
-} from "../styled_components/login_screen/LoginScreenStyle";
+} from "../styles/login_screen/LoginScreenStyle";
+import { LoginContext } from '../context/LoginContext';
+
 const settings = {
     dots: true,
     infinite: true,
@@ -46,15 +48,26 @@ const LoginScreen = () => {
             [name]: value.length
         }));
     };
+
+    const {isLoggedIn, setIsLoggedIn} = useContext(LoginContext);
+
+    console.log("is logged in: ",isLoggedIn);
     
     const navigate = useNavigate();
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        localStorage.setItem('isLoggedIn', JSON.stringify(true));
+        setIsLoggedIn(true);
+        navigate("/")
+    }
 
     return (
         <>
             <Background>
                 <Container>
                     <LeftSide>
-                        <Forms>
+                        <Forms onSubmit={handleSubmit}>
                             <img src="\src\assets\footer_svg\miniLogo_icon.svg" className="mini_logo" alt="Mini Logo" />
                             <img src="\src\assets\loginScreen_images\Welcome_message.svg" alt="Mensagem de boas vindas" />
                             <h1>Login</h1>
@@ -84,7 +97,7 @@ const LoginScreen = () => {
                             </div>
                             <div>
                                 <a href="" onClick={() => {navigate("/ForgotPassword")}}>Esqueceu sua senha?</a>
-                                <button>Login</button>
+                                <button type='submit'>Login</button>
                             </div>
                         </Forms>
                         <OtherLinks>
@@ -107,7 +120,7 @@ const LoginScreen = () => {
                     <RightSide>
                                 <ImageLabel>
                                     <h1>"Tradição e elegância em cada corte."</h1>
-                                    <p>― Glentlemen’s Club</p>
+                                    <p>― Gentlemen’s Club</p>
                                 </ImageLabel>
                         <CarouselContainer>
                             <StyledCarousel {...settings}>

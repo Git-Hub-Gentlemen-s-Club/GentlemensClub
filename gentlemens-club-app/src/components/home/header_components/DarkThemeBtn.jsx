@@ -1,6 +1,6 @@
-import useTheme from '../../../context/Theme';
+import useTheme from '../../../context/ThemeContext';
 
-import { Container, Circle } from '../../../styled_components/home/header_style/DarkModeBtnStyle';
+import { Container, Circle } from '../../../styles/home/header_style/DarkModeBtnStyle';
 
 import { FaMoon, FaSun } from 'react-icons/fa';
 

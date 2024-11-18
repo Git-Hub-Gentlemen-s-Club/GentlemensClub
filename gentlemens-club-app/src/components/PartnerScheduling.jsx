@@ -8,7 +8,7 @@ import logo from '../assets/ClientScheduling/LogoTelaAgendamento.png';
 import {
     Container, LogoContainer, AppointmentContainer, AppointmentButtonContainer,
     TitleContainer, TableContainer, CustomInput, TimeGrid, AppointmentList
-} from '../styled_components/PartnerSchedulingStyle';
+} from '../styles/PartnerSchedulingStyle';
 
 const PartnerScheduling = () => {
     const [appointment, setAppointment] = useState({
