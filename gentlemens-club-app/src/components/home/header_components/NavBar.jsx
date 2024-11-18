@@ -1,27 +1,39 @@
-import React, { useEffect, useState, useContext } from "react";
-
-import { FaSearch, FaMapMarkerAlt, FaStopwatch, FaRegUserCircle } from "react-icons/fa";
-
-import { NavContainer, NavInputs, Nav } from "../../../styles/home/header_style/NavBarStyle";
-
-import NavListComponent from "./NavList";
+import React, { 
+    useEffect, 
+    useState, 
+    useContext 
+} from "react";
 
 import { useNavigate } from "react-router-dom";
 
-import WhenFilterModal from "../../WhenFilterModal";
-
+import { LoginContext } from "../../../context/LoginContext";
 import { ThemeProvider } from "../../../context/ThemeContext";
 
-import {LoginSignUp, Input, InputWrapper, LoginWrapper} from "../../../styles/home/header_style/HeaderStyle";
+import { 
+    FaSearch, 
+    FaMapMarkerAlt, 
+    FaStopwatch, 
+    FaRegUserCircle 
+} from "react-icons/fa";
 
+import NavListComponent from "./NavList";
+import WhenFilterModal from "../../WhenFilterModal";
 import DarkThemeBtn from "./DarkThemeBtn";
-
 import SelectLang from "./SelectLang";
-
 import UserMenuButton from "./UserMenuButton";
 
-import { LoginContext } from "../../../context/LoginContext";
+import { 
+    LoginSignUp, 
+    Input, 
+    InputWrapper, 
+    LoginWrapper 
+} from "../../../styles/home/header_style/HeaderStyle";
 
+import { 
+    NavContainer, 
+    NavInputs, 
+    Nav 
+} from "../../../styles/home/header_style/NavBarStyle";
 
 function NavBar() {
     const navigate = useNavigate();

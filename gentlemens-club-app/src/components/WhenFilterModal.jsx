@@ -1,11 +1,20 @@
-import { ModalBackground, WhenFilter, Button, CloseButton, ButtonsWrapper, PreferredTime, CalendarContainer, TimeButtonWrapper, TimeButton } from "../styles/when_filter/WhenFilterStyle";
-
-import { IoMdClose } from "react-icons/io";
+import React, { useState } from 'react';
 
 import Calendar from 'react-calendar';
 
-import { useState } from 'react';
+import { IoMdClose } from "react-icons/io";
 
+import { 
+    ModalBackground, 
+    WhenFilter, 
+    Button, 
+    CloseButton, 
+    ButtonsWrapper, 
+    PreferredTime, 
+    CalendarContainer, 
+    TimeButtonWrapper, 
+    TimeButton   
+} from "../styles/when_filter/WhenFilterStyle";
 import '../App.css';
 
 function WhenFilterModal({ isOpen, setOpenModal}) {

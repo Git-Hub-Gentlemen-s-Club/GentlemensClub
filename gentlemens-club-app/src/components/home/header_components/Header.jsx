@@ -1,14 +1,12 @@
 import React from "react";
-
-//Importa os componentes estilizados do header
-import { HeaderContainer, /* HeaderWrapper, */ ImageContainer } from "../../../styles/home/header_style/HeaderStyle";
-
-//Importa o componente de nav bar
-import NavBar from "./NavBar";
-
-import Logo from '../../../assets/Logo_Gentlemens_Club.png';
-
 import { useNavigate } from "react-router-dom";
+
+import Logo from '../../../assets/Logo_Gentlemens_Club.png';;
+
+import { 
+    HeaderContainer, 
+    ImageContainer 
+} from "../../../styles/home/header_style/HeaderStyle";
 
 function Header({children}) {
     const navigate = useNavigate();

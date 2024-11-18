@@ -1,4 +1,14 @@
 /* eslint-disable react/no-unknown-property */
+import React, { useState } from "react"
+
+import Popup from 'reactjs-popup'
+
+import { 
+    FaLock, 
+    FaEye, 
+    FaEyeSlash 
+} from 'react-icons/fa';
+
 import {
     Background,
     StyledInput,
@@ -6,12 +16,6 @@ import {
     StyledPopUp,
     CheckImage
 } from "../styles/NewPasswordStyle"
-import { useState } from "react"
-// import { useNavigate } from "react-router-dom";
-import { FaLock, FaEye, FaEyeSlash } from 'react-icons/fa';
-
-
-import Popup from 'reactjs-popup'
 
 const ForgotPassword = () => {
     const [passwords, setPasswords] = useState("")

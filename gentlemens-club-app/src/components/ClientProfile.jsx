@@ -1,4 +1,21 @@
 import React, { useState } from 'react';
+
+import { 
+  FaHome, 
+  FaCalendar, 
+  FaDollarSign, 
+  FaUser, 
+  FaWallet, 
+  FaCog, 
+  FaBars, 
+  FaTimes, 
+  FaLock, 
+  FaPhoneAlt, 
+  FaEnvelope, 
+  FaEye, 
+  FaEyeSlash
+} from 'react-icons/fa';
+
 import {
   ProfileContainer,
   Sidebar,
@@ -26,7 +43,6 @@ import {
   DeactivateSection,
   ActionButton
 } from '../styles/ClientProfileStyle';
-import { FaHome, FaCalendar, FaDollarSign, FaUser, FaWallet, FaCog, FaBars, FaTimes, FaLock, FaPhoneAlt, FaEnvelope, FaEye, FaEyeSlash} from 'react-icons/fa';
 
 const ClientProfile = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);

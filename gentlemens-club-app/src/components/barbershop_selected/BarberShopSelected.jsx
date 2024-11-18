@@ -1,5 +1,47 @@
-import React, { useState, useEffect } from 'react';
+import React, { 
+    useState, 
+    useEffect 
+} from 'react';
 
+import { ThemeProvider } from '../../context/ThemeContext';
+
+import { 
+    faHeart, 
+    faShareFromSquare 
+} from '@fortawesome/free-regular-svg-icons';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import { 
+    FaGift, 
+    FaPaperPlane, 
+    FaShieldVirus, 
+    FaWifi, 
+    FaStar,
+    FaCar, 
+    FaGamepad, 
+} from 'react-icons/fa';
+
+import { 
+    FaCircleCheck, 
+    FaRegFlag, 
+    FaRegCreditCard 
+} from "react-icons/fa6";
+
+import { 
+    IoIosInformationCircleOutline, 
+    IoIosSearch, 
+    IoIosPhonePortrait 
+} from "react-icons/io";
+
+import { IoBeer } from "react-icons/io5";
+
+import { 
+    BiLike, 
+    BiDislike 
+} from "react-icons/bi";
+
+import BarbeariaJH from '../../assets/barbeariaJH.jpg';
 import img1 from '../../assets/barbearia/img-1.png'
 import img2 from '../../assets/barbearia/img-2.png'
 import img3 from '../../assets/barbearia/img-3.png'
@@ -10,24 +52,64 @@ import equipe1 from '../../assets/barbearia/equipe1.png';
 import equipe2 from '../../assets/barbearia/equipe2.png';
 import equipe3 from '../../assets/barbearia/equipe3.png';
 
-import { faHeart, faShareFromSquare } from '@fortawesome/free-regular-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { FaGift, FaPaperPlane, FaShieldVirus, FaWifi, FaStar, FaCar, FaGamepad, } from 'react-icons/fa';
-import { FaCircleCheck, FaRegFlag, FaRegCreditCard } from "react-icons/fa6";
-import { IoIosInformationCircleOutline, IoIosSearch, IoIosPhonePortrait } from "react-icons/io";
-import { IoBeer } from "react-icons/io5";
-import { BiLike, BiDislike } from "react-icons/bi";
-
-import { BarberShop, LogoBarbershop, Body, Section, BarberShopImgDiv, LogoBarbershopPrincipal, Avaliation, BarberShopEnderecoDiv, NameDiv, DivIconsII, DestaqueDiv, BuscaDiv, ServicosDiv, Aside, AsideGiftCard, AsideIframe, MembrosEquipe, TeamMember, TeamImage, TeamName, ContatoAside, OpeningHoursContainer, Day, DayName, Hours, CardMap, Accordion, Panel, DivKeyPanel, DivButton, DivPanel, RegrasSaude, NossoTrabalho, ReviewContainer, ServiceTitle, Barber, Rating, Star, Comment, User, Date, Like, Report, Commodities, Reviews, RateDiv, Hrdiv, RateDivRate, ReviewsText, ReviewContainerRating, ReviewContainerUser, ReviewContainerLike } from "../../styles/barbershop_selected/BarberShopSelectedStyle";
+import HeaderBarberShopSelected from './HeaderBarberShopSelected';
+import Header from '../home/header_components/Header';
 import Pagination from '../home/body_components/Pagination';
 
-import BarbeariaJH from '../../assets/barbeariaJH.jpg';
-
-import Header from '../home/header_components/Header';
-
-import HeaderBarberShopSelected from './HeaderBarberShopSelected';
-
-import { ThemeProvider } from '../../context/ThemeContext';
+import { 
+    BarberShop, 
+    LogoBarbershop, 
+    Body, 
+    Section, 
+    BarberShopImgDiv,
+    LogoBarbershopPrincipal, 
+    Avaliation, 
+    BarberShopEnderecoDiv, 
+    NameDiv, 
+    DivIconsII, 
+    DestaqueDiv, 
+    BuscaDiv, 
+    ServicosDiv, 
+    Aside, 
+    AsideGiftCard, 
+    AsideIframe, 
+    MembrosEquipe, 
+    TeamMember, 
+    TeamImage, 
+    TeamName, 
+    ContatoAside, 
+    OpeningHoursContainer, 
+    Day, 
+    DayName, 
+    Hours, 
+    CardMap, 
+    Accordion, 
+    Panel, 
+    DivKeyPanel, 
+    DivButton, 
+    DivPanel, 
+    RegrasSaude, 
+    NossoTrabalho, 
+    ReviewContainer, 
+    ServiceTitle, 
+    Barber, 
+    Rating, 
+    Star, 
+    Comment, 
+    User, 
+    Date, 
+    Like, 
+    Report, 
+    Commodities, 
+    Reviews, 
+    RateDiv, 
+    Hrdiv, 
+    RateDivRate, 
+    ReviewsText, 
+    ReviewContainerRating, 
+    ReviewContainerUser, 
+    ReviewContainerLike 
+} from "../../styles/barbershop_selected/BarberShopSelectedStyle";
 
 const response = {
     name: "Barbearia JH",

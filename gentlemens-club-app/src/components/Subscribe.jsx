@@ -1,13 +1,44 @@
 // Subscribe.jsx
 import React, { useState, useCallback } from 'react';
+
 import Select from 'react-select';
+
 import Slider from 'react-slick';
+
+import { 
+  FaUserAlt, 
+  FaPhoneAlt, 
+  FaEnvelope, 
+  FaLock, 
+  FaEye, 
+  FaEyeSlash 
+} from 'react-icons/fa';
+
 import {
-  Background, Container, LeftSection, RightSection, LogoContainer, Title, Subtitle, InputContainer, Input, Label,
-  DateOfBirthContainer, GenderContainer, GenderOption, TermsText, Button, Icon, customSelectStyles, CarouselContainer,
-  QuoteContainer, QuoteText, QuoteAuthor, DotsContainer, Dot
+  Background, 
+  Container, 
+  LeftSection, 
+  RightSection, 
+  LogoContainer, 
+  Title, 
+  Subtitle, 
+  InputContainer, 
+  Input, 
+  Label,
+  DateOfBirthContainer, 
+  GenderContainer, 
+  GenderOption, 
+  TermsText, 
+  Button, 
+  Icon, 
+  customSelectStyles, 
+  CarouselContainer,
+  QuoteContainer, 
+  QuoteText, 
+  QuoteAuthor, 
+  DotsContainer, 
+  Dot
 } from '../styles/subscribe_screen/SubscribeStyles';
-import { FaUserAlt, FaPhoneAlt, FaEnvelope, FaLock, FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const days = Array.from({ length: 31 }, (_, i) => ({ value: i + 1, label: i + 1 }));
 const months = Array.from({ length: 12 }, (_, i) => ({ value: i + 1, label: i + 1 }));

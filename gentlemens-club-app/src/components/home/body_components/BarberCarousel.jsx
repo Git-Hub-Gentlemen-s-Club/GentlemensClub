@@ -1,9 +1,15 @@
 // src/components/BarberCarousel.jsx
 import React from 'react';
 import Slider from 'react-slick';
+
+import { 
+  FaChevronLeft, 
+  FaChevronRight 
+} from 'react-icons/fa'; // Importando os ícones
+
 import BarberCard from './BarberCarouselCard';
+
 import { CarouselContainer } from '../../../styles/home/body_style/CarouselStyle';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'; // Importando os ícones
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 

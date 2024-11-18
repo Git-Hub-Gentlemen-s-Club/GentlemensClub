@@ -1,4 +1,14 @@
 import React, { useState } from 'react';
+
+import { 
+  faHeart, 
+  faExclamationCircle 
+} from '@fortawesome/free-solid-svg-icons';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import barberPole from '../../../assets/img/barber_pole.png';
+
 import {
   CardContainer,
   CardContent,
@@ -30,9 +40,6 @@ import {
   ServiceContainer,
   ContainerReservationButton
 } from '../../../styles/home/body_style/BarberInfoCardStyle';
-import { faHeart, faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import barberPole from '../../../assets/img/barber_pole.png';
 
 const BarberInfoCard = () => {
   const [isFavorited, setIsFavorited] = useState(false);

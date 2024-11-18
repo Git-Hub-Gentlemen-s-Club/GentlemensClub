@@ -1,10 +1,19 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom"
-import { FaUser, FaCalendarAlt, FaWallet, FaDollarSign } from "react-icons/fa";
-import { Menu, MenuOpts, MenuOpt } from '../../../styles/home/header_style/UserMenuStyle';
+
+import { LoginContext } from "../../../context/LoginContext";
+
+import { 
+    FaUser, 
+    FaCalendarAlt, 
+    FaWallet, 
+    FaDollarSign 
+} from "react-icons/fa";
+
 import { FaRegMessage } from "react-icons/fa6";
 import { TbLogout } from "react-icons/tb";
-import { LoginContext } from "../../../context/LoginContext";
+
+import { Menu, MenuOpts, MenuOpt } from '../../../styles/home/header_style/UserMenuStyle';
 
 export default function UserMenu(open) {
 

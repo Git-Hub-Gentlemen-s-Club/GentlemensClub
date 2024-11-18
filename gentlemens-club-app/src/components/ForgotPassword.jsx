@@ -1,13 +1,15 @@
 /* eslint-disable react/no-unknown-property */
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+import { FaArrowLeft } from 'react-icons/fa';
+
 import {
     Background,
     StyledInput,
     OtherLinks,
     ArrowIcon
 } from "../styles/ForgotPasswordStyles"
-import { useState } from "react"
-import { useNavigate } from "react-router-dom";
-import { FaArrowLeft } from 'react-icons/fa';
 
 const ForgotPassword = () => {
     const [email, setEmail] = useState("")

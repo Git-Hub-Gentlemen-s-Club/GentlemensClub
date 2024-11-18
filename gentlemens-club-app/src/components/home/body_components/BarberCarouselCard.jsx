@@ -1,7 +1,16 @@
 import React, { useState } from 'react';
-import { StyledBarberCard, BarberAddress, BarberRating } from '../../../styles/home/body_style/CarouselStyle';
-import { FaExclamationCircle, FaHeart } from 'react-icons/fa'; // Importando o ícone de coração
 import { useNavigate } from 'react-router-dom';
+
+import { 
+  FaExclamationCircle, 
+  FaHeart 
+} from 'react-icons/fa'; // Importando o ícone de coração
+
+import { 
+  StyledBarberCard, 
+  BarberAddress, 
+  BarberRating 
+} from '../../../styles/home/body_style/CarouselStyle';
 
 const BarberCard = ({ image, name, address, rating, reviews }) => {
   const [favorited, setFavorited] = useState(false); // Estado para controlar se o card está favoritado

@@ -1,8 +1,18 @@
 /* eslint-disable no-useless-escape */
 /* eslint-disable react/no-unescaped-entities */
-import { useState, useContext } from 'react';
-import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import React, { 
+    useState, 
+    useContext 
+} from 'react';
 import { useNavigate } from 'react-router-dom';
+
+import { LoginContext } from '../context/LoginContext';
+
+import { 
+    FaEye, 
+    FaEyeSlash 
+} from 'react-icons/fa';
+
 import {
     Background,
     Container,
@@ -16,7 +26,6 @@ import {
     StyledCarousel,
     Icon
 } from "../styles/login_screen/LoginScreenStyle";
-import { LoginContext } from '../context/LoginContext';
 
 const settings = {
     dots: true,

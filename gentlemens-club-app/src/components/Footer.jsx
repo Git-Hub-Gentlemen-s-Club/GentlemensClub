@@ -1,5 +1,5 @@
-/* eslint-disable react/no-unescaped-entities */
-// Importando os componentes estilizados do path "../styles/footer"
+import React from "react"
+
 import {
     FooterDiv,
     LinksList,

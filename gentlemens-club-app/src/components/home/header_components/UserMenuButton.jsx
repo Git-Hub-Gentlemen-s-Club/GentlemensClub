@@ -2,11 +2,21 @@ import React, { useState } from "react";
 
 import UserMenu from "./UserMenu";
 
-import { MenuButton, MenuContainer } from "../../../styles/home/header_style/UserMenuStyle";
-
-import { FaChevronDown, FaChevronUp } from "react-icons/fa";
-
 import ProfilePic from '../../../assets/barbeariaJH.jpg';
+
+import { 
+    MenuButton, 
+    MenuContainer 
+} from "../../../styles/home/header_style/UserMenuStyle";
+
+import { 
+    FaChevronDown, 
+    FaChevronUp 
+} from "react-icons/fa";
+
+const userName = {
+    name: "Harry Potter",
+}
 
 export default function UserMenuButton() {
     const [menuOpen, setMenuOpen] = useState(false); 
@@ -18,7 +28,7 @@ export default function UserMenuButton() {
                 <img src={ProfilePic} alt="Foto de perfil do usuário" />
 
                 {/* Aqui vai o nome do usuário vindo do banco de dados */}
-                <p>Harry Potter</p>
+                <p>{userName.name}</p>
 
                 <span>
                     {menuOpen ? <FaChevronUp/> : <FaChevronDown />}

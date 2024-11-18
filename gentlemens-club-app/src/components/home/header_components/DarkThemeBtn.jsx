@@ -1,8 +1,16 @@
+import React from 'react';
+
 import useTheme from '../../../context/ThemeContext';
 
-import { Container, Circle } from '../../../styles/home/header_style/DarkModeBtnStyle';
+import {
+     FaMoon, 
+     FaSun 
+} from 'react-icons/fa';
 
-import { FaMoon, FaSun } from 'react-icons/fa';
+import { 
+    Container, 
+    Circle 
+} from '../../../styles/home/header_style/DarkModeBtnStyle';
 
 export default function DarkThemeBtn({toggled, handleClick}) {
     const {theme, darkTheme, lightTheme} = useTheme();

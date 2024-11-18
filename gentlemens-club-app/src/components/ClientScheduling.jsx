@@ -1,12 +1,47 @@
 import React, { useState } from 'react';
 import { useTable } from 'react-table';
-import { FaCalendarAlt, FaSearch, FaTrashAlt, FaTimes } from 'react-icons/fa';
-import { Container, LogoContainer, FilterContainer, FilterButtonContainer, TitleContainer, NavBarContainer, TitleSubtitleContainer, TableContainer, Table, Th, Td, SearchContainer, InputContainer, ButtonContainer, FooterContainer, StatusContainer, CheckboxContainer } from '../styles/ClientSchedulingStyle';
-import logo from '../assets/ClientScheduling/LogoTelaAgendamento.png';
-import { FaCut, FaUser, FaBuilding, FaBriefcase, FaFilter } from 'react-icons/fa';
+
 import DatePicker from 'react-datepicker';
-import { ptBR } from 'date-fns/locale';
 import { parse, isAfter, isBefore } from 'date-fns';
+import { ptBR } from 'date-fns/locale';
+
+import { 
+    FaCalendarAlt, 
+    FaSearch, 
+    FaTrashAlt, 
+    FaTimes 
+} from 'react-icons/fa';
+
+import { 
+    FaCut, 
+    FaUser, 
+    FaBuilding, 
+    FaBriefcase,
+    FaFilter 
+} from 'react-icons/fa';
+
+import logo from '../assets/ClientScheduling/LogoTelaAgendamento.png';
+
+import { 
+    Container, 
+    LogoContainer, 
+    FilterContainer, 
+    FilterButtonContainer, 
+    TitleContainer, 
+    NavBarContainer, 
+    TitleSubtitleContainer, 
+    TableContainer, 
+    Table, 
+    Th, 
+    Td, 
+    SearchContainer, 
+    InputContainer, 
+    ButtonContainer, 
+    FooterContainer, 
+    StatusContainer, 
+    CheckboxContainer 
+} from '../styles/ClientSchedulingStyle';
+
 import 'react-datepicker/dist/react-datepicker.css';
 
 const ClientScheduling = () => {

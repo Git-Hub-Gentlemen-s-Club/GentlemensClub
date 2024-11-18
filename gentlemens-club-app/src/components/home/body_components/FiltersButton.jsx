@@ -1,6 +1,25 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { FiltersButtonContainer, IconWrapper, AccordionContainer, AccordionContent, FilterOptions, FilterOption, ButtonContainer } from '../../../styles/home/body_style/FiltersButtonStyle';
-import { FaFilter, FaTag, FaMobileAlt, FaGlobe } from 'react-icons/fa';
+import React, { 
+  useState, 
+  useEffect, 
+  useRef 
+} from 'react';
+
+import { 
+  FaFilter, 
+  FaTag, 
+  FaMobileAlt, 
+  FaGlobe 
+} from 'react-icons/fa';
+
+import {
+   FiltersButtonContainer, 
+   IconWrapper, 
+   AccordionContainer, 
+   AccordionContent, 
+   FilterOptions, 
+   FilterOption, 
+   ButtonContainer 
+} from '../../../styles/home/body_style/FiltersButtonStyle';
 
 const FiltersButton = () => {
   const [isOpen, setIsOpen] = useState(false);

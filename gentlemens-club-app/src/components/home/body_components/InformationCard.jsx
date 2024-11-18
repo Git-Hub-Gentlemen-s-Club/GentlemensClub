@@ -1,7 +1,14 @@
 // src/components/InformationCard.jsx
 import React from "react";
-import { CardContainer, Heading, Paragraph, Image } from "../../../styles/home/body_style/InformationCardStyle";
+
 import desenho from "../../../assets/img/iconeInformationCard.png"; // Certifique-se de que o caminho está correto
+
+import { 
+    CardContainer, 
+    Heading, 
+    Paragraph, 
+    Image 
+} from "../../../styles/home/body_style/InformationCardStyle";
 
 const InformationCard = ({ city }) => {
     return (

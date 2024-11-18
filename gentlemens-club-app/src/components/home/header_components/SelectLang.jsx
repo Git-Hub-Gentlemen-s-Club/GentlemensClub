@@ -1,6 +1,9 @@
 import React from "react";
 
-import { Select, Options } from "../../../styles/home/header_style/HeaderStyle";
+import { 
+    Select, 
+    Options 
+} from "../../../styles/home/header_style/HeaderStyle";
 
 export default function SelectLang() {
     return (

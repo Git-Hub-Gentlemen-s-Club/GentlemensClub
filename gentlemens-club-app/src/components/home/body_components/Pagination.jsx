@@ -1,8 +1,16 @@
 // src/components/Pagination.jsx
 import React from "react";
-import { PaginationContainer, PageNumber, ArrowButton } from "../../../styles/home/body_style/PaginationStyle";
-import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { 
+    faArrowLeft, 
+    faArrowRight 
+} from "@fortawesome/free-solid-svg-icons";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import { PaginationContainer, 
+    PageNumber, 
+    ArrowButton 
+} from "../../../styles/home/body_style/PaginationStyle";
 
 const Pagination = ({ currentPage, totalPages, onPageChange }) => {
     const pages = [];

@@ -1,7 +1,25 @@
 // src/components/SortButton.jsx
-import React, { useState, useEffect, useRef } from 'react';
-import { SortButtonContainer, IconWrapper, AccordionContainer, AccordionContent, SortOptions, SortOption } from '../../../styles/home/body_style/SortButtonStyle';
-import { FaSort, FaThumbsUp, FaMapMarkerAlt, FaStar } from 'react-icons/fa';
+import React, { 
+  useState, 
+  useEffect, 
+  useRef 
+} from 'react';
+
+import {
+   FaSort, 
+   FaThumbsUp, 
+   FaMapMarkerAlt, 
+   FaStar 
+} from 'react-icons/fa';
+
+import { 
+  SortButtonContainer, 
+  IconWrapper, 
+  AccordionContainer, 
+  AccordionContent, 
+  SortOptions, 
+  SortOption 
+} from '../../../styles/home/body_style/SortButtonStyle';
 
 const SortButton = () => {
   const [isOpen, setIsOpen] = useState(false);

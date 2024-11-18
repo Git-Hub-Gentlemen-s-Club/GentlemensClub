@@ -1,14 +1,40 @@
-import React, { useState, useMemo} from 'react';
-import { FaCalendarAlt, FaCut, FaDollarSign } from 'react-icons/fa';
-import { LuUserSquare2 } from 'react-icons/lu';
-import { PiSunHorizonBold, PiCloudSunBold, PiMoonStarsBold } from 'react-icons/pi';
+import React, { 
+    useState, 
+    useMemo
+} from 'react';
+
 import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
+
+import { 
+    FaCalendarAlt, 
+    FaCut, 
+    FaDollarSign 
+} from 'react-icons/fa';
+
+import { 
+    LuUserSquare2 
+} from 'react-icons/lu';
+
+import { 
+    PiSunHorizonBold, 
+    PiCloudSunBold, 
+    PiMoonStarsBold 
+} from 'react-icons/pi';
+
 import logo from '../assets/ClientScheduling/LogoTelaAgendamento.png';
+
 import {
-    Container, LogoContainer, AppointmentContainer, AppointmentButtonContainer,
-    TitleContainer, TableContainer, CustomInput, TimeGrid, AppointmentList
+    Container, 
+    LogoContainer, 
+    AppointmentContainer, 
+    AppointmentButtonContainer,
+    TitleContainer, 
+    TableContainer, 
+    CustomInput, 
+    TimeGrid, 
+    AppointmentList
 } from '../styles/PartnerSchedulingStyle';
+import 'react-datepicker/dist/react-datepicker.css';
 
 const PartnerScheduling = () => {
     const [appointment, setAppointment] = useState({
