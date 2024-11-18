@@ -29,7 +29,7 @@ import {
   ServiceDetails,
   ServiceContainer,
   ContainerReservationButton
-} from '../../../styled_components/home/body_style/BarberInfoCardStyle';
+} from '../../../styles/home/body_style/BarberInfoCardStyle';
 import { faHeart, faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import barberPole from '../../../assets/img/barber_pole.png';

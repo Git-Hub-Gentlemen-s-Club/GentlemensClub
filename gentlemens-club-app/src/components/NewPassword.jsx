@@ -5,7 +5,7 @@ import {
     StyledIcon,
     StyledPopUp,
     CheckImage
-} from "../styled_components/NewPasswordStyle"
+} from "../styles/NewPasswordStyle"
 import { useState } from "react"
 // import { useNavigate } from "react-router-dom";
 import { FaLock, FaEye, FaEyeSlash } from 'react-icons/fa';

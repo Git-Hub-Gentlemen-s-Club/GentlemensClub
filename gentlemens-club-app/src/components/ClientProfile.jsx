@@ -25,7 +25,7 @@ import {
   PartnerSection,
   DeactivateSection,
   ActionButton
-} from '../styled_components/ClientProfileStyle';
+} from '../styles/ClientProfileStyle';
 import { FaHome, FaCalendar, FaDollarSign, FaUser, FaWallet, FaCog, FaBars, FaTimes, FaLock, FaPhoneAlt, FaEnvelope, FaEye, FaEyeSlash} from 'react-icons/fa';
 
 const ClientProfile = () => {

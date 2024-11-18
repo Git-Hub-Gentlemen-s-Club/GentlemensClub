@@ -1,5 +1,5 @@
-import { NavList} from "../../../styled_components/home/header_style/NavBarStyle";
-import { Link } from "../../../styled_components/home/header_style/HeaderStyle";
+import { NavList} from "../../../styles/home/header_style/NavBarStyle";
+import { Link } from "../../../styles/home/header_style/HeaderStyle";
 function NavListComponent() {
     return (
         <NavList>

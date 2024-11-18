@@ -1,6 +1,6 @@
-import React, { useState} from "react";
+import React, { useState, useContext } from "react";
 
-import { HeaderDiv,ImgDiv, LogoBarbershop, ImgEnderecoDiv, DivIcons, LogoAddressWrapper } from "../../styled_components/barbershop_selected/BarberShopSelectedStyle";
+import { HeaderDiv,ImgDiv, LogoBarbershop, ImgEnderecoDiv, DivIcons, LogoAddressWrapper, Button } from "../../styles/barbershop_selected/BarberShopSelectedStyle";
 
 import SelectLang from "../home/header_components/SelectLang";
 
@@ -9,12 +9,19 @@ import DarkThemeBtn from "../home/header_components/DarkThemeBtn";
 import { faHeart, faShareFromSquare } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import { FaRegUserCircle } from "react-icons/fa";
+
 import BarberShopLogo from "../../assets/barbeariaJH.jpg";
 import equipe1 from '../../assets/barbearia/equipe1.png';
 import equipe2 from '../../assets/barbearia/equipe2.png';
 import equipe3 from '../../assets/barbearia/equipe3.png';
 
 import NavListComponent from "../home/header_components/NavList";
+import { LoginContext } from "../../context/LoginContext";
+import UserMenuButton from "../home/header_components/UserMenuButton";
+import { LoginWrapper, LoginSignUp } from "../../styles/home/header_style/HeaderStyle";
+import { useNavigate } from "react-router-dom";
+
 
 const response = {
     name: "Barbearia JH",
@@ -141,6 +148,10 @@ export default function HeaderBarberShopSelected() {
         setToggled(!toggled);
     } 
 
+    const navigate = useNavigate();
+
+    const {isLoggedIn} = useContext(LoginContext);
+
     return (
             <HeaderDiv>
 
@@ -162,11 +173,24 @@ export default function HeaderBarberShopSelected() {
                 
 
                     <div>
-                        <button>Reservar agora</button>
+                        <Button>Reservar agora</Button>
                     </div>
                 
 
-                    <SelectLang />
+                    <>
+                        { !isLoggedIn && <LoginWrapper>
+                            <FaRegUserCircle style={{ color:"#dddddd", width: '30px', height: '30px' }} className="icons" />
+                                <LoginSignUp onClick={() => {navigate('/Login')}}>
+                                    Entrar
+                                </LoginSignUp>/
+                                <LoginSignUp onClick={() => {navigate('/Subscribe')}}>
+                                Inscrever-se
+                                </LoginSignUp>
+                        </LoginWrapper> }
+                    {isLoggedIn && <UserMenuButton />}
+                    </>
+
+                    {/* <SelectLang /> */}
         
                     <DarkThemeBtn toggled={toggled} handleClick={handleClick} />
 

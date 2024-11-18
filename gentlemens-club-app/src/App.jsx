@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import GlobalStyle from "./styled_components/GlobalStyle";
+import React, { useState, useContext } from "react";
+import GlobalStyle from "./styles/GlobalStyle";
 import Header from "./components/home/header_components/Header";
 import BarberCarousel from "./components/home/body_components/BarberCarousel";
 import LocationHeader from "./components/home/body_components/LocationHeader";
@@ -21,6 +21,8 @@ import { Route, Routes } from "react-router-dom"; // Removendo comentários desn
 import NavBar from "./components/home/header_components/NavBar";
 import ClientProfile from "./components/ClientProfile";
 import NewPassword from "./components/NewPassword"
+import { LoginProvider } from "./context/LoginContext";
+import { ThemeProvider } from "./context/ThemeContext";
 
 function App() {
     const city = "Itapecerica da Serra";
@@ -45,43 +47,44 @@ function App() {
     };
 
     return (
-        <>
-            <GlobalStyle />
-            <Routes>
-                <Route path="/BarbeariaSelecionada" element={<BarberShopSelected/>}/>
-                <Route path="/" element={<>
-                <Header> 
-                    <NavBar />
-                </Header>
-                <div className="container">
-                    <LocationHeader city={city} />
-                    <div className="carousel-wrapper">
-                    <div className="buttons-container">
-                        <FiltersButton />
-                        <SortButton />
+        <ThemeProvider>
+            <LoginProvider>
+                <GlobalStyle />
+                <Routes>
+                    <Route path="/BarbeariaSelecionada" element={<BarberShopSelected/>}/>
+                    <Route path="/" element={<>
+                    <Header> 
+                        <NavBar />
+                    </Header>
+                    <div className="container">
+                        <LocationHeader city={city} />
+                        <div className="carousel-wrapper">
+                        <div className="buttons-container">
+                            <FiltersButton />
+                            <SortButton />
+                        </div>
+                        <BarberCarousel />
                     </div>
-                    <BarberCarousel />
+                    <BarberInfoCard barberData={barberData} /> 
+                    <BarberInfoCard barberData={barberData} /> 
+                    <BarberInfoCard barberData={barberData} /> 
+                    <BarberInfoCard barberData={barberData} />
+                    <BarberInfoCard barberData={barberData} /> 
+                    <BarberInfoCard barberData={barberData} /> 
                 </div>
-                <BarberInfoCard barberData={barberData} /> 
-                <BarberInfoCard barberData={barberData} /> 
-                <BarberInfoCard barberData={barberData} /> 
-                <BarberInfoCard barberData={barberData} />
-                <BarberInfoCard barberData={barberData} /> 
-                <BarberInfoCard barberData={barberData} /> 
-            </div>
-            <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
-            <InformationCard city={city} />  
-            <Footer />
-                </>}/>
-                <Route path="/Subscribe" element={<Subscribe/>}/>
-                <Route path="/Login" element={<LoginScreen/>}/>
-                <Route path="/ForgotPassword" element={<ForgotPassword/>}/>
-                <Route path="/UserMenu" element={<UserMenu/>} />
-                <Route path="/ClientProfile" element={<ClientProfile />} />
-                <Route path="/ClientScheduling" element={<ClientScheduling />} />
-            </Routes>
-            {/* <PartnerScheduling/> */}
-        </>
+                <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
+                <InformationCard city={city} />  
+                <Footer />
+                    </>}/>
+                    <Route path="/Subscribe" element={<Subscribe/>}/>
+                    <Route path="/Login" element={<LoginScreen/>}/>
+                    <Route path="/ForgotPassword" element={<ForgotPassword/>}/>
+                    <Route path="/ClientProfile" element={<ClientProfile />} />
+                    <Route path="/ClientScheduling" element={<ClientScheduling />} />
+                </Routes>
+                {/* <PartnerScheduling/> */}
+            </LoginProvider>
+        </ThemeProvider>
     );
 }
 

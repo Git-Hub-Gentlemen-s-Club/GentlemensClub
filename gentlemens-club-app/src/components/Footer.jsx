@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-// Importando os componentes estilizados do path "../styled_components/footer"
+// Importando os componentes estilizados do path "../styles/footer"
 import {
     FooterDiv,
     LinksList,
@@ -14,7 +14,7 @@ import {
     DOWNcontainer,
     StyledSVGcontainer,
     MiniLogo
-} from "../styled_components/home/footer_style/Footer"
+} from "../styles/home/footer_style/Footer"
 
 // Função principal que será exportada para o App.jsx
 const Footer = () => {

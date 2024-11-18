@@ -1,4 +1,4 @@
-import { ModalBackground, WhenFilter, Button, CloseButton, ButtonsWrapper, PreferredTime, CalendarContainer, TimeButtonWrapper, TimeButton } from "../styled_components/when_filter/WhenFilterStyle";
+import { ModalBackground, WhenFilter, Button, CloseButton, ButtonsWrapper, PreferredTime, CalendarContainer, TimeButtonWrapper, TimeButton } from "../styles/when_filter/WhenFilterStyle";
 
 import { IoMdClose } from "react-icons/io";
 

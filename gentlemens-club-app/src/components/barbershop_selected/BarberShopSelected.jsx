@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-import Logo from "../../assets/Logo_Gentlemens_Club.png"
 import img1 from '../../assets/barbearia/img-1.png'
 import img2 from '../../assets/barbearia/img-2.png'
 import img3 from '../../assets/barbearia/img-3.png'
@@ -19,7 +18,7 @@ import { IoIosInformationCircleOutline, IoIosSearch, IoIosPhonePortrait } from "
 import { IoBeer } from "react-icons/io5";
 import { BiLike, BiDislike } from "react-icons/bi";
 
-import { BarberShop, LogoBarbershop, Body, Section, BarberShopImgDiv, LogoBarbershopPrincipal, Avaliation, BarberShopEnderecoDiv, NameDiv, DivIconsII, DestaqueDiv, BuscaDiv, ServicosDiv, Aside, AsideGiftCard, AsideIframe, MembrosEquipe, TeamMember, TeamImage, TeamName, ContatoAside, OpeningHoursContainer, Day, DayName, Hours, CardMap, Accordion, Panel, DivKeyPanel, DivButton, DivPanel, RegrasSaude, NossoTrabalho, ReviewContainer, ServiceTitle, Barber, Rating, Star, Comment, User, Date, Like, Report, Commodities, Reviews, RateDiv, Hrdiv, RateDivRate, ReviewsText, ReviewContainerRating, ReviewContainerUser, ReviewContainerLike } from "../../styled_components/barbershop_selected/BarberShopSelectedStyle";
+import { BarberShop, LogoBarbershop, Body, Section, BarberShopImgDiv, LogoBarbershopPrincipal, Avaliation, BarberShopEnderecoDiv, NameDiv, DivIconsII, DestaqueDiv, BuscaDiv, ServicosDiv, Aside, AsideGiftCard, AsideIframe, MembrosEquipe, TeamMember, TeamImage, TeamName, ContatoAside, OpeningHoursContainer, Day, DayName, Hours, CardMap, Accordion, Panel, DivKeyPanel, DivButton, DivPanel, RegrasSaude, NossoTrabalho, ReviewContainer, ServiceTitle, Barber, Rating, Star, Comment, User, Date, Like, Report, Commodities, Reviews, RateDiv, Hrdiv, RateDivRate, ReviewsText, ReviewContainerRating, ReviewContainerUser, ReviewContainerLike } from "../../styles/barbershop_selected/BarberShopSelectedStyle";
 import Pagination from '../home/body_components/Pagination';
 
 import BarbeariaJH from '../../assets/barbeariaJH.jpg';
@@ -28,7 +27,7 @@ import Header from '../home/header_components/Header';
 
 import HeaderBarberShopSelected from './HeaderBarberShopSelected';
 
-import { ThemeProvider } from '../../context/Theme';
+import { ThemeProvider } from '../../context/ThemeContext';
 
 const response = {
     name: "Barbearia JH",
