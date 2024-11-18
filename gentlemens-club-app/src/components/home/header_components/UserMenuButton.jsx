@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import UserMenu from "./UserMenu";
 
-import { MenuButton, MenuContainer } from "../../../styled_components/home/header_style/UserMenuStyle";
+import { MenuButton, MenuContainer } from "../../../styles/home/header_style/UserMenuStyle";
 
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 

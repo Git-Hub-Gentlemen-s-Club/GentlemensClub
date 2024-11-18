@@ -15,7 +15,7 @@ import {
     ImageSlide,
     StyledCarousel,
     Icon
-} from "../styled_components/login_screen/LoginScreenStyle";
+} from "../styles/login_screen/LoginScreenStyle";
 import { LoginContext } from '../context/LoginContext';
 
 const settings = {

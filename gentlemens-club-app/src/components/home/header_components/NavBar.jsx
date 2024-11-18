@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 
 import { FaSearch, FaMapMarkerAlt, FaStopwatch, FaRegUserCircle } from "react-icons/fa";
 
-import { NavContainer, NavInputs, Nav } from "../../../styled_components/home/header_style/NavBarStyle";
+import { NavContainer, NavInputs, Nav } from "../../../styles/home/header_style/NavBarStyle";
 
 import NavListComponent from "./NavList";
 
@@ -12,7 +12,7 @@ import WhenFilterModal from "../../WhenFilterModal";
 
 import { ThemeProvider } from "../../../context/ThemeContext";
 
-import {LoginSignUp, Input, InputWrapper, LoginWrapper} from "../../../styled_components/home/header_style/HeaderStyle";
+import {LoginSignUp, Input, InputWrapper, LoginWrapper} from "../../../styles/home/header_style/HeaderStyle";
 
 import DarkThemeBtn from "./DarkThemeBtn";
 
@@ -80,7 +80,7 @@ function NavBar() {
                             </LoginWrapper> }
                             {isLoggedIn && <UserMenuButton />}
                         </>
-                        <SelectLang />
+                        {/* <SelectLang /> */}
                         <DarkThemeBtn toggled={toggled} handleClick={handleClick} />
                     </NavInputs>
                     <NavListComponent />

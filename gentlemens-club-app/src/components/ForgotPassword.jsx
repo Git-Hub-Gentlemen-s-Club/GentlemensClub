@@ -4,7 +4,7 @@ import {
     StyledInput,
     OtherLinks,
     ArrowIcon
-} from "../styled_components/ForgotPasswordStyles"
+} from "../styles/ForgotPasswordStyles"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
 import { FaArrowLeft } from 'react-icons/fa';
