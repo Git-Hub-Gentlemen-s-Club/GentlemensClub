@@ -22,7 +22,6 @@ import UserMenuButton from "./UserMenuButton";
 
 import { LoginContext } from "../../../context/LoginContext";
 
-const gray = "#dddddd";
 
 function NavBar() {
     const navigate = useNavigate();
@@ -58,20 +57,20 @@ function NavBar() {
                 <NavContainer>
                     <NavInputs>
                         <InputWrapper>
-                            <FaSearch style={{ color: gray }} className="icons" />
+                            <FaSearch style={{ color: "#dddddd"}} className="icons" />
                             <Input type="text" placeholder="Pesquise serviços e barbearias"/>
                         </InputWrapper>
                         <InputWrapper>
-                            <FaMapMarkerAlt style={{ color: gray }} className="icons" />
+                            <FaMapMarkerAlt style={{ color: "#dddddd" }} className="icons" />
                             <Input type="text" placeholder="Itapecerica da Serra" />
                         </InputWrapper>
                         <InputWrapper>
-                            <FaStopwatch style={{ color: gray }} className="icons" />
+                            <FaStopwatch style={{ color: "#dddddd" }} className="icons" />
                             <Input type="text" placeholder="Quando?" onClick={() => {setOpenWhenFilter(true)}}/>
                         </InputWrapper>
                         <>
                             { !isLoggedIn && <LoginWrapper>
-                                <FaRegUserCircle style={{ color: gray, width: '30px', height: '30px' }} className="icons" />
+                                <FaRegUserCircle style={{ color:"#dddddd", width: '30px', height: '30px' }} className="icons" />
                                     <LoginSignUp onClick={() => {navigate('/Login')}}>
                                         Entrar
                                     </LoginSignUp>/

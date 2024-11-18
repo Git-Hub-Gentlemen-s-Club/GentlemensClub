@@ -44,18 +44,21 @@ export const ImgDiv = styled.div`
     grid-template-columns: 2fr 0.5fr 0.5fr 0.5fr 0.5fr;
     gap: 1rem;
 
-    button{
-        background-color: #B58934;
-        width: 100%;
-        height: 2.5rem;
-        border: none;
-        border-radius: 5px;
-        padding: 0;
-        font-weight: 600;
-        /* margin-left: 5%; */
-        cursor: pointer;
-    }
+    
     `;
+
+export const Button = styled.button`
+    background-color: #B58934;
+    width: 100%;
+    height: 2.5rem;
+    border: none;
+    border-radius: 5px;
+    padding: 0;
+    font-weight: 600;
+    /* margin-left: 5%; */
+    cursor: pointer;
+`
+    
 
 export const LogoAddressWrapper = styled.div`
     display: flex;

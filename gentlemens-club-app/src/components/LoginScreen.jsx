@@ -57,8 +57,8 @@ const LoginScreen = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        localStorage.setItem('isLoggedIn', JSON.stringify(true));
         setIsLoggedIn(true);
-        console.log("is logged in: ",isLoggedIn);
         navigate("/")
     }
 
@@ -120,7 +120,7 @@ const LoginScreen = () => {
                     <RightSide>
                                 <ImageLabel>
                                     <h1>"Tradição e elegância em cada corte."</h1>
-                                    <p>― Glentlemen’s Club</p>
+                                    <p>― Gentlemen’s Club</p>
                                 </ImageLabel>
                         <CarouselContainer>
                             <StyledCarousel {...settings}>

@@ -5,8 +5,11 @@ export const Menu = styled.div`
     height: 11rem;
     background-color: white;
     border-radius: 10px;
-    display: {({open}) => open : 'block' ? 'none' };
     position: absolute;
+    top: 100%;
+    z-index: 10;
+    width: 100%;
+    display: {({open}) => open : 'block' ? 'none' };
 `;
 
 export const MenuOpts = styled.menu`
@@ -53,6 +56,7 @@ export const MenuButton = styled.button`
 
 export const MenuContainer = styled.div`
     position: relative;
-    padding: 10px;
     width: 100%;
+    display: flex;
+    justify-content: center;
 `;

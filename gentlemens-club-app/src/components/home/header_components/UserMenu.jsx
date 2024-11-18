@@ -8,43 +8,42 @@ import { LoginContext } from "../../../context/LoginContext";
 
 export default function UserMenu(open) {
 
-    const {isLoggedIn, setIsLoggedIn} = useContext(LoginContext);
-
-    
+    const {resetIsLoggedIn} = useContext(LoginContext);
 
     return (
-        <Menu open={open}>
-            <MenuOpts>
-                <MenuOpt>
-                    <FaUser />
-                    <Link to="/ClientProfile">Perfil</Link> {/* Link para ClientProfile */}
-                </MenuOpt>
-
-                <MenuOpt>
-                    <FaCalendarAlt />
-                    <Link to="/ClientScheduling">Agendamento</Link> {/* Link para ClientScheduling */}
-                </MenuOpt>
-
-                <MenuOpt>
-                    <FaWallet />
-                    Carteira
-                </MenuOpt>
-                
-                <MenuOpt>
-                    <FaDollarSign />
-                    Planos e preço
-                </MenuOpt>
-                
-                <MenuOpt>
-                    <FaRegMessage />
-                    Fale conosco
-                </MenuOpt>
-                
-                <MenuOpt>
-                    <TbLogout />
-                    Sair
-                </MenuOpt>
-            </MenuOpts>
-        </Menu>
+            <Menu open={open}>
+                <MenuOpts>
+                    <MenuOpt>
+                        <FaUser />
+                        <Link to="/ClientProfile">Perfil</Link> {/* Link para ClientProfile */}
+                    </MenuOpt>
+                    <MenuOpt>
+                        <FaCalendarAlt />
+                        <Link to="/ClientScheduling">Agendamento</Link> {/* Link para ClientScheduling */}
+                    </MenuOpt>
+                    <MenuOpt>
+                        <FaWallet />
+                        Carteira
+                    </MenuOpt>
+            
+                    <MenuOpt>
+                        <FaDollarSign />
+                        Planos e preço
+                    </MenuOpt>
+            
+                    <MenuOpt>
+                        <FaRegMessage />
+                        Fale conosco
+                    </MenuOpt>
+            
+                    <MenuOpt onClick={() => {
+                        resetIsLoggedIn();
+                        location.reload();
+                        }}>
+                        <TbLogout />
+                        Sair
+                    </MenuOpt>
+                </MenuOpts>
+            </Menu>
     );
 }
