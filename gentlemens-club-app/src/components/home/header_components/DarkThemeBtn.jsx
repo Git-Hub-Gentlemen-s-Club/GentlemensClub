@@ -33,8 +33,8 @@ export default function DarkThemeBtn({toggled, handleClick}) {
                 <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap:'10px'}}>
                     <FaMoon style={{color: '#404040'}}/>
                     <FaSun style={{color: 'yellow'}}/>  
+                    <Circle toggled={toggled}/>
                 </div>
-                <Circle toggled={toggled}/>
             </Container>
         </div>
     )

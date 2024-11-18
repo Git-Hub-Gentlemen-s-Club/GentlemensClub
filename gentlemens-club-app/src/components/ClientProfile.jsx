@@ -67,6 +67,7 @@ const ClientProfile = () => {
 
   return (
     <ProfileContainer>
+      
       {!isSidebarOpen && (
         <HamburgerButton onClick={toggleSidebar}>
           <FaBars />

@@ -13,12 +13,20 @@ export const NavList = styled.ul`
     padding: 0;
     flex-flow: row nowrap;
     font-family: Rye;
+
+    @media screen and (max-width: 1024px) {
+        flex-direction: column;
+    }
 `; 
 
 export const NavInputs = styled.div`
     display: grid;
     grid-template-columns: 3fr 3fr 3fr 2fr 1.5fr 0.5fr;
     grid-gap: 1em;
+
+    @media screen and (max-width: 1024px) {
+        grid-template-columns: 1fr;
+    }
 `;
 
 export const Nav = styled.nav`

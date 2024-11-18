@@ -8,6 +8,11 @@ export const HeaderContainer = styled.header`
     background-color: #161718;
     color: #B58934;
     font-family: Rye, sans-serif;
+
+    @media screen and (max-width: 1024px) {
+        grid-template-columns: 1fr;
+        overflow-y: scroll;
+    }
 `;
 
 export const ImageContainer = styled.div`

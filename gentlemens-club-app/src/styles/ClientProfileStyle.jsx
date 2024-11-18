@@ -15,7 +15,7 @@ export const HamburgerButton = styled.button`
   font-size: 24px;
   z-index: 1001;
   
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     display: block;
   }
 `;
@@ -29,7 +29,7 @@ export const CloseButton = styled.button`
   color: white;
   font-size: 24px;
   
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     display: block;
   }
 `;
@@ -49,8 +49,9 @@ export const Sidebar = styled.div`
   padding: 20px;
   color: white;
   border-right: 2px solid white; /* Borda branca no lado direito */
+  display: none;
   
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     position: fixed;
     top: 0;
     left: 0;
@@ -59,6 +60,7 @@ export const Sidebar = styled.div`
     transform: translateX(-100%);
     transition: transform 0.3s ease-in-out;
     z-index: 1000;
+    display: block;
     
     &.open {
       transform: translateX(0);
@@ -162,7 +164,7 @@ export const ContentArea = styled.section`
   padding-left: 20%;
   padding-right: 20%;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     padding-left: 5%;
     padding-right: 5%;
   }
