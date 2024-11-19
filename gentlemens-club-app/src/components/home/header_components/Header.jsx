@@ -16,6 +16,10 @@ import {
     HeaderContainer, 
     ImageContainer 
 } from "../../../styles/home/header_style/HeaderStyle";
+import { 
+    HeaderSideBarContainer,
+    ImageSideBarContainer 
+} from "../../../styles/home/header_style/HeaderSideBarStyle";
 
 function Header({children}) {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -44,25 +48,25 @@ function Header({children}) {
                                 <FaTimes />
                             </CloseButton>
                             
-                            <HeaderContainer>
-                                <ImageContainer onClick={() => navigate('/')}>
+                            <HeaderSideBarContainer>
+                                <ImageSideBarContainer onClick={() => navigate('/')}>
                                     <img src={Logo} alt="Logo Gentlemen's Club" />
                                     Gentlemen's Club
-                                </ImageContainer>
+                                </ImageSideBarContainer>
                                 {children}
-                            </HeaderContainer>
+                            </HeaderSideBarContainer>
                         </>
                         )}                        
                 </SidebarContent>
             </Sidebar>
 
-            <HeaderContainer>
-                <ImageContainer onClick={() => navigate('/')}>
-                    <img src={Logo} alt="Logo Gentlemen's Club" />
-                    Gentlemen's Club
-                </ImageContainer>
-                {children}
-            </HeaderContainer>
+                <HeaderContainer>
+                    <ImageContainer onClick={() => navigate('/')}>
+                        <img src={Logo} alt="Logo Gentlemen's Club" />
+                        Gentlemen's Club
+                    </ImageContainer>
+                    {children}
+                </HeaderContainer>            
         </>
 
     );

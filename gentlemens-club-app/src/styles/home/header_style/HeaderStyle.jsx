@@ -5,13 +5,12 @@ export const HeaderContainer = styled.header`
     padding: 1rem;
     display: grid;
     grid-template-columns: 1fr 8fr;
-    background-color: #161718;
+    background-color: #232225;
     color: #B58934;
     font-family: Rye, sans-serif;
 
     @media screen and (max-width: 1024px) {
-        grid-template-columns: 1fr;
-        overflow-y: scroll;
+        display: none;
     }
 `;
 

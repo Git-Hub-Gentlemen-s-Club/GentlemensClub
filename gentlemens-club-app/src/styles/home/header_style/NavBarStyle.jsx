@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const NavContainer = styled.div`
-    background-color: #161718;
+    background-color: #232225;
     max-width: 100%;
 `; 
 
@@ -25,7 +25,8 @@ export const NavInputs = styled.div`
     grid-gap: 1em;
 
     @media screen and (max-width: 1024px) {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
     }
 `;
 
@@ -33,4 +34,6 @@ export const Nav = styled.nav`
     display: flex;
     flex-direction: column;
     color: #ffffff;
+
+    
 `;

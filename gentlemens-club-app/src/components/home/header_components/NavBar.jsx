@@ -34,6 +34,7 @@ import {
     NavInputs, 
     Nav 
 } from "../../../styles/home/header_style/NavBarStyle";
+import NavListButton from "./NavListButton";
 
 function NavBar() {
     const navigate = useNavigate();
@@ -95,7 +96,7 @@ function NavBar() {
                         {/* <SelectLang /> */}
                         <DarkThemeBtn toggled={toggled} handleClick={handleClick} />
                     </NavInputs>
-                    <NavListComponent />
+                    <NavListComponent /> 
                     <WhenFilterModal isOpen={openWhenFilter} setOpenModal={() => setOpenWhenFilter(!openWhenFilter)} />
                 </NavContainer>
                 </Nav>

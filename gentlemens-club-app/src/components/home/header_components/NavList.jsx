@@ -3,9 +3,9 @@ import React from "react";
 import { NavList} from "../../../styles/home/header_style/NavBarStyle";
 import { Link } from "../../../styles/home/header_style/HeaderStyle";
 
-function NavListComponent() {
+function NavListComponent({ open }) {
     return (
-        <NavList>
+        <NavList open={open}>
             <li>
                 <Link href="">Corte de cabelo</Link>
             </li>
